@@ -1362,10 +1362,21 @@
 	}
 
 	.cook-card h3 {
-		margin: 0 0 6px;
-		font-size: 1rem;
+		margin: 0 0 5px;
+		font-size: 1.24rem;
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.03em;
+		line-height: 1.25;
+	}
+
+	.cook-kind {
+		display: block;
+		margin-bottom: 16px;
+		font-family: var(--mono);
+		font-weight: 400;
+		letter-spacing: -0.03rem;
+		font-size: var(--min-ui);
+		color: var(--muted);
 	}
 
 	.cook-card p {
@@ -3210,7 +3221,7 @@
 
       <p class="rail-foot">
         <span class="ticker"><span class="ticker-track"><span>Remote · Bangkok · Düsseldorf</span><span>I want to relocate to Bangkok.</span><span class="bkk-tick" hidden>BKK <span class="bkk-wx"></span></span></span></span>
-        <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">127KB</span></span>
+        <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">128KB</span></span>
       </p>
     </div>
   </aside>
@@ -3325,7 +3336,7 @@
           <div class="cook-grid">
 
             <article class="cook-card">
-              <a class="cook-shotlink" href="https://github.com/konradbuilds/konrads-editable-html" target="_blank" rel="noopener" title="Konrad’s Editable HTML on GitHub (opens in a new tab)"><svg class="cook-shot" viewBox="0 0 400 250" role="img" aria-label="Konrad’s Editable HTML — a custom HTML block with one text line marked editable">
+              <a class="cook-shotlink" href="https://wordpress.org/plugins/konrads-editable-html/" target="_blank" rel="noopener" title="Konrad’s Editable HTML on WordPress.org (opens in a new tab)"><svg class="cook-shot" viewBox="0 0 400 250" role="img" aria-label="Konrad’s Editable HTML — a custom HTML block with one text line marked editable">
                 <rect width="400" height="250" rx="4" fill="#EAF4F1"/>
                 <rect x="24" y="44" width="352" height="176" rx="8" fill="#fff"/>
                 <rect x="44" y="70" width="140" height="10" rx="5" fill="#CBDFE0"/>
@@ -3340,9 +3351,11 @@
                 </g>
               </svg></a>
               <h3>Konrad&rsquo;s Editable HTML</h3>
-              <p>A WordPress plugin. Your client edits the text, your layout stays exactly as built. Paste the HTML, click once, done &mdash; no React, no build step.</p>
+              <span class="cook-kind">Free WordPress plugin</span>
+              <p>Your client edits the text, your layout stays exactly as built. Paste the HTML, click once, done &mdash; no React, no build step.</p>
               <ul class="tags favs"><li>Free</li><li>Open source</li><li>WordPress</li><li>Plugin</li></ul>
               <ul class="links">
+                <li><a href="https://wordpress.org/plugins/konrads-editable-html/" target="_blank" rel="noopener" title="Konrad&rsquo;s Editable HTML on WordPress.org (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-f" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM3.01 12c0-1.3.28-2.54.78-3.66l4.29 11.75C5.07 18.72 3.01 15.6 3.01 12zM12 20.99c-.88 0-1.73-.13-2.54-.37l2.7-7.84 2.76 7.57.06.12c-.94.33-1.94.52-2.98.52zm1.24-11.74c.54-.03 1.03-.09 1.03-.09.48-.6.43-.76-.06-.73 0 0-1.46.11-2.4.11-.88 0-2.37-.12-2.37-.12-.48-.02-.54.71-.05.74 0 0 .46.06.94.09l1.4 3.85-1.97 5.9-3.27-9.75c.54-.03 1.03-.09 1.03-.09.48-.6.43-.76-.06-.73 0 0-1.46.11-2.4.11-.17 0-.37 0-.58-.01C6.1 4.62 8.87 3.01 12 3.01c2.33 0 4.45.89 6.04 2.35-.04 0-.08-.01-.12-.01-.88 0-1.51.77-1.51 1.6 0 .74.43 1.37.88 2.11.34.6.74 1.37.74 2.48 0 .77-.3 1.66-.69 2.91l-.9 3.01-3.2-9.21zm3.71 10.1 2.75-7.95c.51-1.28.69-2.31.69-3.22 0-.33-.02-.64-.06-.92.7 1.28 1.1 2.75 1.1 4.31 0 3.32-1.79 6.22-4.48 7.78z"/></svg>WordPress.org</a></li>
                 <li><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/konradbuilds/konrads-editable-html/main/blueprint.json" target="_blank" rel="noopener" title="Live demo in WordPress Playground &mdash; nothing to install (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-f" d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/></svg>Live demo</a></li>
                 <li><a href="https://github.com/konradbuilds/konrads-editable-html" target="_blank" rel="noopener" title="Konrad’s Editable HTML source on GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-f" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a></li>
               </ul>
@@ -3364,6 +3377,7 @@
                 <text x="30" y="218" fill="#9A9A9E" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15">What your AI feature costs per month.</text>
               </svg></a>
               <h3>AI Cost Estimator</h3>
+              <span class="cook-kind">Free online tool</span>
               <p>Know what an AI feature costs per month before you build it. 12 models compared, the abuse case included, and what to do about it. No signup, nothing stored.</p>
               <ul class="tags favs"><li>Free</li><li>Open source</li><li>AI</li></ul>
               <ul class="links">
@@ -3736,7 +3750,7 @@
       <span class="where-line">Remote · Bangkok · Düsseldorf<br>
       I want to relocate to Bangkok.</span>
       <span class="bkk-fixed" hidden>BKK <span class="bkk-wx"></span></span>
-      <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">127KB</span></span>
+      <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">128KB</span></span>
     </p>
   </footer>
 
