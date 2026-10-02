@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 Konrad Sroka 2026
-version: 3.1.1
+version: 3.2.2
 -->
 <html lang="en">
 <head>
@@ -1170,14 +1170,8 @@ version: 3.1.1
 		}
 	}
 
-	@media (min-width:860px) {
-		.sec-lead {
-			margin-bottom: calc(clamp(28px,4vh,44px) + 40px) !important;
-		}
-	}
-
 	.sec-lead {
-		margin: 0 0 clamp(28px,4vh,44px);
+		margin: 0 0 50px;
 		font-size: 1.05rem;
 		color: var(--muted);
 		line-height: 1.7;
@@ -1414,6 +1408,34 @@ version: 3.1.1
 
 	.cook-card .links a {
 		border-color: var(--line);
+	}
+
+	/* the wide row: small picture on the left, everything else beside it */
+	.cook-wide {
+		margin-top: 20px;
+    margin-bottom: 50px;
+	}
+
+	.cook-row {
+		display: block;
+	}
+
+
+	@media (min-width:700px) {
+    .cook-row {
+      display: grid;
+      grid-template-columns: 226px minmax(0,1fr);
+      gap: clamp(20px,2.6vw,30px);
+      align-items: start;
+    }
+
+		.cook-row .cook-shotlink {
+			margin-bottom: 0;
+		}
+	}
+
+	.cook-row .links {
+		margin-top: 14px;
 	}
 
 	.hire-box {
@@ -3207,12 +3229,12 @@ version: 3.1.1
         <div class="rail-menu-in">
         <nav class="rail-nav" aria-label="Sections">
           <a class="rail-link" href="#about">
-            <span class="rl-title">About</span>
-            <span class="rl-sub">History &amp; CV</span>
+            <span class="rl-title">Open Source</span>
+            <span class="rl-sub">About &middot; History &amp; CV</span>
           </a>
           <a class="rail-link" href="#projects">
-            <span class="rl-title">Projects</span>
-            <span class="rl-sub">Client stories &amp; outcomes</span>
+            <span class="rl-title">Client Projects</span>
+            <span class="rl-sub">Stories &amp; outcomes</span>
           </a>
           <a class="rail-link" href="#what-i-do">
             <span class="rl-title">What I actually do</span>
@@ -3232,7 +3254,7 @@ version: 3.1.1
 
       <p class="rail-foot">
         <span class="ticker"><span class="ticker-track"><span>Remote · Bangkok · Düsseldorf</span><span>I want to relocate to Bangkok.</span><span class="bkk-tick" hidden>BKK <span class="bkk-wx"></span></span></span></span>
-        <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">129KB</span></span>
+        <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">133KB</span></span>
       </p>
     </div>
   </aside>
@@ -3343,7 +3365,7 @@ version: 3.1.1
         <p class="sec-lead">It started with a free theme that took off &mdash; and a lot of support questions on the WordPress.org forums.</p>
         <div class="cook">
           <span class="block-title cook-title"><svg class="cook-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c4 4 6 7.2 6 9.7a6 6 0 0 1-12 0c0-1.6.6-3.2 1.8-4.8 0 1.4.4 2.4 1.2 3 .3-3 1.3-5.3 3-6.9Zm0 12.8c-.6-.7-1-1.5-1-2.4-1 .9-1.5 1.9-1.5 3a2.5 2.5 0 0 0 5 0c0-1.5-.8-2.8-2.5-3.9v3.3Z"/></svg>JUST COOKING</span>
-          <p class="cook-desc">Two new free tools:</p>
+          <p class="cook-desc">Three new free tools:</p>
           <div class="cook-grid">
 
             <article class="cook-card">
@@ -3401,8 +3423,41 @@ version: 3.1.1
                 <li><a href="https://github.com/konradbuilds/ai-cost-estimator" target="_blank" rel="noopener" title="AI Cost Estimator source on GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-f" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a></li>
               </ul>
             </article>
-
           </div>
+
+          <div class="cook-wide">
+            <article class="cook-card cook-row">
+              <a class="cook-shotlink" href="https://konradbuilds.github.io/how-fucked-is-your-scrolling/" target="_blank" rel="noopener" title="Open it (new tab)">
+                <svg class="cook-shot" viewBox="0 0 400 250" role="img" aria-label="How fucked is your scrolling &mdash; a digital wellbeing tool">
+                  <defs>
+                    <linearGradient id="hfiys-g" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#6EC8F5"/>
+                      <stop offset=".45" stop-color="#8E7BF0"/>
+                      <stop offset="1" stop-color="#F2529B"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="400" height="250" rx="4" fill="#121016"/>
+                  <rect x="26" y="26" width="58" height="58" rx="14" fill="#1C1A22"/>
+                  <rect x="42" y="36" width="26" height="38" rx="6" fill="none" stroke="url(#hfiys-g)" stroke-width="2.4"/>
+                  <path d="M55 48c4 0 6 3 6 6s-3 5-5.5 4-3-4-1-5.5 5-1 6 1.5 0 6-3 7-6-.5-7-3" fill="none" stroke="url(#hfiys-g)" stroke-width="2.2" stroke-linecap="round"/>
+                  <path d="M51 68c2.5 2 5.5 2 8 0" fill="none" stroke="url(#hfiys-g)" stroke-width="2" stroke-linecap="round"/>
+                  <text x="26" y="116" fill="#8E8A96" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">BRUTALLY HONEST FEEDBACK</text>
+                  <text x="24" y="166" fill="#F7F6F9" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="42" font-weight="800" letter-spacing="-2">HOW FUCKED IS</text>
+                  <text x="24" y="210" fill="url(#hfiys-g)" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="42" font-weight="800" letter-spacing="-2">YOUR SCROLLING?</text>
+                </svg>
+              </a>
+              <div>
+                <h3>HFIYS</h3>
+                <span class="cook-kind">Digital wellbeing</span>
+                <p><b>Free, fast and rude.</b> Share it with the friends who are worse.</p>
+                <ul class="links">
+                  <li><a href="https://konradbuilds.github.io/how-fucked-is-your-scrolling/" target="_blank" rel="noopener" title="Open it (new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-f" d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/></svg>Try it here</a></li>
+                  <li><a href="https://github.com/konradbuilds/how-fucked-is-your-scrolling" target="_blank" rel="noopener" title="Source on GitHub (new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-f" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
         </div>
 
         <div class="cols">
@@ -3455,6 +3510,7 @@ version: 3.1.1
               </div>
             </span>
           </div>
+
         </div>
 
         <div class="hire-box">
@@ -3766,7 +3822,7 @@ version: 3.1.1
       <span class="where-line">Remote · Bangkok · Düsseldorf<br>
       I want to relocate to Bangkok.</span>
       <span class="bkk-fixed" hidden>BKK <span class="bkk-wx"></span></span>
-      <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">129KB</span></span>
+      <span class="built">Built as one HTML file <span class="kb-sonar"><svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z"/></svg></span> <span class="kb">133KB</span></span>
     </p>
   </footer>
 
