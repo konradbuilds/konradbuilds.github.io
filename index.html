@@ -5569,7 +5569,7 @@
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">234 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">235 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -6770,7 +6770,7 @@
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">234 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">235 KB</span></span>
 				</p>
 			</footer>
 
@@ -7226,6 +7226,11 @@
 						return scroll.width < 1000 && aboutTop - scroll.y <= 50;
 					}, function ( on ) {
 						if ( on === topbarOn ) return;
+						if ( on && topbarOn === false && navigator.vibrate &&
+							navigator.userActivation && navigator.userActivation.hasBeenActive &&
+							!matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) {
+							navigator.vibrate( 10 );
+						}
 						topbarOn = on;
 						topbar.classList.toggle( 'is-on', on );
 						topbar.inert = !on;
@@ -7667,6 +7672,33 @@
 					if ( 'ResizeObserver' in window ) {
 						new ResizeObserver( motion.invalidate ).observe( nav );
 					}
+				} )();
+
+				/* Sidebar snap feedback. */
+				( function () {
+					var avatar = rail && rail.querySelector( '.avatar' );
+					if ( !avatar || !avatar.animate ) return;
+					var reducedMotion = matchMedia( '(prefers-reduced-motion: reduce)' );
+					var railTop = 0;
+					var pinned = null;
+					var lastY = scrollY;
+					var bounce;
+					motion.measure( function () {
+						railTop = document.querySelector( '.shell' ).getBoundingClientRect().top + scrollY;
+					} );
+					motion.add( null, function ( scroll ) {
+						var next = scroll.width >= 1000 && scroll.y >= railTop;
+						if ( next && pinned === false && scroll.y > lastY && !reducedMotion.matches ) {
+							if ( bounce ) bounce.cancel();
+							bounce = avatar.animate( [
+								{ transform: 'scale(1)' },
+								{ transform: 'scale(1.05)' },
+								{ transform: 'scale(1)' }
+							], { duration: 200, easing: 'ease-in-out' } );
+						}
+						pinned = next;
+						lastY = scroll.y;
+					} );
 				} )();
 
 				/* Back-to-top control. */
