@@ -5534,7 +5534,7 @@
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">231.81 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">233.18 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -6676,7 +6676,7 @@
 						</p>
 						<h2 id="sustainability-title">Digital sustainability</h2>
 						<p class="carbon-note">Less data. Less energy.</p>
-						<p class="carbon-status" id="wcb_2">Fallback value — not measured.</p>
+						<p class="carbon-status" id="wcb_2">0.01 fallback — estimate pending.</p>
 						<p class="carbon-links">
 							<a href="https://www.websitecarbon.com/" target="_blank" rel="noopener"
 								title="Estimate a webpage’s carbon emissions with Website Carbon (opens in a new tab)">
@@ -6717,7 +6717,7 @@
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">231.81 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">233.18 KB</span></span>
 				</p>
 			</footer>
 
@@ -6733,8 +6733,45 @@
 					return;
 				}
 
+				var pageUrl = document.querySelector( 'link[rel="canonical"]' ).href;
+				var cacheKey = 'wcb_' + encodeURIComponent( pageUrl );
+				var hasEstimate = false;
+
+				function numeric( value ) {
+					return typeof value === 'number' ||
+						typeof value === 'string' && value.trim() !== '' ? Number( value ) : NaN;
+				}
+
+				function showEstimate( result, cached ) {
+					var carbon = result && numeric( result.c );
+					if ( !Number.isFinite( carbon ) || carbon < 0 ) {
+						return false;
+					}
+					var percentile = numeric( result.p );
+					badge.querySelector( '.carbon-value' ).textContent = String( carbon );
+					badge.querySelector( '#wcb_2' ).textContent =
+						Number.isFinite( percentile ) && percentile >= 0 && percentile <= 100 ?
+						'Cleaner than ' + percentile + '% of pages tested.' :
+						'Estimated by Website Carbon.';
+					if ( cached ) {
+						badge.querySelector( '#wcb_2' ).textContent += ' Last saved estimate.';
+					}
+					hasEstimate = true;
+					return true;
+				}
+
 				function loadBadge() {
-					fetch( 'https://api.websitecarbon.com/b?url=' + encodeURIComponent( location.href ) )
+					try {
+						var cached = JSON.parse( localStorage.getItem( cacheKey ) );
+						if ( cached && showEstimate( cached, true ) &&
+							Number.isFinite( cached.t ) && cached.t <= Date.now() &&
+							Date.now() - cached.t < 86400000 ) {
+							return;
+						}
+					} catch ( error ) {
+						/* Storage may be blocked. */
+					}
+					fetch( 'https://api.websitecarbon.com/b?url=' + encodeURIComponent( pageUrl ) )
 						.then( function ( response ) {
 							if ( !response.ok ) {
 								throw new Error( 'Carbon estimate unavailable.' );
@@ -6742,18 +6779,22 @@
 							return response.json();
 						} )
 						.then( function ( result ) {
-							if ( typeof result.c !== 'number' || !Number.isFinite( result.c ) || result.c < 0 ) {
-								return;
+							if ( !showEstimate( result, false ) ) {
+								throw new Error( 'Invalid carbon estimate.' );
 							}
-							badge.querySelector( '.carbon-value' ).textContent = String( result.c );
-							badge.querySelector( '#wcb_2' ).textContent =
-								typeof result.p === 'number' && Number.isFinite( result.p ) &&
-								result.p >= 0 && result.p <= 100 ?
-								'Cleaner than ' + result.p + '% of pages tested.' :
-								'Estimated by Website Carbon.';
+							try {
+								localStorage.setItem( cacheKey, JSON.stringify( {
+									c: numeric( result.c ), p: numeric( result.p ), t: Date.now()
+								} ) );
+							} catch ( error ) {
+								/* Keep the result when storage is blocked. */
+							}
 						} )
 						.catch( function () {
-
+							if ( !hasEstimate ) {
+								badge.querySelector( '#wcb_2' ).textContent =
+									'Estimate unavailable — 0.01 is a fallback.';
+							}
 						} );
 				}
 
