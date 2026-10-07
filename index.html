@@ -582,11 +582,6 @@
 			}
 
 
-			.auto-paused *,
-			.auto-paused *::before,
-			.auto-paused *::after {
-				animation-play-state: paused !important;
-			}
 
 			.menu-btn {
 				display: inline-flex;
@@ -3401,22 +3396,7 @@
 				color: var(--ink);
 			}
 
-			.motion-preference {
-				display: flex;
-				align-items: center;
-				gap: 8px;
-				width: fit-content;
-				min-height: 24px;
-				margin-top: 20px;
-				color: var(--muted);
-				font-size: 13px;
-				cursor: pointer;
-			}
 
-			.motion-preference input {
-				margin: 0;
-				accent-color: var(--accent-text);
-			}
 
 			.carbon-reading {
 				margin: 0 0 24px;
@@ -5534,7 +5514,7 @@
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">233 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">232 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -6693,11 +6673,6 @@
 								</svg>How it is estimated
 							</a>
 						</p>
-						<label class="motion-preference"
-							title="Pause automatic animations and text updates; scrolling stays available">
-							<input type="checkbox" data-pause-motion />
-							Pause automatic motion
-						</label>
 					</div>
 				</section>
 
@@ -6717,7 +6692,7 @@
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">233 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">232 KB</span></span>
 				</p>
 			</footer>
 
@@ -6937,18 +6912,6 @@
 				'use strict';
 
 				var motion = window.__portfolioMotion;
-				motion.paused = false;
-
-				var motionPreference = document.querySelector( '[data-pause-motion]' );
-				motionPreference.addEventListener( 'change', function () {
-					motion.paused = motionPreference.checked;
-					document.documentElement.classList.toggle( 'auto-paused', motion.paused );
-					document.querySelectorAll( '.rail-live.is-out, .kb.is-out' ).forEach( function ( label ) {
-						label.classList.remove( 'is-out' );
-					} );
-					window.dispatchEvent( new Event( 'ks:motion' ) );
-				} );
-
 				/* Layout updates. */
 				var RELAYOUT = 'ks:relayout';
 
@@ -7395,9 +7358,6 @@
 					var liveLabels = document.querySelectorAll( '.rail-live' );
 
 					function paint() {
-						if ( motion.paused ) {
-							return;
-						}
 						weatherLabels.forEach( function ( el ) {
 							el.replaceChildren( clock( 'Asia/Bangkok' ) );
 							if ( wx && Number.isFinite( wx.temp ) ) {
@@ -7492,7 +7452,6 @@
 						liveLabels = document.querySelectorAll( '.rail-live' );
 						paint();
 					} );
-					window.addEventListener( 'ks:motion', paint );
 					paint();
 					load();
 					setInterval( function () {
@@ -7502,7 +7461,7 @@
 					}, 30000 );
 
 					setInterval( function () {
-						if ( document.hidden || motion.paused || zones.length < 2 ) {
+						if ( document.hidden || zones.length < 2 ) {
 							return;
 						}
 
@@ -7513,9 +7472,7 @@
 						} );
 
 						setTimeout( function () {
-							if ( !motion.paused ) {
-								zoneIndex = ( zoneIndex + 1 ) % zones.length;
-							}
+							zoneIndex = ( zoneIndex + 1 ) % zones.length;
 							paint();
 							els.forEach( function ( el ) {
 								el.classList.remove( 'is-out' );
@@ -7874,7 +7831,7 @@
 
 						function updateTicker() {
 							if ( anim ) {
-								if ( visible && !hovered && !document.hidden && !motion.paused ) {
+								if ( visible && !hovered && !document.hidden ) {
 									anim.play();
 								} else {
 									anim.pause();
@@ -7892,7 +7849,6 @@
 						}
 
 						document.addEventListener( 'visibilitychange', updateTicker );
-						window.addEventListener( 'ks:motion', updateTicker );
 						box.addEventListener( 'mouseenter', function () {
 							hovered = true;
 							updateTicker();
@@ -7975,20 +7931,16 @@
 								var frames = [ 'loaded in ' + shown, el.textContent ];
 								var i = 0;
 
-								if ( !motion.paused ) {
-									el.textContent = frames[ 0 ];
-								}
+								el.textContent = frames[ 0 ];
 
 								setInterval( function () {
-									if ( document.hidden || motion.paused ) {
+									if ( document.hidden ) {
 										return;
 									}
 									el.classList.add( 'is-out' );
 									setTimeout( function () {
-										if ( !motion.paused ) {
-											i = ( i + 1 ) % frames.length;
-											el.textContent = frames[ i ];
-										}
+										i = ( i + 1 ) % frames.length;
+										el.textContent = frames[ i ];
 										el.classList.remove( 'is-out' );
 									}, 250 );
 								}, 5000 );
