@@ -6752,9 +6752,9 @@
 					badge.querySelector( '#wcb_2' ).textContent =
 						Number.isFinite( percentile ) && percentile >= 0 && percentile <= 100 ?
 						'Cleaner than ' + percentile + '% of pages tested.' :
-						'Estimated by Website Carbon.';
+						'Last measured result from Website Carbon.';
 					if ( cached ) {
-						badge.querySelector( '#wcb_2' ).textContent += ' Last saved estimate.';
+						badge.querySelector( '#wcb_2' ).textContent += ' Last measured result.';
 					}
 					hasEstimate = true;
 					return true;
@@ -6793,7 +6793,7 @@
 						.catch( function () {
 							if ( !hasEstimate ) {
 								badge.querySelector( '#wcb_2' ).textContent =
-									'Estimate unavailable — <0.01 was last measured.';
+									'Live measurement unavailable — <0.01 was last measured.';
 							}
 						} );
 				}
