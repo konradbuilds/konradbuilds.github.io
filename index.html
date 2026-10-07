@@ -3594,12 +3594,13 @@
 
 			.stage .track-inner .stat b {
 				color: #ffb18c;
-				font-size: clamp(1.2rem, 2vw, 1.8rem);
+				font-size: clamp(1rem, 2vw, 1.6rem);
 			}
 
 			.stage .track-inner .stat span {
 				color: #fff;
 				margin-top: 8px;
+				font-size: 12px;
 			}
 
 			.stage .track-inner .label {
@@ -3670,9 +3671,6 @@
 					font-size: 1.25rem;
 				}
 
-				.stage .track-inner .stat span {
-					font-size: 0.8125rem;
-				}
 			}
 
 			@media (max-height: 600px) and (min-width: 800px) {
@@ -4019,6 +4017,13 @@
 				pointer-events: none;
 				color: var(--roof-ink);
 				contain: layout paint;
+				zoom: 0.75;
+			}
+			
+			@media (min-width: 1000px) {
+				.roof-scene {
+					zoom: 1;
+				}
 			}
 
 			.roof-tiles {
@@ -4396,7 +4401,6 @@
 			}
 
 			@media (min-width: 1000px) {
-
 				.stage.roof-active .edge-bird-eye {
 					animation-play-state: running;
 				}
