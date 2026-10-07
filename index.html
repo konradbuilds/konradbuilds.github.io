@@ -581,8 +581,6 @@
 				border-color: var(--accent);
 			}
 
-
-
 			.menu-btn {
 				display: inline-flex;
 				align-items: center;
@@ -3389,6 +3387,8 @@
 			}
 
 			.carbon-section {
+				padding-top: calc(clamp(48px, 7.4vh, 92px) + 50px - var(--band-trim));
+				padding-bottom: calc(clamp(48px, 7.4vh, 92px) + 50px);
 				--ink: #304438;
 				--muted: #536055;
 				--accent-text: #405c4b;
@@ -3396,7 +3396,62 @@
 				color: var(--ink);
 			}
 
+			.carbon-rating {
+				margin: 28px 0 46px;
+			}
 
+			.carbon-rating figcaption {
+				margin-bottom: 24px;
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+
+			.carbon-scale {
+				position: relative;
+				display: grid;
+				grid-template-columns: repeat(6, 1fr) 6fr;
+				align-items: center;
+				height: 32px;
+				border-radius: 20px;
+				background: linear-gradient(90deg, #93d6a2, #c7dd87 25%, #eee39e 40%, #f5b48d 55%, #dd7d6f 75%);
+				color: #27372e;
+				font-size: 13px;
+				font-weight: 700;
+				text-align: center;
+			}
+
+			.carbon-grade {
+				display: grid;
+				place-items: center;
+				justify-self: center;
+				width: 36px;
+				height: 36px;
+				border-radius: 50%;
+				background: #fff;
+				box-shadow: 0 0 0 2px var(--ink);
+			}
+
+			.carbon-average {
+				position: absolute;
+				top: 40px;
+				left: 51%;
+				transform: translateX(-50%);
+				font-weight: 400;
+				white-space: nowrap;
+			}
+
+			.carbon-average::before {
+				content: '';
+				position: absolute;
+				bottom: calc(100% + 3px);
+				left: 50%;
+				height: 17px;
+				border-left: 2px solid var(--ink);
+			}
+
+			.carbon-links.carbon-actions {
+				margin-bottom: 36px;
+			}
 
 			.carbon-reading {
 				margin: 0 0 24px;
@@ -5514,7 +5569,7 @@
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">232 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">234 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -6654,10 +6709,22 @@
 							<span class="carbon-value">&lt;0.01</span>
 							<span class="carbon-unit">g of CO<sub>2</sub> / page view</span>
 						</p>
-						<h2 id="sustainability-title">Digital sustainability</h2>
-						<p class="carbon-note">Less data. Less energy.</p>
 						<p class="carbon-status" id="wcb_2">Last measured result.</p>
-						<p class="carbon-links">
+						<figure class="carbon-rating">
+							<figcaption>Last measured: cleaner than <strong>99%</strong> of pages tested.</figcaption>
+							<div class="carbon-scale" role="img"
+								aria-label="Last measured rating: A plus. Scale runs from A plus to F. Global average marker follows the Website Carbon report.">
+								<span class="carbon-grade" aria-hidden="true">A+</span>
+								<span aria-hidden="true">A</span>
+								<span aria-hidden="true">B</span>
+								<span aria-hidden="true">C</span>
+								<span aria-hidden="true">D</span>
+								<span aria-hidden="true">E</span>
+								<span aria-hidden="true">F</span>
+								<span class="carbon-average" aria-hidden="true">Global average</span>
+							</div>
+						</figure>
+						<p class="carbon-links carbon-actions">
 							<a href="https://www.websitecarbon.com/" target="_blank" rel="noopener"
 								title="Estimate a webpage’s carbon emissions with Website Carbon (opens in a new tab)">
 								<svg viewBox="0 0 24 24" aria-hidden="true">
@@ -6665,6 +6732,17 @@
 									<path d="M8 6h8M8 11h2m4 0h2M8 15h2m4 0h2M8 19h2m4 0h2" />
 								</svg>Website Carbon calculator
 							</a>
+							<a href="https://www.websitecarbon.com/website/konradbuilds-github-io/"
+								target="_blank" rel="noopener"
+								title="View this portfolio’s full Website Carbon test result (opens in a new tab)">
+								<svg viewBox="0 0 24 24" aria-hidden="true">
+									<path d="M5 3h14v18H5zM8 8h8M8 12h8M8 16h5" />
+								</svg>View this result
+							</a>
+						</p>
+						<h2 id="sustainability-title">Digital sustainability</h2>
+						<p class="carbon-note">Less data. Less energy.</p>
+						<p class="carbon-links">
 							<a href="https://www.websitecarbon.com/how-does-it-work/" target="_blank" rel="noopener"
 								title="Learn how Website Carbon estimates emissions per page view (opens in a new tab)">
 								<svg viewBox="0 0 24 24" aria-hidden="true">
@@ -6692,7 +6770,7 @@
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">232 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">234 KB</span></span>
 				</p>
 			</footer>
 
