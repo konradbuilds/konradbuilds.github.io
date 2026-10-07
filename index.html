@@ -6671,12 +6671,12 @@
 				<section class="band carbon-section" aria-labelledby="sustainability-title">
 					<div class="wide" id="wcb">
 						<p class="carbon-reading" id="wcb_g">
-							<span class="carbon-value">0.01</span>
+							<span class="carbon-value">&lt;0.01</span>
 							<span class="carbon-unit">g of CO<sub>2</sub> / page view</span>
 						</p>
 						<h2 id="sustainability-title">Digital sustainability</h2>
 						<p class="carbon-note">Less data. Less energy.</p>
-						<p class="carbon-status" id="wcb_2">0.01 fallback — estimate pending.</p>
+						<p class="carbon-status" id="wcb_2">Last measured result.</p>
 						<p class="carbon-links">
 							<a href="https://www.websitecarbon.com/" target="_blank" rel="noopener"
 								title="Estimate a webpage’s carbon emissions with Website Carbon (opens in a new tab)">
@@ -6793,7 +6793,7 @@
 						.catch( function () {
 							if ( !hasEstimate ) {
 								badge.querySelector( '#wcb_2' ).textContent =
-									'Estimate unavailable — 0.01 is a fallback.';
+									'Estimate unavailable — <0.01 was last measured.';
 							}
 						} );
 				}
