@@ -1114,19 +1114,7 @@
 				padding-bottom: 40px;
 			}
 
-			.hero .hi {
-				display: block;
-				margin: 0 0 25px;
-				font-size: clamp(1.08rem, 2.2vw, 1.68rem);
-				font-weight: 700;
-				letter-spacing: -0.02em;
-				line-height: 1.2;
-				color: var(--ink);
-			}
 
-			.hero .hi[dir='rtl'] {
-				text-align: left;
-			}
 
 			.hero h1 {
 				margin: 0 0 28px;
@@ -3584,10 +3572,6 @@
 				color: #625569;
 			}
 
-			.stage .hero .hi {
-				font-size: 1rem;
-				margin-bottom: 20px;
-			}
 
 			.stage .track-layer {
 				position: absolute;
@@ -4047,7 +4031,7 @@
 			.roof-tile {
 				display: block;
 				flex: none;
-				width: 1920px;
+				width: 3400px;
 				height: 260px;
 			}
 
@@ -4615,73 +4599,6 @@
 												growth</span></span>
 									</div>
 								</div>
-								<span class="hi" hidden id="hi"></span>
-								<!-- Greeting before first paint. -->
-								<script>
-			/* Browser-language greeting; no network request. */
-			( function () {
-				var hi = {
-					de: 'Hallo, ich bin Konrad.',
-					nl: 'Hallo, ik ben Konrad.',
-					es: 'Hola, soy Konrad.',
-					pt: 'Olá, sou o Konrad.',
-					fr: 'Bonjour, je suis Konrad.',
-					it: 'Ciao, sono Konrad.',
-					ru: 'Привет, я Konrad.',
-					uk: 'Привіт, я Konrad.',
-					pl: 'Cześć, jestem Konrad.',
-					cs: 'Ahoj, jsem Konrad.',
-					ro: 'Salut, eu sunt Konrad.',
-					hu: 'Szia, Konrad vagyok.',
-					el: 'Γεια, είμαι ο Konrad.',
-					sv: 'Hej, jag heter Konrad.',
-					da: 'Hej, jeg hedder Konrad.',
-					no: 'Hei, jeg heter Konrad.',
-					nb: 'Hei, jeg heter Konrad.',
-					fi: 'Moi, olen Konrad.',
-					tr: 'Merhaba, ben Konrad.',
-					ar: 'مرحبا، أنا Konrad.',
-					he: 'שלום, אני Konrad.',
-					hi: 'नमस्ते, मैं Konrad हूँ।',
-					th: 'สวัสดี ผมชื่อ Konrad',
-					ja: 'こんにちは、Konradです。',
-					ko: '안녕하세요, Konrad입니다.',
-					zh: '你好，我是 Konrad。',
-					vi: 'Xin chào, tôi là Konrad.',
-					id: 'Halo, saya Konrad.',
-					ms: 'Helo, saya Konrad.',
-					tl: 'Kumusta, ako si Konrad.',
-				};
-				var rtl = {
-					ar: 1,
-					he: 1,
-					fa: 1,
-					ur: 1,
-				};
-				try {
-					var list =
-						navigator.languages && navigator.languages.length ?
-						navigator.languages :
-						[ navigator.language ];
-					for ( var i = 0; i < list.length; i++ ) {
-						var code = String( list[ i ] || '' )
-							.toLowerCase()
-							.split( '-' )[ 0 ];
-						if ( code === 'en' ) return; 
-						if ( hi[ code ] ) {
-							var el = document.getElementById( 'hi' );
-							if ( el ) {
-								el.textContent = hi[ code ];
-								el.setAttribute( 'lang', code );
-								if ( rtl[ code ] ) el.setAttribute( 'dir', 'rtl' );
-								el.hidden = false;
-							}
-							return;
-						}
-					}
-				} catch {}
-			} )();
-		</script>
 								<h1 aria-label="15+ years shipping products from idea to launch.">
 									<span class="hero-word" id="hero-word-01"
 										aria-hidden="true">15+</span> <span class="hero-word"
@@ -4724,8 +4641,8 @@
 			</div>
 			<div class="roof-scene" aria-hidden="true">
 				<div class="roof-tiles">
-					<svg xmlns="http://www.w3.org/2000/svg" class="roof-tile" viewBox="0 0 1920 260"
-						style="overflow:visible">
+					<svg xmlns="http://www.w3.org/2000/svg" class="roof-tile" viewBox="0 0 3400 260"
+						style="overflow:hidden">
 						<!-- Shared distant skyline paths. -->
 						<defs>
 							<g id="skyline-extreme-far-shapes">
@@ -5094,12 +5011,6 @@
 
 							<path
 								d="M960 253v-29h29v29m-34-29q20-24 39 0zM1440 253l-4-48 12-20-8-23 10-4 11 28-13 22 4 45zM1434 162l14-16 19 17z" />
-							<path
-								d="M1770 253l-3-48h61l4 48zM1760 204l5-10h67l4 10zM1860 253v-93l8-24-5-34 10-47"
-								fill="currentColor" />
-							<path
-								d="M1841 63l51 16m-48-2 49 15m-45 0 34 10m-25-43-6 20m22-17-5 23m20-16-5 22m-34 66 33-9m-29-2 32-9"
-								fill="none" stroke="currentColor" stroke-width="1.8" />
 						</g>
 						<g id="rooftop-conversation" fill="currentColor">
 							<g class="bird-short" transform="translate(216 225)">
@@ -5208,9 +5119,8 @@
 							<path
 								d="M-48 -15L52 10M-44 0L48 24M-40 16L43 37M-36 -23L-46 10M-22 -20L-32 14M-8 -16L-18 18M6 -12L-4 22M20 -8L10 26M34 -5L24 30M48 -1L38 34M-15 52h53v17h-53zM-6 52v17m12-17v17m12-17v17m12-17v17M4 37v31" />
 						</g>
-					</svg>
-					<svg xmlns="http://www.w3.org/2000/svg" class="roof-tile" viewBox="0 0 1920 260"
-						style="overflow:visible">
+					
+						<g transform="translate(1920 0)">
 						<g>
 							<g class="skyline extreme-far" fill="#f1aa90">
 								<use href="#skyline-extreme-far-shapes" />
@@ -5329,137 +5239,19 @@
 							</g>
 						</g>
 
-							<g fill="currentColor">
-
-							<path
-								d="M51 253l7-100-17-6 5-13 127 33-3 13-16-4 5 77zM83 150l5-37-9-16 9-27 10 3-8 24 10 16-6 40zM77 72l15-18 16 24z" />
-							<g transform="translate(0 60) scale(1 .68)">
-								<path d="M150 169l8-48-9-26 13-42-9-20 12-42" fill="none"
-									stroke="currentColor" stroke-width="3" />
-								<path
-									d="M136 15l55 26m-60-10 57 26m-48-7 49 23m-47-67-7 20m23-12-8 22m24-16-9 23m15 0-9 22M162 68l-14 18 18 13-7 15m-10-39q-17 27-6 40t-1 45"
-									fill="none" stroke="currentColor" stroke-width="1.6" />
-							</g>
-							<path
-								d="M16 253v-28h8v28m-13-28h18v-5H11m164 33v-23h7v23m-11-23h16v-5h-16" />
-
-							<path
-								d="M960 253v-29h29v29m-34-29q20-24 39 0zM1440 253l-4-48 12-20-8-23 10-4 11 28-13 22 4 45zM1434 162l14-16 19 17z" />
-							<path
-								d="M1770 253l-3-48h61l4 48zM1760 204l5-10h67l4 10zM1860 253v-93l8-24-5-34 10-47"
-								fill="currentColor" />
-							<path
-								d="M1841 63l51 16m-48-2 49 15m-45 0 34 10m-25-43-6 20m22-17-5 23m20-16-5 22m-34 66 33-9m-29-2 32-9"
-								fill="none" stroke="currentColor" stroke-width="1.8" />
+							
 						</g>
-						<g fill="currentColor">
-							<g class="bird-short" transform="translate(216 225)">
-								<path
-									d="M0 21q-7-4-2-10 4-9 14-10 9 0 11 11 3 9-8 11l-8 0-8 3-4-4zM6 22l-1 5h5m7-5 2 5h5" />
-								<g class="bird-head">
-									<path
-										d="M10 4q-3-10 4-10 8 0 9 8l-8 5zM12-4l-2-3 4 1 1-4 2 4 3-2-1 4 3-1-2 3M18-2l10 3-10 1z" />
-									<g transform="translate(18 2)">
-										<g class="bird-jaw">
-											<path d="M0 0l10-1-7 4z" />
-										</g>
-									</g>
-									<circle cx="18" cy="-2" r=".8" fill="#ffb18c" />
-								</g>
-								<g>
-									<g>
-										<path fill="currentColor"
-											d="M0 12l-3-2 1 4-3 1 3 2-2 3 4-1M5 4l-2-3 4 1 1-3 2 4M18 18l3-2-1 4 2 1-3 2z" />
-									</g>
-								</g>
-							</g>
-							<g class="bird-tall" transform="translate(260 181)">
-								<path
-									d="M4 32q-9-4-5-11l6-7 2-13 5-1 1 17q12 8 8 14-5 6-17 1zM1 20l-6-4 2 7-5 2 6 3M17 17l5-4-1 7 5 1-5 4z" />
-								<g class="bird-head">
-									<path d="M7 6Q1-8 8-10q8 0 8 10l-3 7z" />
-									<path d="M7-9 2-14l7 2 2-7 2 7 5-4-3 7 6-1-6 4" />
-									<path d="M7-5l-16 4 17-1z" />
-									<path d="M11-10l4-7-1 8 6-5-3 8 6-1-6 4" />
-									<g transform="translate(7 -2)">
-										<g class="bird-jaw">
-											<path d="M0 0l-16 1 15 4z" />
-										</g>
-									</g>
-									<circle cx="9" cy="-6" r=".8" fill="#ffb18c" />
-								</g>
-								<g>
-									<g transform="translate(12 22)">
-										<path class="bird-wing" fill="currentColor"
-											d="M0 0q9-5 19-2l-5 3 6 2-9 2-8 1z" />
-									</g>
-								</g>
-								<g>
-									<path
-										d="M5 32L3 53 6 65 4 70M16 32L19 48 16 59 20 70M1 70h7m9 0h7"
-										fill="none" stroke="currentColor" stroke-width="1.15"
-										stroke-linecap="round" stroke-linejoin="round" />
-								</g>
-							</g>
+						<g transform="translate(2120 251)" fill="none" stroke="currentColor" stroke-linecap="round">
+							<path d="M0 0L3 -108" stroke-width="2" />
+							<path d="M-19 -98l42 4m-37 10 32 3m-24-23-2 24m13-22-2 23m13-21-2 23" stroke-width="1.4" />
 						</g>
-						<g>
+						<g transform="translate(2740 251)" fill="none" stroke="currentColor" stroke-linecap="round">
+							<path d="M0 0L-2 -76" stroke-width="2" />
+							<path d="M-19 -66l42 4m-37 10 32 3m-24-23-2 24m13-22-2 23m13-21-2 23" stroke-width="1.4" />
 						</g>
-						<g>
-							<g transform="translate(450 251)" fill="currentColor">
-								<path d="M0 0L3 -110" fill="none" stroke="currentColor"
-									stroke-width="2" />
-								<path
-									d="M-17 -101l37 5m-34 9 29 3m-21-23-3 20m14-17-3 20m13-16-3 20"
-									fill="none" stroke="currentColor" stroke-width="1.4" />
-								<path transform="translate(0 12)"
-									d="M7 -117q-4-8 0-12 5-4 8 0l3 3-4 1q2 5-2 8l-5 1-4 2zM8 -116v5m5-6v5" />
-							</g>
-							<g transform="translate(605 251)" fill="currentColor">
-								<path d="M0 0L4 -72" fill="none" stroke="currentColor"
-									stroke-width="2" />
-								<path d="M-17 -63l37 5m-34 9 29 3m-21-23-3 20m14-17-3 20m13-16-3 20"
-									fill="none" stroke="currentColor" stroke-width="1.4" />
-							</g>
-							<g transform="translate(860 251)" fill="currentColor">
-								<path d="M0 0L5 -148" fill="none" stroke="currentColor"
-									stroke-width="2" />
-								<path
-									d="M-17 -139l37 5m-34 9 29 3m-21-23-3 20m14-17-3 20m13-16-3 20"
-									fill="none" stroke="currentColor" stroke-width="1.4" />
-								<path transform="translate(0 12)"
-									d="M7 -155q-4-8 0-12 5-4 8 0l3 3-4 1q2 5-2 8l-5 1-4 2zM8 -154v5m5-6v5" />
-							</g>
-							<g transform="translate(1055 251)" fill="currentColor">
-								<path d="M0 0L3 -88" fill="none" stroke="currentColor"
-									stroke-width="2" />
-								<path d="M-17 -79l37 5m-34 9 29 3m-21-23-3 20m14-17-3 20m13-16-3 20"
-									fill="none" stroke="currentColor" stroke-width="1.4" />
-							</g>
-							<g transform="translate(1608 251)" fill="currentColor">
-								<path d="M0 0L4 -123" fill="none" stroke="currentColor"
-									stroke-width="2" />
-								<path
-									d="M-17 -114l37 5m-34 9 29 3m-21-23-3 20m14-17-3 20m13-16-3 20"
-									fill="none" stroke="currentColor" stroke-width="1.4" />
-								<path transform="translate(0 12)"
-									d="M7 -130q-4-8 0-12 5-4 8 0l3 3-4 1q2 5-2 8l-5 1-4 2zM8 -129v5m5-6v5" />
-							</g>
-							<g transform="translate(1714 251)" fill="currentColor">
-								<path d="M0 0L5 -63" fill="none" stroke="currentColor"
-									stroke-width="2" />
-								<path d="M-17 -54l37 5m-34 9 29 3m-21-23-3 20m14-17-3 20m13-16-3 20"
-									fill="none" stroke="currentColor" stroke-width="1.4" />
-							</g>
-						</g>
-						<g transform="translate(860 103)" fill="none" stroke="currentColor"
-							stroke-width="1.5">
-							<path
-								d="M-48 -15L52 10M-44 0L48 24M-40 16L43 37M-36 -23L-46 10M-22 -20L-32 14M-8 -16L-18 18M6 -12L-4 22M20 -8L10 26M34 -5L24 30M48 -1L38 34M-15 52h53v17h-53zM-6 52v17m12-17v17m12-17v17m12-17v17M4 37v31" />
-						</g>
-						<g transform="translate(1608 128)" fill="none" stroke="currentColor"
-							stroke-width="1.5">
-							<path
-								d="M-48 -15L52 10M-44 0L48 24M-40 16L43 37M-36 -23L-46 10M-22 -20L-32 14M-8 -16L-18 18M6 -12L-4 22M20 -8L10 26M34 -5L24 30M48 -1L38 34M-15 52h53v17h-53zM-6 52v17m12-17v17m12-17v17m12-17v17M4 37v31" />
+						<g transform="translate(3300 251)" fill="none" stroke="currentColor" stroke-linecap="round">
+							<path d="M0 0L4 -128" stroke-width="2" />
+							<path d="M-19 -118l42 4m-37 10 32 3m-24-23-2 24m13-22-2 23m13-21-2 23" stroke-width="1.4" />
 						</g>
 					</svg>
 				</div>
@@ -5569,7 +5361,7 @@
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">235 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">227 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -6770,7 +6562,7 @@
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">235 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">227 KB</span></span>
 				</p>
 			</footer>
 
@@ -7692,7 +7484,7 @@
 							if ( bounce ) bounce.cancel();
 							bounce = avatar.animate( [
 								{ transform: 'scale(1)' },
-								{ transform: 'scale(1.05)' },
+								{ transform: 'scale(1.1)' },
 								{ transform: 'scale(1)' }
 							], { duration: 200, easing: 'ease-in-out' } );
 						}
