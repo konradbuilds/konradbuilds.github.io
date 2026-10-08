@@ -1641,12 +1641,12 @@ version: 3.2.41 -->
 
 			.hire-actions {
 				grid-area: actions;
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 18px;
+				display: flex;
+				flex-direction: row;
 				padding-top: 22px;
 				border-top: 1px solid var(--line);
 				align-items: start;
+				gap: 15px;
 			}
 
 			.hire-actions .btn {
@@ -1658,13 +1658,6 @@ version: 3.2.41 -->
 				.hire-actions .btn {
 					width: 100%;
 					max-width: 300px;
-				}
-			}
-
-			@media (min-width: 560px) {
-				.hire-actions {
-					grid-template-columns: auto 1fr;
-					gap: 18px 14px;
 				}
 			}
 
