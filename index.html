@@ -1642,11 +1642,17 @@ version: 3.2.41 -->
 			.hire-actions {
 				grid-area: actions;
 				display: flex;
-				flex-direction: row;
+				flex-direction: column;
 				padding-top: 22px;
 				border-top: 1px solid var(--line);
 				align-items: start;
 				gap: 15px;
+			}
+			
+			@media (min-width: 550px) {
+				.hire-actions {
+					flex-direction: row;
+				}
 			}
 
 			.hire-actions .btn {
