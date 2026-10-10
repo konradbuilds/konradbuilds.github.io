@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<!-- Konrad Sroka 2026
+<!--
+Konrad Sroka - 2026
 Author URL: https://konradbuilds.github.io/
-Version: 3.2.60 -->
+Version: 3.3.01
+surf, thailand, helicopters -->
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -271,6 +273,7 @@ Version: 3.2.60 -->
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
+				grid-gap: 9px;
 				gap: 9px;
 				cursor: pointer;
 				text-decoration: none;
@@ -388,6 +391,12 @@ Version: 3.2.60 -->
 				}
 			}
 
+			/* Closed navigation also stays unfocusable where HTML inert is unsupported. */
+			.topbar:not(.is-on), .topbar:not(.is-open) .tb-panel { visibility: hidden; }
+			@media (max-width: 999px) {
+				.rail:not(.is-open) .rail-menu { visibility: hidden; }
+			}
+
 			/* fixed top bar */
 			.topbar {
 				position: fixed;
@@ -415,8 +424,10 @@ Version: 3.2.60 -->
 			.topbar-in {
 				display: flex;
 				align-items: center;
+				grid-gap: 16px;
 				gap: 16px;
 				min-height: 78px;
+				padding: 0 18px;
 				padding: 0 clamp(18px, 4vw, 40px);
 			}
 
@@ -424,6 +435,7 @@ Version: 3.2.60 -->
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
+				grid-gap: 3px;
 				gap: 3px;
 				margin-right: auto;
 				text-decoration: none;
@@ -476,6 +488,7 @@ Version: 3.2.60 -->
 			.tb-panel-body {
 				max-height: calc(100vh - 78px);
 				overflow-y: auto;
+				padding: 0 18px 18px;
 				padding: 0 clamp(18px, 4vw, 40px) 18px;
 			}
 
@@ -550,6 +563,7 @@ Version: 3.2.60 -->
 			}
 
 			.rail-in {
+				padding: 28px 20px 22px;
 				padding: 28px clamp(20px, 5vw, 32px) 22px;
 			}
 
@@ -575,6 +589,7 @@ Version: 3.2.60 -->
 			.who {
 				display: flex;
 				align-items: center;
+				grid-gap: 14px;
 				gap: 14px;
 				margin-bottom: 14px;
 				text-decoration: none;
@@ -629,6 +644,7 @@ Version: 3.2.60 -->
 			.profile-links {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 8px;
 				gap: 8px;
 				margin-top: 16px;
 			}
@@ -641,6 +657,7 @@ Version: 3.2.60 -->
 				border: 1px solid rgba(255, 255, 255, 0.063);
 				border-radius: 4px;
 				text-decoration: none;
+				grid-gap: 6px;
 				gap: 6px;
 				padding: 4px 9px;
 				min-height: 24px;
@@ -662,6 +679,7 @@ Version: 3.2.60 -->
 			.menu-btn {
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 11px;
 				gap: 11px;
 				margin: 16px 0 0;
 				padding: 8px 0;
@@ -742,6 +760,7 @@ Version: 3.2.60 -->
 			.rail-nav {
 				display: flex;
 				flex-direction: column;
+				grid-gap: 4px;
 				gap: 4px;
 				margin-top: 14px;
 			}
@@ -751,6 +770,7 @@ Version: 3.2.60 -->
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
+				grid-gap: 9px;
 				gap: 9px;
 				width: 100%;
 				padding: 18px 27px 16px;
@@ -776,6 +796,7 @@ Version: 3.2.60 -->
 			.rl-sub {
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 			}
 
@@ -931,6 +952,7 @@ Version: 3.2.60 -->
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				grid-gap: 12px;
 				gap: 12px;
 				margin-top: 46px;
 			}
@@ -1161,7 +1183,9 @@ Version: 3.2.60 -->
 
 			.band {
 				--band-trim: 0px;
+				padding: 48px 22px;
 				padding: clamp(48px, 7.4vh, 92px) clamp(22px, 5vw, 72px);
+				padding-top: calc(48px - var(--band-trim));
 				padding-top: calc(clamp(48px, 7.4vh, 92px) - var(--band-trim));
 			}
 
@@ -1192,10 +1216,9 @@ Version: 3.2.60 -->
 				padding-bottom: 40px;
 			}
 
-
-
 			.hero h1 {
 				margin: 0 0 28px;
+				font-size: 1.8rem;
 				font-size: clamp(1.8rem, 3.7vw, 2.8rem);
 				font-weight: 700;
 				letter-spacing: -0.035em;
@@ -1205,6 +1228,7 @@ Version: 3.2.60 -->
 
 			.hero p.lead {
 				margin: 0;
+				font-size: 1rem;
 				font-size: clamp(1rem, 1.7vw, 1.2rem);
 				line-height: 1.6;
 				color: var(--muted);
@@ -1213,7 +1237,9 @@ Version: 3.2.60 -->
 
 			/* track record */
 			.track {
+				padding-top: 28px;
 				padding-top: clamp(28px, 4vh, 44px);
+				padding-bottom: 28px;
 				padding-bottom: clamp(28px, 4vh, 44px);
 			}
 
@@ -1225,6 +1251,7 @@ Version: 3.2.60 -->
 			.stats {
 				display: grid;
 				grid-template-columns: 1fr;
+				grid-gap: 20px 26px;
 				gap: 20px 26px;
 				margin: 0;
 				padding: 0;
@@ -1247,6 +1274,7 @@ Version: 3.2.60 -->
 			.stat b {
 				display: block;
 				font-family: var(--sans);
+				font-size: 0.95rem;
 				font-size: clamp(0.95rem, 1.35vw, 1.08rem);
 				font-weight: 700;
 				letter-spacing: -0.035em;
@@ -1263,7 +1291,9 @@ Version: 3.2.60 -->
 			}
 
 			.why {
+				padding-top: 40px;
 				padding-top: clamp(40px, 5vh, 64px);
+				padding-bottom: 40px;
 				padding-bottom: clamp(40px, 5vh, 64px);
 				background: var(--s1);
 			}
@@ -1271,12 +1301,15 @@ Version: 3.2.60 -->
 			.band.tint .why-label {
 				padding-top: 4px;
 				color: var(--muted);
+				margin-bottom: 20px;
 				margin-bottom: clamp(20px, 2.6vh, 30px);
 			}
 
 			.why-grid {
 				display: grid;
 				grid-template-columns: 1fr;
+				gap: 14px;
+				grid-gap: clamp(14px, 1.8vw, 20px);
 				gap: clamp(14px, 1.8vw, 20px);
 			}
 
@@ -1288,6 +1321,7 @@ Version: 3.2.60 -->
 
 			.why-card {
 				display: block;
+				padding: 24px;
 				padding: clamp(24px, 2.8vw, 34px);
 				border: 1px solid transparent;
 				border-radius: 10px;
@@ -1314,6 +1348,7 @@ Version: 3.2.60 -->
 
 			.why-card h2 {
 				margin: 0;
+				font-size: 1.14rem;
 				font-size: clamp(1.14rem, 1.9vw, 1.34rem);
 				font-weight: 700;
 				letter-spacing: -0.03em;
@@ -1330,7 +1365,9 @@ Version: 3.2.60 -->
 			.why-go {
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 10px;
 				gap: 10px;
+				margin-top: 16px;
 				margin-top: clamp(16px, 1.8vw, 22px);
 				font-family: var(--sans);
 				font-weight: 700;
@@ -1359,6 +1396,8 @@ Version: 3.2.60 -->
 			.cols {
 				display: grid;
 				grid-template-columns: 1fr;
+				gap: 30px;
+				grid-gap: clamp(30px, 4.2vh, 44px);
 				gap: clamp(30px, 4.2vh, 44px);
 			}
 
@@ -1377,6 +1416,8 @@ Version: 3.2.60 -->
 			(min-width: 1400px) {
 				.cols {
 					grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+					gap: 34px;
+					grid-gap: clamp(34px, 4.4vw, 68px);
 					gap: clamp(34px, 4.4vw, 68px);
 				}
 			}
@@ -1390,7 +1431,9 @@ Version: 3.2.60 -->
 			}
 
 			h2.head {
+				margin: 0 0 28px;
 				margin: 0 0 clamp(28px, 4vh, 44px);
+				font-size: 1.42rem;
 				font-size: clamp(1.42rem, 2.9vw, 2.05rem);
 				font-weight: 700;
 				letter-spacing: -0.04em;
@@ -1439,6 +1482,7 @@ Version: 3.2.60 -->
 			.links {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 8px 8px;
 				gap: 8px 8px;
 				margin: 10px 0 0;
 				padding: 0;
@@ -1449,6 +1493,7 @@ Version: 3.2.60 -->
 			.carbon-links a {
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 7px;
 				gap: 7px;
 				font-size: var(--min-ui);
 				color: var(--muted);
@@ -1478,6 +1523,7 @@ Version: 3.2.60 -->
 			.tags {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 7px;
 				gap: 7px;
 				margin: 0;
 				padding: 0;
@@ -1518,6 +1564,7 @@ Version: 3.2.60 -->
 			.cook-title {
 				display: flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 				margin-bottom: 7px;
 				color: #c4321f;
@@ -1539,6 +1586,8 @@ Version: 3.2.60 -->
 			.cook-grid {
 				display: grid;
 				grid-template-columns: 1fr;
+				gap: 14px;
+				grid-gap: clamp(14px, 1.8vw, 20px);
 				gap: clamp(14px, 1.8vw, 20px);
 			}
 
@@ -1553,6 +1602,7 @@ Version: 3.2.60 -->
 				flex-direction: column;
 				background: #fff;
 				border-radius: 4px;
+				padding: 18px;
 				padding: clamp(18px, 2.2vw, 24px);
 			}
 
@@ -1633,6 +1683,8 @@ Version: 3.2.60 -->
 				.cook-row {
 					display: grid;
 					grid-template-columns: 226px minmax(0, 1fr);
+					gap: 20px;
+					grid-gap: clamp(20px, 2.6vw, 30px);
 					gap: clamp(20px, 2.6vw, 30px);
 					align-items: start;
 				}
@@ -1647,13 +1699,16 @@ Version: 3.2.60 -->
 			}
 
 			.hire-box {
+				margin-top: 34px;
 				margin-top: clamp(34px, 4.6vh, 52px);
 				display: grid;
 				grid-template-columns: 1fr;
 				grid-template-areas: 'facts' 'skills' 'actions';
+				grid-gap: 24px;
 				gap: 24px;
 				background: #ffffff;
 				border-radius: 4px;
+				padding: 20px;
 				padding: clamp(20px, 3vw, 34px);
 			}
 
@@ -1662,6 +1717,8 @@ Version: 3.2.60 -->
 				.hire-box {
 					grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
 					grid-template-areas: 'facts skills' 'actions actions';
+					gap: 26px 28px;
+					grid-gap: 26px clamp(28px, 4vw, 52px);
 					gap: 26px clamp(28px, 4vw, 52px);
 				}
 			}
@@ -1679,6 +1736,7 @@ Version: 3.2.60 -->
 			}
 
 			.hire-box .tags {
+				grid-gap: 6px;
 				gap: 6px;
 			}
 
@@ -1702,6 +1760,7 @@ Version: 3.2.60 -->
 			.hire-line li {
 				display: flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 			}
 
@@ -1722,6 +1781,7 @@ Version: 3.2.60 -->
 				padding-top: 22px;
 				border-top: 1px solid var(--line);
 				align-items: start;
+				grid-gap: 15px;
 				gap: 15px;
 			}
 
@@ -1745,6 +1805,7 @@ Version: 3.2.60 -->
 
 			.hire-linkcols {
 				display: grid;
+				grid-gap: 7px;
 				gap: 7px;
 			}
 
@@ -1752,10 +1813,12 @@ Version: 3.2.60 -->
 				.hire-linkcols {
 					grid-template-columns: auto auto;
 					justify-content: start;
+					grid-gap: 7px 14px;
 					gap: 7px 14px;
 				}
 
 				.hire-links {
+					grid-gap: 0;
 					gap: 0;
 				}
 
@@ -1769,12 +1832,14 @@ Version: 3.2.60 -->
 				margin: 0;
 				padding: 0;
 				display: grid;
+				grid-gap: 7px;
 				gap: 7px;
 			}
 
 			.hire-links a {
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 				line-height: 1.25;
 				font-size: 0.9375rem;
@@ -1803,7 +1868,9 @@ Version: 3.2.60 -->
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				grid-gap: 16px;
 				gap: 16px;
+				padding: 48px 22px 0;
 				padding: 48px clamp(22px, 5vw, 72px) 0;
 			}
 
@@ -1813,12 +1880,14 @@ Version: 3.2.60 -->
 
 			.hiring-wrap .band {
 				border-bottom: 0;
+				padding-top: calc(24px - var(--band-trim));
 				padding-top: calc(clamp(24px, 3.4vh, 34px) - var(--band-trim));
 			}
 
 			.job {
 				display: grid;
 				grid-template-columns: 1fr;
+				grid-gap: 3px 26px;
 				gap: 3px 26px;
 				padding: 18px 0;
 				border-top: 1px solid var(--line);
@@ -1871,15 +1940,18 @@ Version: 3.2.60 -->
 			}
 
 			.cv-row {
+				margin-top: 26px;
 				margin-top: clamp(26px, 3.6vh, 38px);
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 10px;
 				gap: 10px;
 				align-items: flex-start;
 			}
 
 			.cv-row-sub {
 				display: flex;
+				grid-gap: 10px;
 				gap: 10px;
 				width: 300px;
 				max-width: 100%;
@@ -1907,13 +1979,16 @@ Version: 3.2.60 -->
 			.wins {
 				display: grid;
 				grid-template-columns: 1fr;
+				grid-gap: 0;
 				gap: 0;
 			}
 
 			.win {
 				display: grid;
+				grid-gap: 18px 26px;
 				gap: 18px 26px;
 				align-items: start;
+				padding: 24px 0;
 				padding: clamp(24px, 3vw, 34px) 0;
 				border-top: 1px solid rgba(0, 0, 0, 0.08);
 				grid-template-columns: 1fr;
@@ -1932,6 +2007,8 @@ Version: 3.2.60 -->
 				.win {
 					grid-template-columns: 130px minmax(0, 300px) minmax(0, 1fr);
 					grid-template-areas: 'stat vid text';
+					gap: 0 24px;
+					grid-gap: 0 clamp(24px, 2.6vw, 40px);
 					gap: 0 clamp(24px, 2.6vw, 40px);
 				}
 
@@ -1951,12 +2028,15 @@ Version: 3.2.60 -->
 				}
 
 				.win:not(:first-child) {
+					padding-top: calc(24px + 30px);
 					padding-top: calc(clamp(24px, 3vw, 34px) + 30px);
 				}
 			}
 
 			.head.hl-head {
+				margin-bottom: calc(28px + 20px);
 				margin-bottom: calc(clamp(28px, 4vh, 44px) + 20px);
+				font-size: 1.25rem;
 				font-size: clamp(1.25rem, 3.5vw, 2.08rem);
 				line-height: 1.16;
 			}
@@ -1972,6 +2052,7 @@ Version: 3.2.60 -->
 
 			.win-stat b {
 				display: block;
+				font-size: 1.7rem;
 				font-size: clamp(1.7rem, 2.6vw, 2.1rem);
 				font-weight: 700;
 				letter-spacing: -0.045em;
@@ -1999,6 +2080,7 @@ Version: 3.2.60 -->
 
 			.win h3 {
 				margin: 0 0 10px;
+				font-size: 1.12rem;
 				font-size: clamp(1.12rem, 2vw, 1.3rem);
 				font-weight: 700;
 				letter-spacing: -0.035em;
@@ -2094,6 +2176,7 @@ Version: 3.2.60 -->
 
 			.work-intro h2 {
 				margin: 0 0 30px;
+				font-size: 1.4rem;
 				font-size: clamp(1.4rem, 8vw, 3.05rem);
 				font-weight: 700;
 				letter-spacing: -0.045em;
@@ -2102,6 +2185,7 @@ Version: 3.2.60 -->
 
 			@supports (font-size: 1cqi) {
 				.work-intro h2 {
+					font-size: 1.4rem;
 					font-size: clamp(1.4rem, 8.6cqi, 3.05rem);
 				}
 			}
@@ -2169,8 +2253,11 @@ Version: 3.2.60 -->
 				display: flex;
 				align-items: center;
 				flex-wrap: wrap;
+				grid-gap: 8px 16px;
 				gap: 8px 16px;
+				margin-top: 24px;
 				margin-top: clamp(24px, 3vh, 34px);
+				padding-top: 20px;
 				padding-top: clamp(20px, 2.4vh, 26px);
 				border-top: 1px solid var(--dark-line);
 			}
@@ -2229,6 +2316,7 @@ Version: 3.2.60 -->
 				margin: 0;
 				font-weight: 700;
 				letter-spacing: -0.025em;
+				font-size: 1.02rem;
 				font-size: clamp(1.02rem, 1.6vw, 1.18rem);
 				color: var(--on-dark);
 			}
@@ -2241,6 +2329,8 @@ Version: 3.2.60 -->
 			}
 
 			.ways {
+				gap: 14px;
+				grid-gap: clamp(14px, 1.8vw, 20px);
 				gap: clamp(14px, 1.8vw, 20px);
 			}
 
@@ -2254,6 +2344,8 @@ Version: 3.2.60 -->
 			.ways {
 				display: grid;
 				grid-template-columns: 1fr;
+				gap: 16px;
+				grid-gap: clamp(16px, 2vw, 22px);
 				gap: clamp(16px, 2vw, 22px);
 			}
 
@@ -2262,6 +2354,7 @@ Version: 3.2.60 -->
 				flex-direction: column;
 				border-radius: 4px;
 				background: var(--dark-2);
+				padding: 22px 24px 0;
 				padding: clamp(22px, 2.2vw, 28px) clamp(24px, 2.4vw, 32px) 0;
 				overflow: hidden;
 			}
@@ -2269,6 +2362,7 @@ Version: 3.2.60 -->
 			.way-top {
 				display: flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 				margin-bottom: 14px;
 			}
@@ -2295,6 +2389,7 @@ Version: 3.2.60 -->
 
 			.way h3 {
 				margin: 0;
+				font-size: 1.2rem;
 				font-size: clamp(1.2rem, 2vw, 1.42rem);
 				font-weight: 700;
 				letter-spacing: -0.035em;
@@ -2313,8 +2408,11 @@ Version: 3.2.60 -->
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				grid-gap: 14px;
 				gap: 14px;
+				margin: 0 calc(-1 * 24px);
 				margin: 0 calc(-1 * clamp(24px, 2.4vw, 32px));
+				padding: 17px 24px;
 				padding: 17px clamp(24px, 2.4vw, 32px);
 				background: rgba(242, 163, 133, 0.12);
 				text-decoration: none;
@@ -2354,6 +2452,7 @@ Version: 3.2.60 -->
 			}
 
 			.band.ink .ways-label.second {
+				margin: 0 0 20px;
 				margin: 0 0 clamp(20px, 2.6vh, 28px);
 				color: var(--on-dark-mut);
 			}
@@ -2368,9 +2467,11 @@ Version: 3.2.60 -->
 
 			.way-list {
 				list-style: none;
+				margin: 0 0 22px;
 				margin: 0 0 clamp(22px, 2.4vw, 28px);
 				padding: 0;
 				display: grid;
+				grid-gap: 5px;
 				gap: 5px;
 			}
 
@@ -2397,6 +2498,7 @@ Version: 3.2.60 -->
 			}
 
 			.way-slim {
+				padding-top: 18px;
 				padding-top: clamp(18px, 1.9vw, 22px);
 			}
 
@@ -2415,6 +2517,7 @@ Version: 3.2.60 -->
 			}
 
 			.way-slim h3 {
+				margin-bottom: 34px;
 				margin-bottom: clamp(34px, 4vw, 46px);
 			}
 
@@ -2430,6 +2533,7 @@ Version: 3.2.60 -->
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
+				grid-gap: 8px 14px;
 				gap: 8px 14px;
 				margin: 0;
 				font-family: var(--mono);
@@ -2471,6 +2575,7 @@ Version: 3.2.60 -->
 			}
 
 			.ways-label {
+				margin: 0 0 30px;
 				margin: 0 0 clamp(30px, 4vh, 46px);
 			}
 
@@ -2482,18 +2587,22 @@ Version: 3.2.60 -->
 
 				.pj h2.result {
 					max-width: none;
+					font-size: 1.4rem;
 					font-size: clamp(1.4rem, 3.8cqi, 2.6rem);
 				}
 			}
 
 			.pj+.pj {
+				margin-top: 56px;
 				margin-top: clamp(56px, 8vh, 88px);
+				padding-top: 56px;
 				padding-top: clamp(56px, 8vh, 88px);
 			}
 
 			.pj-grid {
 				display: grid;
 				grid-template-columns: 1fr;
+				grid-gap: 22px;
 				gap: 22px;
 			}
 
@@ -2501,6 +2610,8 @@ Version: 3.2.60 -->
 			(min-width: 1200px) {
 				.pj-grid {
 					grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+					gap: 28px;
+					grid-gap: clamp(28px, 3.4vw, 48px);
 					gap: clamp(28px, 3.4vw, 48px);
 					align-items: start;
 				}
@@ -2530,6 +2641,7 @@ Version: 3.2.60 -->
 				display: flex;
 				flex-wrap: wrap;
 				align-items: baseline;
+				grid-gap: 4px 12px;
 				gap: 4px 12px;
 				margin: 0 0 14px;
 			}
@@ -2572,6 +2684,7 @@ Version: 3.2.60 -->
 			.pj .result {
 				display: block;
 				margin: 0;
+				font-size: 1.7rem;
 				font-size: clamp(1.7rem, 3.6vw, 2.6rem);
 				font-weight: 700;
 				letter-spacing: -0.045em;
@@ -2625,6 +2738,8 @@ Version: 3.2.60 -->
 				border-bottom: 1px solid var(--line);
 				display: flex;
 				flex-wrap: wrap;
+				gap: 14px 28px;
+				grid-gap: 14px clamp(28px, 4vw, 56px);
 				gap: 14px clamp(28px, 4vw, 56px);
 			}
 
@@ -2650,6 +2765,7 @@ Version: 3.2.60 -->
 			.pj .chips {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 6px;
 				gap: 6px;
 				margin: 0 0 18px;
 			}
@@ -2675,6 +2791,7 @@ Version: 3.2.60 -->
 				list-style: none;
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 				padding: 9px 16px;
 				border: 1px solid var(--line);
@@ -2748,6 +2865,7 @@ Version: 3.2.60 -->
 				list-style: none;
 				display: inline-flex;
 				align-items: center;
+				grid-gap: 9px;
 				gap: 9px;
 				font-family: var(--sans);
 				font-size: var(--min-ui);
@@ -2795,6 +2913,7 @@ Version: 3.2.60 -->
 			.mini {
 				display: grid;
 				grid-template-columns: 1fr;
+				grid-gap: 18px;
 				gap: 18px;
 				align-items: start;
 				text-decoration: none;
@@ -2802,7 +2921,9 @@ Version: 3.2.60 -->
 			}
 
 			.mini+.mini {
+				margin-top: 28px;
 				margin-top: clamp(28px, 4vh, 46px);
+				padding-top: 28px;
 				padding-top: clamp(28px, 4vh, 46px);
 				border-top: 1px solid var(--line);
 			}
@@ -2810,6 +2931,8 @@ Version: 3.2.60 -->
 			@media (min-width: 760px) {
 				.mini {
 					grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+					gap: 24px;
+					grid-gap: clamp(24px, 3.4vw, 44px);
 					gap: clamp(24px, 3.4vw, 44px);
 					align-items: center;
 				}
@@ -2856,6 +2979,7 @@ Version: 3.2.60 -->
 			.mini .chips {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 6px;
 				gap: 6px;
 			}
 
@@ -2866,6 +2990,8 @@ Version: 3.2.60 -->
 			.offer-grid {
 				display: grid;
 				grid-template-columns: 1fr;
+				gap: 14px;
+				grid-gap: clamp(14px, 1.8vw, 20px);
 				gap: clamp(14px, 1.8vw, 20px);
 			}
 
@@ -2891,12 +3017,14 @@ Version: 3.2.60 -->
 				flex-direction: column;
 				background: var(--paper);
 				border-radius: 4px;
+				padding: 24px;
 				padding: clamp(24px, 3vw, 34px);
 				overflow: hidden;
 			}
 
 			.offer h3 {
 				margin: 0 0 10px;
+				font-size: 1.12rem;
 				font-size: clamp(1.12rem, 1.8vw, 1.32rem);
 				font-weight: 700;
 				letter-spacing: -0.03em;
@@ -2916,6 +3044,7 @@ Version: 3.2.60 -->
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
+				grid-gap: 12px 18px;
 				gap: 12px 18px;
 			}
 
@@ -2947,10 +3076,12 @@ Version: 3.2.60 -->
 			.offer-main {
 				background: var(--dark);
 				color: var(--on-dark);
+				padding: 30px;
 				padding: clamp(30px, 4vw, 48px);
 			}
 
 			.offer-main h3 {
+				font-size: 1.6rem;
 				font-size: clamp(1.6rem, 3.2vw, 2.3rem);
 				letter-spacing: -0.045em;
 				line-height: 1.1;
@@ -2987,6 +3118,7 @@ Version: 3.2.60 -->
 			.result {
 				display: block;
 				margin: 0 0 6px;
+				font-size: 1.08rem;
 				font-size: clamp(1.08rem, 1.9vw, 1.3rem);
 				font-weight: 700;
 				letter-spacing: -0.04em;
@@ -3007,6 +3139,7 @@ Version: 3.2.60 -->
 				padding: 0;
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 8px 26px;
 				gap: 8px 26px;
 			}
 
@@ -3032,6 +3165,7 @@ Version: 3.2.60 -->
 			.chips {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 6px;
 				gap: 6px;
 			}
 
@@ -3049,6 +3183,7 @@ Version: 3.2.60 -->
 			/* contact */
 			.contact {
 				background: var(--s1);
+				padding-top: calc(48px + 60px - var(--band-trim));
 				padding-top: calc(clamp(48px, 7.4vh, 92px) + 60px - var(--band-trim));
 			}
 
@@ -3143,6 +3278,7 @@ Version: 3.2.60 -->
 			.page-foot {
 				background: var(--dark);
 				color: var(--on-dark-mut);
+				padding: 28px 22px;
 				padding: clamp(28px, 4vh, 40px) clamp(22px, 5vw, 72px);
 			}
 
@@ -3191,7 +3327,9 @@ Version: 3.2.60 -->
 				--ai-accent: #3ed9d0;
 				--ai-glow: rgba(62, 217, 208, 0.55);
 				background: #212326;
+				padding-top: calc(48px + 8px - var(--band-trim));
 				padding-top: calc(clamp(48px, 7.4vh, 92px) + 8px - var(--band-trim));
+				padding-bottom: calc(48px + 28px);
 				padding-bottom: calc(clamp(48px, 7.4vh, 92px) + 28px);
 			}
 
@@ -3251,7 +3389,9 @@ Version: 3.2.60 -->
 			}
 
 			.head.head-2 {
+				margin: 0 0 16px;
 				margin: 0 0 clamp(16px, 2.2vh, 24px);
+				font-size: 1.4rem;
 				font-size: clamp(1.4rem, 8vw, 3.05rem);
 				line-height: 1.08;
 				letter-spacing: -0.045em;
@@ -3259,16 +3399,19 @@ Version: 3.2.60 -->
 
 			@supports (font-size: 1cqi) {
 				.head.head-2 {
+					font-size: 1.4rem;
 					font-size: clamp(1.4rem, 8.6cqi, 3.05rem);
 				}
 			}
 
 			#ai .head.head-2 {
+				font-size: 1.4rem;
 				font-size: clamp(1.4rem, 8vw, 3.5rem);
 			}
 
 			@supports (font-size: 1cqi) {
 				#ai .head.head-2 {
+					font-size: 1.4rem;
 					font-size: clamp(1.4rem, 8.6cqi, 3.5rem);
 				}
 			}
@@ -3276,135 +3419,6 @@ Version: 3.2.60 -->
 			.head-2 span {
 				display: block;
 				white-space: nowrap;
-			}
-
-			.ai-lead {
-				margin: 14px 0 0;
-				max-width: 62ch;
-				font-size: clamp(1.02rem, 1.5vw, 1.16rem);
-				line-height: 1.6;
-				color: var(--on-dark-mut);
-			}
-
-			.ai-lead em {
-				font-style: normal;
-				color: #fff;
-			}
-
-			.ai-br {
-				display: none;
-			}
-
-			@container (min-width: 560px) {
-				.ai-br {
-					display: inline;
-				}
-			}
-
-			.ai-grid {
-				display: grid;
-				gap: 26px;
-				margin: calc(clamp(28px, 3.4vh, 38px) + 30px) 0 0;
-				max-width: 62ch;
-			}
-
-			.ai-item {
-				padding-top: 15px;
-				border-top: 1px solid var(--dark-line);
-			}
-
-			.ai-item dt {
-				font-size: clamp(1.12rem, 1.85vw, 1.32rem);
-				font-weight: 700;
-				letter-spacing: -0.035em;
-				line-height: 1.3;
-				color: var(--ai-accent);
-			}
-
-			.ai-item dd {
-				margin: 9px 0 0;
-				font-size: 1rem;
-				line-height: 1.6;
-				color: var(--on-dark-mut);
-			}
-
-			.ai-item dd b {
-				font-weight: 700;
-				color: #fff;
-			}
-
-			@container (min-width: 720px) {
-				.ai-grid {
-					grid-template-columns: repeat(3, 1fr);
-					gap: 30px;
-					max-width: none;
-				}
-			}
-
-			.ai-close {
-				display: grid;
-				gap: 30px;
-				margin: calc(clamp(28px, 3.4vh, 36px) + 30px) 0 0;
-				padding-top: 24px;
-				border-top: 1px solid var(--dark-line);
-			}
-
-			.ai-close>div+div {
-				margin-top: 18px;
-			}
-
-			@container (min-width: 720px) {
-				.ai-close>div+div {
-					margin-top: 0;
-				}
-			}
-
-			@container (min-width: 720px) {
-				.ai-close {
-					grid-template-columns: repeat(3, 1fr);
-					gap: 30px;
-					align-items: start;
-				}
-
-				.ai-close>div:first-child {
-					grid-column: span 2;
-				}
-			}
-
-			.ai-offer {
-				margin: 0;
-				max-width: 44ch;
-				font-size: 1rem;
-				line-height: 1.6;
-				color: var(--on-dark-mut);
-			}
-
-			.ai-offer b {
-				display: block;
-				margin-bottom: 8px;
-				font-size: clamp(1.12rem, 1.85vw, 1.32rem);
-				font-weight: 700;
-				letter-spacing: -0.035em;
-				line-height: 1.3;
-				color: #fff;
-			}
-
-			.ai-link {
-				display: inline-block;
-				margin-top: 14px;
-				font-family: var(--mono);
-				font-weight: 400;
-				letter-spacing: -0.03rem;
-				font-size: var(--min-ui);
-				color: var(--ai-accent);
-				text-decoration: none;
-				border-bottom: 1px solid rgba(62, 217, 208, 0.4);
-				padding-bottom: 3px;
-			}
-
-			.ai-link:hover,
-			.ai-link:focus-visible {
-				border-bottom-color: var(--ai-accent);
 			}
 
 			.ai-tools-label {
@@ -3429,16 +3443,6 @@ Version: 3.2.60 -->
 				display: block;
 			}
 
-			.ai-stack {
-				margin: 13px 0 0;
-				max-width: 38ch;
-				font-family: var(--mono);
-				font-weight: 400;
-				letter-spacing: -0.03rem;
-				font-size: var(--min-ui);
-				line-height: 1.75;
-				color: var(--on-dark-mut);
-			}
 			/* sustainability and form labels */
 			.contact .field-label {
 				display: block;
@@ -3448,7 +3452,9 @@ Version: 3.2.60 -->
 			}
 
 			.carbon-section {
+				padding-top: calc(48px + 50px - var(--band-trim));
 				padding-top: calc(clamp(48px, 7.4vh, 92px) + 50px - var(--band-trim));
+				padding-bottom: calc(48px + 50px);
 				padding-bottom: calc(clamp(48px, 7.4vh, 92px) + 50px);
 				--ink: #304438;
 				--muted: #536055;
@@ -3520,6 +3526,7 @@ Version: 3.2.60 -->
 			}
 
 			.carbon-value {
+				font-size: 2rem;
 				font-size: clamp(2rem, 4.5vw, 3.5rem);
 				font-weight: 700;
 				letter-spacing: -0.06em;
@@ -3538,6 +3545,7 @@ Version: 3.2.60 -->
 
 			.carbon-section h2 {
 				margin: 0 0 12px;
+				font-size: 1.5rem;
 				font-size: clamp(1.5rem, 3vw, 2rem);
 			}
 
@@ -3555,10 +3563,12 @@ Version: 3.2.60 -->
 			.carbon-links {
 				display: flex;
 				flex-wrap: wrap;
+				grid-gap: 8px;
 				gap: 8px;
 			}
 
 			.carbon-links a {
+				grid-gap: 6px;
 				gap: 6px;
 				color: var(--accent-text);
 			}
@@ -3600,6 +3610,7 @@ Version: 3.2.60 -->
 
 			.stage .hero {
 				position: absolute;
+				left: 24px;
 				left: clamp(24px, 7vw, 108px);
 				transform: translateY(-50%);
 				padding: 0;
@@ -3627,6 +3638,9 @@ Version: 3.2.60 -->
 			}
 
 			.stage h1 {
+				font: 400 3rem/1.02 Georgia,
+					'Times New Roman',
+					serif;
 				font:
 					400 clamp(3rem, 6.3vw, 6.5rem)/1.02 Georgia,
 					'Times New Roman',
@@ -3640,11 +3654,11 @@ Version: 3.2.60 -->
 			}
 
 			.stage .hero .lead {
+				font-size: 1.05rem;
 				font-size: clamp(1.05rem, 1.6vw, 1.35rem);
 				margin: 28px 0 0;
 				color: #625569;
 			}
-
 
 			.stage .track-layer {
 				position: absolute;
@@ -3658,7 +3672,9 @@ Version: 3.2.60 -->
 				opacity: 0;
 				transform: translateY(42px);
 				background: transparent !important;
+				padding-left: 24px;
 				padding-left: clamp(24px, 7vw, 108px);
+				padding-right: 24px;
 				padding-right: clamp(24px, 7vw, 108px);
 			}
 
@@ -3668,6 +3684,7 @@ Version: 3.2.60 -->
 
 			.stage .track-inner .stat b {
 				color: #ffb18c;
+				font-size: 1rem;
 				font-size: clamp(1rem, 2vw, 1.6rem);
 			}
 
@@ -3719,6 +3736,7 @@ Version: 3.2.60 -->
 				}
 
 				.stage h1 {
+					font-size: 2.8rem;
 					font-size: clamp(2.8rem, 10vw, 4.5rem);
 					max-width: 15ch;
 				}
@@ -3738,6 +3756,7 @@ Version: 3.2.60 -->
 
 				.stage .track-inner .stats {
 					grid-template-columns: repeat(2, minmax(0, 1fr));
+					grid-gap: 28px 18px;
 					gap: 28px 18px;
 				}
 
@@ -3800,16 +3819,19 @@ Version: 3.2.60 -->
 			}
 
 			.stage .hero {
+				left: 24px;
 				left: max(24px, calc((100vw - 1160px) / 2));
 			}
 
 			.stage h1 {
+				font-size: 3.1rem;
 				font-size: clamp(3.1rem, 6.1vw, 6.1rem);
 				max-width: 20ch;
 			}
 
 			.stage .opening-identity {
 				margin-bottom: 44px;
+				grid-gap: 0;
 				gap: 0;
 			}
 
@@ -3839,6 +3861,7 @@ Version: 3.2.60 -->
 			}
 
 			.stage .track-inner .stat b {
+				font-size: 1.3rem;
 				font-size: clamp(1.3rem, 2vw, 1.9rem);
 			}
 
@@ -3854,6 +3877,7 @@ Version: 3.2.60 -->
 				}
 
 				.stage h1 {
+					font-size: 2.8rem;
 					font-size: clamp(2.8rem, 10vw, 4.5rem);
 				}
 
@@ -3873,6 +3897,7 @@ Version: 3.2.60 -->
 
 			@media (max-width: 540px) {
 				.stage .track-inner .stats {
+					grid-gap: 28px 20px;
 					gap: 28px 20px;
 				}
 			}
@@ -3896,6 +3921,8 @@ Version: 3.2.60 -->
 
 			@media (prefers-reduced-motion: reduce) {
 				.stage .track-inner {
+					padding-top: 64px;
+					padding-bottom: 64px;
 					padding-block: 64px;
 				}
 			}
@@ -3903,6 +3930,7 @@ Version: 3.2.60 -->
 			.stage h1 {
 				font-family: var(--sans);
 				font-weight: 650;
+				font-size: 3rem;
 				font-size: clamp(3rem, 6.3vw, 6.3rem);
 				line-height: 1.03;
 				letter-spacing: -0.065em;
@@ -3925,20 +3953,25 @@ Version: 3.2.60 -->
 			}
 
 			.stage .track-inner {
+				padding-top: 48px;
+				padding-bottom: 48px;
 				padding-block: 48px;
 			}
 
 			.stage .track-inner .stats {
+				grid-gap: 28px 40px;
 				gap: 28px 40px;
 			}
 
 			.stage .track-inner .stat b {
+				font-size: 1rem;
 				font-size: clamp(1rem, 1.8vw, 1.6rem);
 			}
 
 			@media (max-width: 800px) {
 
 				.stage .track-inner .stats {
+					grid-gap: 24px 10px;
 					gap: 24px 10px;
 				}
 			}
@@ -3955,7 +3988,6 @@ Version: 3.2.60 -->
 					height: 136vh;
 				}
 			}
-
 
 			.stage {
 				height: 136vh;
@@ -3992,6 +4024,7 @@ Version: 3.2.60 -->
 				}
 
 				.rail-in {
+					padding-top: 40px;
 					padding-top: clamp(40px, 5vh, 64px);
 				}
 
@@ -4022,6 +4055,7 @@ Version: 3.2.60 -->
 				#about .hire-links {
 					display: grid;
 					grid-template-columns: repeat(2, minmax(0, 1fr));
+					grid-gap: 4px 10px;
 					gap: 4px 10px;
 				}
 
@@ -4053,6 +4087,7 @@ Version: 3.2.60 -->
 				position: absolute;
 				fill: #fff;
 				opacity: 0.12;
+				width: 120px;
 				width: clamp(120px, 17vw, 280px);
 				height: auto;
 			}
@@ -4065,6 +4100,7 @@ Version: 3.2.60 -->
 			.stage .cloud-2 {
 				left: 76%;
 				top: 64%;
+				width: 105px;
 				width: clamp(105px, 13vw, 220px);
 			}
 
@@ -4184,7 +4220,6 @@ Version: 3.2.60 -->
 			.roof-scene:not(.is-active) * {
 				animation-play-state: paused !important;
 			}
-
 
 			@keyframes bird-talk {
 
@@ -4418,6 +4453,7 @@ Version: 3.2.60 -->
 				transform: none;
 				display: grid;
 				align-content: center;
+				padding: 180px 24px 80px;
 				padding: 180px clamp(24px, 7vw, 108px) 80px;
 			}
 
@@ -4590,6 +4626,7 @@ Version: 3.2.60 -->
 
 			@media (min-width: 1000px) {
 				.stage .hero .lead {
+					font-size: 1.35rem;
 					font-size: clamp(1.35rem, 1.8vw, 1.65rem);
 				}
 			}
@@ -4622,7 +4659,6 @@ Version: 3.2.60 -->
 				position: relative;
 			}
 
-
 			.stage .depth-greeting {
 				position: absolute;
 				z-index: 2;
@@ -4636,6 +4672,7 @@ Version: 3.2.60 -->
 				margin: 0;
 				padding: 24px;
 				color: var(--purple-text);
+				font: 600 2rem/1.12 var(--sans);
 				font: 600 clamp(2rem, 4vw, 4rem)/1.12 var(--sans);
 				letter-spacing: -0.055em;
 				text-align: center;
@@ -4665,7 +4702,6 @@ Version: 3.2.60 -->
 			.stage .opening-identity .rail-role {
 				color: #ffb18c;
 			}
-
 
 			.stage .lead-word {
 
@@ -4702,8 +4738,6 @@ Version: 3.2.60 -->
 			.stage h1 {
 				color: #ffb18c;
 			}
-
-
 
 			.stage .track-inner,
 			.stage .track-inner .label,
@@ -4831,32 +4865,18 @@ Version: 3.2.60 -->
 				animation-play-state: paused !important;
 			}
 
-			/* Constant apricot star glow with a purple outline behind the fill. */
+			/* Plain text paint stays legible in older Android and desktop engines. */
 			.stage .hero h1, .stage .hero .lead,
 			.stage .hero .hero-word, .stage .hero .lead-word {
-				text-shadow: 0 0 7px rgba(255, 177, 140, 0.06), 0 0 12px rgba(255, 177, 140, 0.08);
-				-webkit-text-stroke: 2px #361f54;
-				paint-order: stroke fill;
-			}
-			/* Older Blink parses paint-order for SVG but ignores it on HTML text.
-			 * Put the subtitle outline behind its thin letters in every browser.
-			 * The 1px outer edge matches the visible half of a 2px text stroke. */
-			.stage .hero .lead,
-			.stage .hero .lead-word {
+				color: #ffb18c;
+				-webkit-text-fill-color: #ffb18c;
 				-webkit-text-stroke: 0;
-				text-shadow:
-					-1px 0 0 #361f54, 1px 0 0 #361f54,
-					0 -1px 0 #361f54, 0 1px 0 #361f54,
-					-0.7px -0.7px 0 #361f54, 0.7px -0.7px 0 #361f54,
-					-0.7px 0.7px 0 #361f54, 0.7px 0.7px 0 #361f54,
-					0 0 7px rgba(255, 177, 140, 0.06),
-					0 0 12px rgba(255, 177, 140, 0.08);
+				text-shadow: none;
 			}
 			.stage .opening-identity.blob-finished::before { display: none; }
 			.stage.effects-sleeping *,
 			.stage.effects-sleeping *::before,
 			.stage.effects-sleeping *::after { animation-play-state: paused !important; }
-
 
 			/* Freeze decorative work while idle or in a background tab. */
 			html.motion-resting *, html.motion-resting *::before, html.motion-resting *::after {
@@ -4886,21 +4906,15 @@ Version: 3.2.60 -->
 			.stage .track-inner .label,
 			.stage .track-inner .stat b,
 			.stage .track-inner .stat span { color: #14161a; }
-			@supports (-webkit-background-clip: text) or (background-clip: text) {
-				.stage .track-inner .label,
-				.stage .track-inner .stat b,
-				.stage .track-inner .stat span {
-					background-image: linear-gradient(to bottom, #361f54, #14161a);
-					background-size: 100% var(--record-gradient-height, 100%);
-					background-position: 0 var(--record-gradient-y, 0px);
-					background-repeat: no-repeat;
-					-webkit-background-clip: text;
-					background-clip: text;
-					-webkit-text-fill-color: transparent;
-				}
+			/* Solid text paint avoids Safari's clipped-gradient compositing artifacts.
+			 * Colour is sampled once per text block during layout measurement. */
+			.stage .track-inner .label,
+			.stage .track-inner .stat b,
+			.stage .track-inner .stat span {
+				-webkit-text-fill-color: currentColor;
 			}
+
 			/* A tiny static colour adjustment preserves the bird's white paper and linework. */
-			
 
 			/* A readable, correctly ordered fallback when motion is disabled. */
 			@media (prefers-reduced-motion: reduce) {
@@ -4914,11 +4928,9 @@ Version: 3.2.60 -->
 				.stage .track-inner .label, .stage .track-inner .stat { opacity: 1 !important; visibility: visible !important; }
 			}
 
-
 			.depth-cover { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1; background: #ffb18c; pointer-events: none; }
 			.depth-vector { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
-			.depth-vector text { fill: #ffb18c; stroke: #361f54; stroke-width: 2px; paint-order: stroke fill; }
-
+			.depth-vector text { fill: #ffb18c; stroke: none; }
 
 			/* Safari 13 has no CSS aspect-ratio; reserve media space without JS. */
 			@supports not (aspect-ratio: 1 / 1) {
@@ -4927,12 +4939,58 @@ Version: 3.2.60 -->
 				.pj-shot::before { content: ''; display: block; padding-top: 62.5%; }
 				.pj-shot img { position: absolute; top: 0; left: 0; }
 			}
-		
+
 .carbon-section { padding-bottom: 0; }
 .carbon-section .carbon-links:last-child { margin-bottom: 0; }
-.carbon-owl { width: 200px; height: 128px; margin: 17px 0 0 calc(5px - clamp(22px, 5vw, 72px)); overflow: hidden; pointer-events: none; }
+.carbon-owl { width: 200px; height: 128px; margin: 17px 0 0 -17px; margin: 17px 0 0 calc(5px - clamp(22px, 5vw, 72px)); overflow: hidden; pointer-events: none; }
 .carbon-owl svg { display: block; width: 100%; height: 100%; }
+
+/* Direct work access, independent of the scroll introduction. */
+.intro-shortcuts { position:absolute; z-index:6; bottom:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:flex-end; color:#361f54; }
+.intro-shortcuts[hidden] { display:none; }
+.intro-shortcuts a { max-width:45%; padding:9px 10px; border-radius:8px; background:#ffb18c; color:inherit; font-size:14px; font-weight:600; line-height:1.3; text-decoration:underline; text-underline-offset:4px; }
+.intro-shortcuts a:focus { outline:2px solid currentColor; outline-offset:4px; }
+.intro-shortcuts .intro-cv { display:flex; align-items:center; }
+.intro-cv svg { width:20px; height:20px; flex-shrink:0; margin-right:8px; fill:currentColor; }
+.project-skip-cover { position:fixed; inset:0; top:0; right:0; bottom:0; left:0; z-index:10000; background:#14161a; opacity:0; pointer-events:none; transition:opacity 160ms ease-in-out; }
+.project-skip-cover.is-active { opacity:1; pointer-events:auto; }
+@media (max-width:600px) {
+ .intro-shortcuts { left:10px; right:10px; }
+ .intro-shortcuts a { font-size:12px; padding:9px 8px; }
+ .stage .opening.has-return-shortcuts .depth-arrow { bottom:85px; }
+}
+@media (prefers-reduced-motion:reduce) { .project-skip-cover { transition:none; } }
+.ai-notes { max-width:680px; margin:28px 0; }
+.ai-notes p { margin:0 0 14px; font-size:18px; line-height:1.6; }
+.ai-tool-row { display:flex; align-items:center; flex-wrap:wrap; }
+.ai-tool-row .ai-tools-label { margin:0; }
+.ai-tool-row .ai-tool { display:inline-flex; align-items:center; padding:12px; }
+.ai-tool-row .brand { width:138px; height:30px; }
+.ai-tool-row .openai-brand { width:48px; height:48px; }
+@media (prefers-reduced-motion:reduce) { .ai-flick { animation:none; } }
+/* Keep both tool marks secondary, and readable on narrow screens. */
+.ai-tool-row .ai-tools-label { flex-basis:100%; margin-bottom:12px; }
+.ai-tool-row .ai-tool { margin:0; color:inherit; }
+.ai-tool-row .ai-tool + .ai-tool { margin-left:16px; }
+#ai .head-2 span { white-space:normal; }
+@media (max-width:480px) { #ai .head.head-2 { font-size:26px; } }
+@media (max-width:359px) { #ai .head.head-2 { font-size:22px; } }
 </style>
+		<!-- Content remains readable if scripts are unavailable. -->
+		<noscript><style>
+			.stage, .stage .intro-scroll { height: auto !important; }
+			.stage .sticky { display: flex; flex-direction: column; height: auto; position: relative; }
+			.stage .opening { order: 0; position: relative; }
+			.stage .track-layer { order: 1; background: #ffb18c; position: relative; }
+			.stage .track-layer:not(.track-text-layer) { display: none; }
+			.stage .hero { position: relative; min-height: 100vh; top: auto; right: auto; bottom: auto; left: auto; transform: none; }
+			.stage .track-text-layer { padding: 60px 0; }
+			.stage .track-inner .label, .stage .track-inner .stat { opacity: 1 !important; visibility: visible !important; }
+			.stage .opening-identity { top: 32px; left: 30px; color: #ffb18c; }
+			.stage .opening-identity .name { color: #ffb18c; }
+			.stage .opening-identity::before, .stage .roof-scene, .stage .cloud { display: none; }
+		</style></noscript>
+
 	</head>
 	<body id="top">
 
@@ -4996,6 +5054,10 @@ Version: 3.2.60 -->
 						</section>
 					</div>
 					<div class="opening">
+<nav class="intro-shortcuts" aria-label="Returning visitor shortcuts" hidden>
+<a href="#projects" data-quick-work>Skip to client projects</a>
+<a class="intro-cv" href="https://konradbuilds.github.io/assets/docs/Konrad-Sroka-CV-2026.pdf" target="_blank" rel="noopener" aria-label="Download CV, PDF (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v10l3.3-3.3 1.4 1.4L12 17l-5.7-5.9 1.4-1.4L11 13V3zM4 17h2v3h12v-3h2v5H4z" /></svg><span>Download CV</span></a>
+</nav>
 <div class="hero-bird" aria-hidden="true"><svg class="bird-art" xmlns="http://www.w3.org/2000/svg" width="150" height="225" viewBox="0 0 384 576" color="#361f54" aria-hidden="true"><g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,576.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
 <path d="M1652 5585 c-40 -7 -103 -22 -140 -34 -58 -17 -74 -19 -100 -9 -64 25 -191 -32 -218 -98 -8 -19 -18 -34 -24 -34 -21 0 -222 -144 -291 -209 -111 -102 -133 -149 -137 -286 -2 -65 3 -142 11 -188 l14 -79 -76 -51 c-335 -224 -513 -429 -460 -529 44 -83 352 -50 512 55 15 9 28 17 30 17 2 0 -7 -41 -20 -90 -25 -99 -46 -247 -37 -261 9 -15 40 -10 57 9 8 9 31 43 50 74 l34 57 6 -77 c11 -141 94 -322 148 -322 26 0 30 12 37 122 l7 93 28 -56 c49 -101 161 -180 143 -100 -4 14 -9 88 -13 164 l-6 139 49 -26 c55 -28 87 -64 168 -189 106 -162 158 -312 160 -462 1 -91 -2 -105 -27 -158 -19 -37 -44 -69 -73 -91 -41 -32 -49 -34 -97 -29 -48 4 -55 2 -92 -29 -22 -19 -58 -39 -81 -46 -22 -6 -57 -28 -77 -49 -34 -33 -45 -57 -62 -133 -3 -14 -50 -79 -106 -145 -110 -131 -189 -243 -189 -269 0 -19 21 -21 38 -4 21 21 13 -2 -12 -35 -57 -77 -126 -229 -126 -279 0 -27 27 -34 50 -13 29 26 25 15 -22 -61 -68 -113 -213 -404 -257 -520 -67 -172 -97 -330 -75 -388 15 -40 66 -10 127 74 15 21 17 22 13 5 -30 -122 -30 -293 0 -409 42 -163 120 -205 156 -83 l12 39 23 -91 c27 -109 80 -217 134 -276 74 -81 129 -64 129 38 l0 52 26 -40 c15 -22 43 -57 62 -77 36 -38 37 -38 113 -38 l77 0 48 63 c74 98 137 237 142 314 3 34 6 63 8 63 2 0 20 -10 39 -22 31 -20 35 -28 36 -68 1 -44 1 -44 11 -15 15 41 12 40 53 9 34 -26 70 -84 101 -164 l14 -35 -4 45 c-2 25 -7 54 -12 64 -6 16 -1 15 37 -8 311 -193 656 -182 884 26 36 33 67 59 69 57 6 -7 75 -185 97 -251 22 -64 34 -86 44 -76 7 6 -37 130 -90 253 l-38 88 19 34 c16 31 19 33 31 17 18 -25 106 -237 134 -321 20 -63 26 -73 46 -73 24 0 25 15 2 77 -6 16 2 44 31 107 22 46 40 91 40 100 0 9 5 16 10 16 6 0 10 -9 10 -20 0 -27 31 -26 58 3 27 29 75 136 93 207 7 30 14 105 14 167 l0 112 23 -29 c31 -39 57 -39 71 1 40 115 -23 307 -241 737 -129 252 -138 275 -122 287 16 11 17 18 6 67 -14 62 -89 213 -190 384 -38 65 -95 162 -125 214 -74 127 -110 175 -156 208 -22 15 -48 46 -60 70 -14 29 -32 48 -58 60 -21 9 -46 27 -56 39 -9 12 -32 26 -50 32 -30 10 -33 16 -49 84 -9 40 -48 158 -87 262 -142 381 -146 489 -21 576 l55 39 165 11 c91 6 201 9 245 6 144 -11 713 -112 974 -173 131 -31 148 -22 78 42 -145 132 -571 348 -894 455 l-133 44 0 47 c0 26 -6 65 -14 85 -8 21 -17 64 -20 95 -7 68 -36 144 -76 203 -19 27 -35 71 -46 121 -8 43 -20 87 -25 96 -11 21 -6 23 21 6 47 -30 36 34 -16 92 l-36 40 25 0 c14 0 29 5 32 10 10 17 -50 66 -104 86 -48 17 -51 20 -95 110 -105 212 -288 295 -544 249z m308 -72 c78 -38 146 -106 189 -187 17 -33 30 -61 27 -63 -2 -2 -14 1 -27 6 -17 6 -28 22 -36 53 -26 96 -128 162 -253 162 -165 0 -270 -93 -270 -239 0 -41 -4 -65 -11 -65 -17 0 -220 -104 -291 -149 -34 -22 -65 -38 -69 -35 -15 9 -31 145 -27 225 8 130 31 168 130 214 176 80 324 115 468 112 94 -3 112 -6 170 -34z m-591 -7 c-12 -12 -119 -54 -113 -45 8 13 83 48 103 49 8 0 12 -2 10 -4z m566 -85 l40 -18 -60 -8 c-89 -11 -185 -32 -227 -50 -47 -19 -48 -9 -5 33 64 62 171 81 252 43z m70 -19 c-3 -3 -11 0 -18 7 -9 10 -8 11 6 5 10 -3 15 -9 12 -12z m-817 -78 c-15 -35 -21 -69 -21 -119 0 -60 6 -95 39 -207 3 -11 -13 -30 -53 -61 -32 -25 -87 -75 -123 -111 -65 -67 -205 -155 -221 -139 -4 4 -12 55 -18 113 -19 180 3 252 110 357 83 81 293 232 306 219 2 -2 -7 -25 -19 -52z m850 30 c27 -5 52 -40 52 -70 0 -2 -30 -4 -67 -4 -86 0 -169 -14 -276 -45 -47 -13 -91 -26 -98 -27 -10 -2 -15 9 -17 34 -3 35 0 38 34 53 107 44 295 74 372 59z m154 -138 c31 -9 72 -22 90 -30 l33 -15 -40 5 c-22 3 -51 7 -65 9 -23 4 -23 4 -6 -8 10 -6 32 -23 49 -37 l30 -24 -39 -9 c-47 -9 -84 -42 -84 -74 0 -27 2 -28 41 -7 17 8 47 14 67 12 35 -3 38 -6 58 -58 12 -30 25 -72 28 -93 7 -36 6 -38 -13 -28 -28 16 -57 14 -94 -6 -18 -9 -36 -17 -42 -18 -36 -1 -45 -271 -11 -347 21 -48 23 -44 -26 -52 -58 -9 -116 -71 -148 -156 -23 -62 -57 -105 -138 -173 -26 -22 -31 -31 -22 -46 13 -25 72 -61 132 -81 l49 -16 -61 -38 c-62 -39 -74 -52 -41 -41 18 5 18 4 0 -47 -36 -105 -16 -211 94 -504 95 -251 111 -321 112 -484 0 -74 -4 -148 -8 -163 -5 -18 -4 -26 2 -23 14 9 40 93 49 161 8 57 9 59 20 33 48 -117 55 -371 13 -481 -40 -103 -93 -147 -179 -147 -133 0 -248 115 -407 410 -37 69 -90 156 -117 194 -27 37 -48 69 -46 70 2 1 22 16 46 34 l43 34 -6 -29 c-12 -63 57 99 71 168 18 85 14 157 -16 276 -26 102 -114 281 -184 374 -61 81 -65 89 -38 89 9 1 -4 9 -30 19 -106 42 -187 117 -211 197 l-16 49 0 -45 c0 -25 8 -65 19 -89 16 -34 20 -66 21 -155 0 -61 4 -132 8 -158 4 -27 5 -48 2 -48 -12 0 -71 106 -92 164 -11 32 -23 87 -26 123 -4 39 -9 59 -14 51 -9 -17 -39 -210 -40 -264 -1 -22 -4 -50 -9 -64 -7 -23 -10 -20 -38 40 -61 127 -72 269 -36 464 8 43 14 81 14 85 -1 14 -25 -38 -71 -152 -48 -119 -97 -213 -105 -204 -9 9 38 215 77 335 23 68 39 126 36 128 -2 2 -20 -22 -40 -53 -32 -53 -87 -116 -87 -100 0 3 13 28 28 54 30 52 51 102 108 258 20 55 55 135 78 179 146 278 741 590 1091 571 44 -2 106 -11 137 -19z m136 -400 c41 -22 78 -65 106 -126 35 -76 34 -80 -21 -80 -27 0 -79 -7 -118 -15 -38 -8 -74 -15 -79 -15 -5 0 -7 40 -4 89 5 107 27 148 86 160 2 1 15 -5 30 -13z m-1424 -167 c-13 -21 -64 -59 -160 -118 -219 -134 -348 -237 -421 -335 -48 -66 -58 -63 -15 5 43 67 169 186 295 279 119 87 309 210 316 204 2 -1 -5 -17 -15 -35z m-81 -201 c-75 -222 -119 -294 -201 -331 -125 -56 -298 -70 -336 -28 -15 16 -14 21 13 57 32 45 132 134 150 134 6 0 11 6 11 13 1 6 23 29 51 51 60 46 341 236 350 236 3 0 -14 -59 -38 -132z m1607 68 c0 -35 5 -60 15 -70 18 -18 19 -27 2 -50 -13 -17 -16 -17 -83 3 -86 26 -102 35 -82 47 22 13 38 48 38 83 0 32 10 37 78 40 l32 1 0 -54z m76 -154 c-12 -11 -17 7 -9 34 l8 29 3 -28 c2 -16 1 -31 -2 -35z m-196 13 c36 -13 135 -44 220 -70 304 -91 633 -238 873 -389 59 -37 107 -69 107 -71 0 -2 -24 3 -52 11 -295 79 -1259 224 -1488 224 -33 0 -60 3 -60 8 1 4 21 23 46 42 33 26 56 58 90 125 82 161 111 175 264 120z m-135 -347 l110 -13 -75 -5 c-103 -7 -221 4 -256 24 -29 17 -28 17 41 12 39 -4 120 -12 180 -18z m69 -1101 c14 -18 37 -58 51 -88 24 -50 26 -44 9 27 -9 35 16 28 34 -8 33 -69 127 -532 154 -763 14 -122 18 -634 5 -754 -11 -105 2 -82 23 41 19 109 19 109 41 -17 17 -105 64 -242 105 -310 28 -46 35 -66 31 -91 -9 -52 -65 -185 -104 -244 -21 -32 -28 -49 -17 -40 30 24 52 51 93 112 l38 56 21 -44 c12 -25 22 -55 22 -68 0 -62 -116 -228 -210 -299 -113 -86 -222 -121 -375 -121 -181 0 -318 54 -531 212 -60 44 -131 93 -159 109 -46 27 -51 33 -57 75 -3 26 -9 56 -13 68 -6 19 -4 21 17 15 40 -12 170 -80 263 -139 185 -117 314 -166 456 -174 80 -4 109 -1 167 17 39 12 74 26 77 31 3 5 -13 2 -37 -7 -32 -13 -75 -17 -168 -17 -178 0 -234 22 -505 192 -66 42 -156 91 -200 108 -53 22 -84 41 -92 56 -44 82 -101 241 -107 293 -3 33 -8 78 -12 100 -5 39 -4 38 28 -25 43 -82 88 -153 94 -147 2 2 -16 53 -41 112 -57 135 -95 256 -95 299 0 31 2 32 34 28 74 -9 154 105 192 273 24 106 25 360 0 492 -57 312 -176 519 -276 481 -14 -5 -35 -19 -48 -31 -22 -20 -23 -20 -16 -2 10 28 44 64 76 81 51 26 105 16 157 -30 l24 -21 -11 21 c-7 12 -26 34 -44 49 l-32 27 25 19 c34 26 53 24 94 -13 48 -42 96 -114 185 -278 88 -163 115 -203 190 -284 143 -153 318 -169 417 -38 55 73 78 166 78 317 0 144 -15 220 -63 318 -32 64 -26 74 12 24z m227 -221 c47 -60 332 -562 373 -656 31 -74 31 -74 -53 38 -34 45 -64 82 -66 82 -9 0 50 -127 218 -465 234 -471 288 -609 287 -737 -1 -41 -1 -42 -16 -23 -8 11 -45 78 -81 148 -67 132 -90 159 -55 64 72 -192 69 -458 -7 -622 l-28 -60 -6 55 c-18 164 -24 194 -29 170 -3 -14 -15 -67 -27 -118 -22 -95 -77 -252 -89 -252 -4 1 -35 66 -69 146 l-61 146 19 42 c27 59 24 98 -16 176 -29 57 -33 74 -25 95 15 39 12 66 -10 105 -11 19 -34 62 -50 95 -29 59 -29 61 -15 120 7 33 21 80 30 104 15 43 15 44 -3 28 -10 -9 -29 -38 -42 -64 l-24 -48 -12 50 c-26 101 -45 265 -54 465 -17 330 -51 577 -118 852 -31 125 -27 135 29 64z m-1213 4 c62 -51 131 -217 168 -405 27 -137 25 -432 -4 -538 -21 -75 -59 -154 -86 -176 -17 -14 -23 14 -32 142 -8 106 4 176 47 283 16 40 29 85 28 101 0 26 -1 25 -15 -11 -21 -59 -26 -57 -24 9 2 91 0 89 -31 -35 -101 -403 -125 -617 -93 -825 l6 -40 -26 43 c-34 57 -72 105 -62 77 4 -11 20 -54 36 -95 15 -41 56 -138 90 -215 64 -143 110 -267 110 -294 0 -8 -16 9 -36 39 -20 30 -32 46 -28 35 52 -143 65 -182 75 -233 12 -57 11 -64 -14 -130 -53 -133 -165 -280 -205 -268 -57 18 -178 187 -218 304 -10 28 -21 52 -24 52 -3 0 -4 -67 -2 -150 2 -91 0 -150 -6 -150 -19 0 -80 78 -110 143 -44 92 -69 196 -82 339 -6 68 -13 124 -15 126 -1 2 -15 -47 -30 -110 -29 -121 -52 -188 -65 -188 -13 0 -48 101 -61 176 -25 143 10 380 81 555 15 38 25 69 21 69 -4 0 -40 -55 -81 -122 -87 -145 -138 -218 -152 -218 -28 0 26 219 94 379 77 181 242 495 374 709 35 56 60 102 56 102 -4 0 -53 -48 -110 -107 l-103 -108 21 53 c34 90 107 210 221 367 41 56 42 58 13 38 -17 -12 -37 -29 -44 -38 -7 -9 -27 -26 -44 -38 -27 -19 -25 -14 19 43 75 98 217 261 259 298 42 37 52 38 84 12z m24 -1107 c6 -42 4 -48 -11 -38 -13 8 -15 75 -2 75 5 0 11 -17 13 -37z" />
 <path d="M2001 5331 c-19 -12 -4 -31 25 -31 27 0 33 24 8 34 -19 7 -16 8 -33 -3z" />
@@ -5080,7 +5142,6 @@ Version: 3.2.60 -->
 								<div class="opening-identity">
 									<img class="avatar"
 										src="https://konradbuilds.github.io/assets/img/konrad.webp"
-										onerror="this.onerror=null;this.src='data:image/jpeg;base64,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';"
 										alt="Konrad Sroka" width="74" height="73"  loading="eager" fetchpriority="high" decoding="async" />
 									<div>
 										<p class="name">Konrad Sroka</p>
@@ -5774,7 +5835,6 @@ Version: 3.2.60 -->
 						title="Return to the portfolio introduction">
 						<img class="avatar"
 							src="https://konradbuilds.github.io/assets/img/konrad.webp"
-										onerror="this.onerror=null;this.src='data:image/jpeg;base64,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';"
 							alt="Konrad Sroka" width="74" height="73"  loading="lazy" decoding="async" />
 						<div>
 							<p class="name">Konrad Sroka</p>
@@ -5846,7 +5906,7 @@ Version: 3.2.60 -->
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">311 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">298 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -5956,6 +6016,8 @@ Version: 3.2.60 -->
 										<li>Open source</li>
 										<li>WordPress</li>
 										<li>Plugin</li>
+										<li>Gutenberg</li>
+										<li>Migration</li>
 									</ul>
 									<ul class="links">
 										<li><a href="https://wordpress.org/plugins/konrads-editable-html/"
@@ -6020,7 +6082,7 @@ Version: 3.2.60 -->
 									<p>A simple guide to estimate the monthly API cost for your
 										<i>simple</i> AI feature, like chat box, summariser, simple
 										text prompts. Compare 12 models, see the monthly bill, what
-										it costs if someone abuses it, and what to about it. No
+										it costs if someone abuses it, and what to do about it. No
 										signup. Nothing stored. Visual overviews and useful tips.
 									</p>
 
@@ -6028,6 +6090,8 @@ Version: 3.2.60 -->
 										<li>Free</li>
 										<li>Open source</li>
 										<li>AI</li>
+										<li>Web app</li>
+										<li>Calculator</li>
 									</ul>
 									<ul class="links">
 										<li><a href="https://konradbuilds.github.io/ai-cost-estimator/"
@@ -6125,6 +6189,7 @@ Version: 3.2.60 -->
 								<span class="block-title">Software released</span>
 								<div class="entry">
 									<h3>Custom Community Theme</h3>
+									<span class="meta">Released 2010</span>
 									<p>Designed and co-developed this free WordPress theme that
 										reached #1 on WordPress.org's weekly download charts. Free
 										and premium version. Acquired by Macho Themes in 2016.</p>
@@ -6142,6 +6207,7 @@ Version: 3.2.60 -->
 								</div>
 								<div class="entry">
 									<h3>_tk Starter Theme</h3>
+									<span class="meta">Released 2013</span>
 									<p>Built for developers. Open-source WordPress starter theme
 										based on _s by Automattic and Bootstrap. 400+ GitHub stars
 										and 150 forks, and featured in WordPress publications.</p>
@@ -6156,8 +6222,9 @@ Version: 3.2.60 -->
 								</div>
 								<div class="entry">
 									<h3>Plugin Contributions</h3>
-									<p>Contributed to BuddyForms, a WordPress form builder &mdash;
-										core plugin and add-ons &mdash; plus a couple of smaller
+									<span class="meta">BuddyForms · 2014</span>
+									<p>Contributed to the BuddyForms form builder &mdash;
+										the core plugin and add-ons &mdash; plus smaller
 										tools like TK Google Fonts.</p>
 									<ul class="links">
 										<li><a href="https://themekraft.com/plugins/buddyforms/" target="_blank" rel="noopener"
@@ -6196,7 +6263,7 @@ Version: 3.2.60 -->
 										<h3><a href="https://themekraft.com" target="_blank" rel="noopener"
 											title="Visit ThemeKraft for WordPress themes and plugins (opens in a new tab)">ThemeKraft.com</a></h3>
 										<span class="meta">Co-founder · 2010–2014</span>
-										<p>Themes &amp; plugins for WordPress &amp; BuddyPress. I
+										<p>Themes &amp; plugins for WordPress &amp; BuddyPress. I created the name and visual identity, and worked with Sven on the themes&rsquo; design options. I
 											left in 2014 to move to Australia. The company was sold
 											in 2024.</p>
 									</div>
@@ -6305,8 +6372,7 @@ Version: 3.2.60 -->
 								<div>
 									<h3>mirrormirror.au</h3>
 									<p class="role">Lead developer &amp; design</p>
-									<p class="what">Design and development of the entire web
-										application, from idea to launch.</p>
+									<p class="what">Led the design and development from idea to launch, working with the owner, agency, legal team and another developer.</p>
 								</div>
 							</div>
 							<div class="job">
@@ -6485,33 +6551,24 @@ Version: 3.2.60 -->
 						<article class="pj" id="pj-mirror">
 							<div class="pj-name">
 								<h3><a href="https://mirrormirror.au" target="_blank" rel="noopener"
-									title="Visit Mirror Mirror, the health retreat featured in this project (opens in a new tab)">Mirror Mirror</a></h3><span
+									title="Visit Mirror Mirror, the practitioner directory featured in this project (opens in a new tab)">Mirror Mirror</a></h3><span
 									class="site">mirrormirror.au</span>
 							</div>
-							<h2 class="result">A patient directory for an industry where most of the
-								words people search with are banned.</h2>
+							<h2 class="result">A directory built inside advertising law.</h2>
 							<ul class="facts">
 								<li><b>Dec 2025</b>Launched</li>
 								<li><b>Lead</b>Design &amp; build</li>
 								<li><b>Compliant</b>Built inside strict advertising rules</li>
 							</ul>
 							<div class="pj-grid">
-								<a class="pj-shot" href="https://mirrormirror.au" target="_blank" rel="noopener" title="Visit Mirror Mirror, the health retreat featured in this project (opens in a new tab)">
+								<a class="pj-shot" href="https://mirrormirror.au" target="_blank" rel="noopener" title="Visit Mirror Mirror, the practitioner directory featured in this project (opens in a new tab)">
 									<img width="1200" height="900"
 										src="https://konradbuilds.github.io/assets/img/mirrormirror.webp"
 										alt="The Mirror Mirror website" loading="lazy" decoding="async" />
 								</a>
 								<div>
-									<p class="body">A directory for finding verified cosmetic
-										practitioners in Australia. I designed and built the whole
-										web application, from idea to launch &mdash; working with
-										the owner, a branding agency, the legal team and one other
-										developer.</p>
-									<div class="chips"><span class="chip">Web
-											Application</span><span
-											class="chip">WordPress</span><span
-											class="chip">Directory</span><span
-											class="chip">Automation</span></div>
+									<p class="body">In Australian cosmetic medicine, many of the words people search with cannot appear in public-facing copy. Type four letters of a restricted term and the search suggests the compliant wording instead.</p>
+									<div class="chips"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">UI design</span><span class="chip">Search</span><span class="chip">Maps</span></div>
 									<details class="story">
 										<summary>
 											<svg class="chev-d" viewBox="0 0 24 24"
@@ -6521,36 +6578,17 @@ Version: 3.2.60 -->
 											</svg>Read the full story
 										</summary>
 										<div class="in">
-											<h3>The hard part</h3>
-											<p>Cosmetic practice in Australia sits under strict
-												advertising rules &mdash; strict enough that most of
-												the words people actually search with aren't allowed
-												to appear. And there was no easy way to tell a
-												properly qualified practitioner from anyone else.
-											</p>
-											<h3>What we built</h3>
-											<p>Every practitioner is vetted and onboarded:
-												qualifications checked, information supplied, before
-												anyone is accepted. That makes for a long signup, so
-												we split it &mdash; a simple start, then payment,
-												then the rest.</p>
-											<p>The search is the bit I like. Look by area on a map,
-												or by treatment &mdash; and you can type the
-												ordinary, banned words people actually use. After
-												three characters it suggests the compliant terms
-												that mean the same thing. The rules stay intact and
-												the search still works the way a person expects.</p>
-											<h3>Where it is</h3>
-											<p>Live since December 2025 and still early. Logo,
-												colours, homepage direction and photos were given to
-												me. Marketing sits with another agency.</p>
-											<p><a href="https://konradbuilds.github.io/assets/docs/Konrad-Sroka-Reference-Mirror-Mirror.pdf"
-													target="_blank" rel="noopener"
-													title="Reference letter from the Mirror Mirror founder, PDF (opens in a new tab)">Read
-													the reference letter from the founder &rarr;</a>
-											</p>
-										</div>
-									</details>
+<h3>The problem</h3>
+<p>Strict advertising rules limit the brand names and treatment terms this directory can publish. People still need to find practitioners using the words they know.</p>
+<p>From the fourth character of a restricted term, the search suggests the compliant wording. The results use that wording too: familiar input, compliant output.</p>
+<h3>Verified means verified</h3>
+<p>Practitioners apply through a long form and upload their documents. Their profile stays invisible. The owner reviews the documents and approves each application by hand; only then do the verified badge and public profile go live.</p>
+<h3>Finding someone</h3>
+<p>By name, treatment, keyword, distance from you, or visually on the map. Over 50 services.</p>
+<h3>My part</h3>
+<p>Lead developer and designer, from idea to launch. I led the design and build, coordinating the owner, a branding agency, the legal team and another developer. He wrote the term-matching code. The agency supplied the logo, colours, homepage direction and photos. Launched December 2025.</p>
+<p><a href="https://konradbuilds.github.io/assets/docs/Konrad-Sroka-Reference-Mirror-Mirror.pdf" target="_blank" rel="noopener" title="Reference letter from the founder, PDF (opens in a new tab)">Read the founder&rsquo;s reference letter &rarr;</a></p>
+</div></details>
 								</div>
 							</div>
 						</article>
@@ -6566,7 +6604,7 @@ Version: 3.2.60 -->
 								of keeping it running.</h2>
 							<ul class="facts">
 								<li><b>$12k pre-sales</b>in the first 2 weeks</li>
-								<li><b>41.9% open rate</b>on my email sequence</li>
+								<li><b>41.9% average opens</b>full email sequence &middot; 10 years</li>
 								<li><b>7&ndash;9% upgrade rate</b>to the full course</li>
 							</ul>
 							<div class="pj-grid">
@@ -6580,7 +6618,7 @@ Version: 3.2.60 -->
 								</a>
 								<div>
 									<p class="body">An online permaculture course with a team of
-										teachers and a student community. I did the lot:
+										teachers and a student community. I handled
 										crowdfunding, filming and editing, the course platform, the
 										community and the workflows behind it.</p>
 									<div class="chips"><span class="chip">WordPress</span><span
@@ -6612,9 +6650,7 @@ Version: 3.2.60 -->
 												submissions on to the teachers for review.</p>
 											<h3>The funnel</h3>
 											<p>Almost everyone starts on the free course. The
-												homepage converts at around 5% to signup, the email
-												sequence opens at 30&ndash;50% with the first mail
-												above half, and 7&ndash;9% of free students upgrade
+												homepage converts at around 5% to signup, the full email sequence averages 41.9% opens across ten years, and 7&ndash;9% of free students upgrade
 												to the paid certificate. That sequence is the
 												business.</p>
 										</div>
@@ -6660,7 +6696,7 @@ Version: 3.2.60 -->
 											src="https://konradbuilds.github.io/assets/img/permaculturecoursequeensland.webp"
 											alt="" loading="lazy" decoding="async" />
 									</span>
-									<div><span class="result">Built start to finish with AI</span>
+									<div><span class="result">A custom site for course bookings</span>
 										<h3>Permaculture Course Queensland</h3><span
 											class="site">permaculturecoursequeensland.com.au</span>
 										<p>12-day residential permaculture course in Australia.
@@ -6797,7 +6833,7 @@ Version: 3.2.60 -->
 				<section class="band ink ways-band">
 					<div class="wide">
 
-						<span class="label ways-label second">Where you&rsquo;re at?</span>
+						<span class="label ways-label second">What stage are you at?</span>
 						<div class="ways two">
 
 							<div class="way way-slim">
@@ -6868,60 +6904,45 @@ Version: 3.2.60 -->
 
 				<!-- about using ai -->
 				<section class="band ink" id="ai" aria-label="About using AI">
-					<div class="wide ai-wide">
-						<span class="label">About using AI</span>
-						<h2 class="head head-2"><span>AI does the groundwork.</span><span
-								class="ai-flick">We make the calls.</span></h2>
-						<p class="ai-lead">AI wrote most of the first drafts on this page.<br
-								class="ai-br" /> <em>I threw most of them away.</em></p>
-						<dl class="ai-grid">
-							<div class="ai-item">
-								<dt>Collab with AI</dt>
-								<dd>Scaffolding, first drafts, the copy-paste jobs someone does
-									every Monday.</dd>
-							</div>
-							<div class="ai-item">
-								<dt>We decide</dt>
-								<dd>Architecture, wording, and what ships. Fifteen years of shipping
-									is the part AI hasn&rsquo;t got.</dd>
-							</div>
-							<div class="ai-item">
-								<dt>You&rsquo;ll get</dt>
-								<dd>Better results, in less time. And if AI is the wrong tool,
-									I&rsquo;ll say so.</dd>
-							</div>
-						</dl>
-						<div class="ai-close">
-							<div>
-								<p class="ai-offer"><b>Got a job your team repeats every
-										week?</b>Tell me what it is. I&rsquo;ll say whether AI can
-									take it off you, and no if it can&rsquo;t.</p>
-								<a class="ai-link" href="#contact"
-									title="Open the contact form to discuss your project or a role">Tell me the job &rarr;</a>
-							</div>
-							<div>
-								<span class="ai-tools-label">My preferred tool:</span>
-								<span class="ai-tool">
-									<svg class="brand" xmlns="http://www.w3.org/2000/svg"
+<div class="wide ai-wide">
+<span class="label">About using AI</span>
+<h2 class="head head-2"><span>AI does the groundwork.</span><span class="ai-flick">We make the calls.</span></h2>
+<div class="ai-notes">
+<p>I use it for scaffolding, first drafts and repetitive work.</p>
+<p>I choose the architecture, review the output and test what ships.</p>
+<p>If doing it directly is simpler, I do it directly.</p>
+</div>
+<div class="ai-tool-row"><span class="ai-tools-label">Tools I use</span>
+<a class="ai-tool" href="https://claude.ai/" target="_blank" rel="noopener" aria-label="Claude (opens in a new tab)"><svg class="brand" xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 184 40" fill="currentColor" role="img"
 										aria-label="Claude">
 										<path fill="#D97757"
 											d="m7.75 26.27 7.77-4.36.13-.38-.13-.21h-.38l-1.3-.08-4.44-.12-3.85-.16-3.73-.2-.94-.2L0 19.4l.09-.58.79-.53 1.13.1 2.5.17 3.75.26 2.72.16 4.03.42h.64l.09-.26-.22-.16-.17-.16-3.88-2.63-4.2-2.78-2.2-1.6L3.88 11l-.6-.76-.26-1.66L4.1 7.39l1.45.1.37.1 1.47 1.13 3.14 2.43 4.1 3.02.6.5.24-.17.03-.12-.27-.45L13 9.9l-2.38-4.1-1.06-1.7-.28-1.02c-.1-.42-.17-.77-.17-1.2L10.34.21l.68-.22 1.64.22.69.6 1.02 2.33 1.65 3.67 2.56 4.99.75 1.48.4 1.37.15.42h.26v-.24l.21-2.81.39-3.45.38-4.44.13-1.25.62-1.5L23.1.57l.96.46.79 1.13-.11.73-.47 3.05-.92 4.78-.6 3.2h.35l.4-.4 1.62-2.15 2.72-3.4 1.2-1.35 1.4-1.49.9-.71h1.7l1.25 1.86-.56 1.92-1.75 2.22-1.45 1.88-2.08 2.8-1.3 2.24.12.18.31-.03 4.7-1 2.54-.46 3.03-.52 1.37.64.15.65-.54 1.33-3.24.8-3.8.76-5.66 1.34-.07.05.08.1 2.55.24 1.09.06h2.67l4.97.37 1.3.86.78 1.05-.13.8-2 1.02-2.7-.64-6.3-1.5-2.16-.54h-.3v.18l1.8 1.76 3.3 2.98 4.13 3.84.21.95-.53.75-.56-.08-3.63-2.73-1.4-1.23-3.17-2.67h-.21v.28l.73 1.07 3.86 5.8.2 1.78-.28.58-1 .35-1.1-.2L26 33.14l-2.33-3.57-1.88-3.2-.23.13-1.11 11.95-.52.61-1.2.46-1-.76-.53-1.23.53-2.43.64-3.17.52-2.52.47-3.13.28-1.04-.02-.07-.23.03-2.36 3.24-3.59 4.85-2.84 3.04-.68.27-1.18-.61.11-1.09.66-.97 3.93-5 2.37-3.1 1.53-1.79-.01-.26h-.09L6.8 30.56l-1.86.24-.8-.75.1-1.23.38-.4 3.14-2.16Z" />
 										<path
 											d="M64.48 33.54c-5.02 0-8.45-2.8-10.07-7.11a19.19 19.19 0 0 1-1.23-7.03c0-7.23 3.24-12.25 10.4-12.25 4.81 0 7.78 2.1 9.47 7.11h2.06l-.28-6.91c-2.88-1.86-6.48-2.8-10.86-2.8-6.17 0-11.42 2.76-14.34 7.74a16.77 16.77 0 0 0-2.22 8.65c0 5.53 2.61 10.43 7.51 13.15a17.51 17.51 0 0 0 8.73 2.06c4.78 0 8.57-.91 11.93-2.5l.87-7.62h-2.1c-1.26 3.48-2.76 5.57-5.25 6.68-1.22.55-2.76.83-4.62.83ZM86.13 7.15l.2-3.4h-1.42l-6.32 1.9v1.03l2.8 1.3v23.78c0 1.62-.83 1.98-3 2.25v1.74h10.75v-1.74c-2.18-.27-3-.63-3-2.25V7.16Zm42.75 29h.83l7.27-1.38v-1.78l-1.02-.08c-1.7-.16-2.14-.51-2.14-1.9V18.33l.2-4.07h-1.15l-6.87.99v1.74l.67.12c1.86.27 2.41.79 2.41 2.09v11.3c-1.78 1.38-3.48 2.25-5.5 2.25-2.24 0-3.63-1.14-3.63-3.8V18.34l.2-4.07h-1.18l-6.88.99v1.74l.71.12c1.86.27 2.41.79 2.41 2.09v10.43c0 4.42 2.5 6.52 6.48 6.52 3.04 0 5.53-1.62 7.4-3.87l-.2 3.87ZM108.9 22.08c0-5.65-3-7.82-8.42-7.82-4.78 0-8.25 1.98-8.25 5.26 0 .98.35 1.73 1.06 2.25l3.64-.48c-.16-1.1-.24-1.77-.24-2.05 0-1.86.99-2.8 3-2.8 2.97 0 4.47 2.09 4.47 5.45v1.1l-7.5 2.25c-2.5.68-3.92 1.27-4.87 2.65a5 5 0 0 0-.7 2.8c0 3.2 2.2 5.46 5.96 5.46 2.72 0 5.13-1.23 7.23-3.56.75 2.33 1.9 3.56 3.95 3.56 1.66 0 3.16-.67 4.5-1.98l-.4-1.38c-.58.16-1.14.24-1.73.24-1.15 0-1.7-.91-1.7-2.69v-8.26Zm-9.6 10.87c-2.05 0-3.32-1.19-3.32-3.28 0-1.42.67-2.25 2.1-2.73l6.08-1.93v5.84c-1.94 1.47-3.08 2.1-4.86 2.1Zm63.3 1.82v-1.78l-1.03-.08c-1.7-.16-2.13-.51-2.13-1.9V7.15l.2-3.4h-1.43l-6.32 1.9v1.03l2.8 1.3v7.82a8.83 8.83 0 0 0-5.37-1.54c-6.28 0-11.18 4.78-11.18 11.93 0 5.89 3.52 9.96 9.32 9.96 3 0 5.61-1.46 7.23-3.72l-.2 3.72h.84l7.27-1.38Zm-13.16-18.14c3 0 5.25 1.74 5.25 4.94v9a7.2 7.2 0 0 1-5.21 2.1c-4.3 0-6.48-3.4-6.48-7.94 0-5.1 2.49-8.1 6.44-8.1Zm28.53 4.5c-.56-2.64-2.18-4.14-4.43-4.14-3.36 0-5.69 2.53-5.69 6.16 0 5.37 2.84 8.85 7.43 8.85a8.6 8.6 0 0 0 7.39-4.35l1.34.36c-.6 4.66-4.82 8.14-10 8.14-6.08 0-10.27-4.5-10.27-10.9 0-6.45 4.55-10.99 10.63-10.99 4.54 0 7.74 2.73 8.77 7.47l-15.84 4.86v-2.14l10.67-3.31Z" />
-									</svg>
-								</span>
-								<p class="ai-stack">For code and copy, in my editor, on my own rules
-									and checks.</p>
-							</div>
-						</div>
-					</div>
-				</section>
+									</svg></a>
+<a class="ai-tool" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="ChatGPT by OpenAI (opens in a new tab)"><svg class="openai-brand" role="img" aria-label="OpenAI, used through ChatGPT" width="721" height="721" viewBox="0 0 721 721" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1637_2935)">
+<g clip-path="url(#clip1_1637_2935)">
+<path d="M304.246 295.411V249.828C304.246 245.989 305.687 243.109 309.044 241.191L400.692 188.412C413.167 181.215 428.042 177.858 443.394 177.858C500.971 177.858 537.44 222.482 537.44 269.982C537.44 273.34 537.44 277.179 536.959 281.018L441.954 225.358C436.197 222 430.437 222 424.68 225.358L304.246 295.411ZM518.245 472.945V364.024C518.245 357.304 515.364 352.507 509.608 349.149L389.174 279.096L428.519 256.543C431.877 254.626 434.757 254.626 438.115 256.543L529.762 309.323C556.154 324.679 573.905 357.304 573.905 388.971C573.905 425.436 552.315 459.024 518.245 472.941V472.945ZM275.937 376.982L236.592 353.952C233.235 352.034 231.794 349.154 231.794 345.315V239.756C231.794 188.416 271.139 149.548 324.4 149.548C344.555 149.548 363.264 156.268 379.102 168.262L284.578 222.964C278.822 226.321 275.942 231.119 275.942 237.838V376.986L275.937 376.982ZM360.626 425.922L304.246 394.255V327.083L360.626 295.416L417.002 327.083V394.255L360.626 425.922ZM396.852 571.789C376.698 571.789 357.989 565.07 342.151 553.075L436.674 498.374C442.431 495.017 445.311 490.219 445.311 483.499V344.352L485.138 367.382C488.495 369.299 489.936 372.179 489.936 376.018V481.577C489.936 532.917 450.109 571.785 396.852 571.785V571.789ZM283.134 464.79L191.486 412.01C165.094 396.654 147.343 364.029 147.343 332.362C147.343 295.416 169.415 262.309 203.48 248.393V357.791C203.48 364.51 206.361 369.308 212.117 372.665L332.074 442.237L292.729 464.79C289.372 466.707 286.491 466.707 283.134 464.79ZM277.859 543.48C223.639 543.48 183.813 502.695 183.813 452.314C183.813 448.475 184.294 444.636 184.771 440.797L279.295 495.498C285.051 498.856 290.812 498.856 296.568 495.498L417.002 425.927V471.509C417.002 475.349 415.562 478.229 412.204 480.146L320.557 532.926C308.081 540.122 293.206 543.48 277.854 543.48H277.859ZM396.852 600.576C454.911 600.576 503.37 559.313 514.41 504.612C568.149 490.696 602.696 440.315 602.696 388.976C602.696 355.387 588.303 322.762 562.392 299.25C564.791 289.173 566.231 279.096 566.231 269.024C566.231 200.411 510.571 149.067 446.274 149.067C433.322 149.067 420.846 150.984 408.37 155.305C386.775 134.192 357.026 120.758 324.4 120.758C266.342 120.758 217.883 162.02 206.843 216.721C153.104 230.637 118.557 281.018 118.557 332.357C118.557 365.946 132.95 398.571 158.861 422.083C156.462 432.16 155.022 442.237 155.022 452.309C155.022 520.922 210.682 572.266 274.978 572.266C287.931 572.266 300.407 570.349 312.883 566.028C334.473 587.141 364.222 600.576 396.852 600.576Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1637_2935">
+<rect width="720" height="720" fill="white" transform="translate(0.606934 0.899902)"/>
+</clipPath>
+<clipPath id="clip1_1637_2935">
+<rect width="484.139" height="479.818" fill="white" transform="translate(118.557 120.758)"/>
+</clipPath>
+</defs>
+</svg>
+</a>
+</div></div></section>
 
 				<section class="band offers" id="offers" aria-label="How we can start">
 					<div class="wide">
 						<span class="label">How we can start</span>
-						<h2 class="head" style="margin-bottom:clamp(28px,4vh,42px)">Two ways to
+						<h2 class="head" style="margin-bottom:28px;margin-bottom:clamp(28px,4vh,42px)">Two ways to
 							start small.</h2>
 						<div class="offer-grid">
 							<div class="offer offer-main">
@@ -7087,7 +7108,7 @@ Version: 3.2.60 -->
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">311 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">298 KB</span></span>
 				</p>
 			</footer>
 
@@ -8459,6 +8480,7 @@ Version: 3.2.60 -->
 				var headline = stage.querySelector( 'h1' );
 				var lead = stage.querySelector( '.lead' );
 				var opening = document.querySelector( '.opening' );
+				var shortcuts = opening.querySelector( '.intro-shortcuts' );
 				var blobFinished = false;
 				var depthMeasureKey = '';
 				var greetingFinished = false;
@@ -8480,6 +8502,7 @@ Version: 3.2.60 -->
 				var cloudOpacity = [];
 				var recordItems = Array.from( track.querySelectorAll( '.label, .stat' ) );
 				var recordBounds = [];
+				var recordRevealTop = 0;
 				var recordOpacity = [];
 				var wave = [];
 				var drop = stage.querySelector( '.drop' );
@@ -8867,14 +8890,16 @@ Version: 3.2.60 -->
 					var gradientBox = track.querySelector( '.wide' ).getBoundingClientRect();
 					track.querySelectorAll( '.label, .stat b, .stat span' ).forEach( function ( text ) {
 						var textBox = text.getBoundingClientRect();
-						text.style.setProperty( '--record-gradient-height', gradientBox.height + 'px' );
-						text.style.setProperty( '--record-gradient-y', ( gradientBox.top - textBox.top ) + 'px' );
+						var fraction = clamp( ( textBox.top + textBox.height / 2 - gradientBox.top ) / Math.max( 1, gradientBox.height ), 0, 1 );
+						text.style.color = 'rgb(' + Math.round( 54 - 34 * fraction ) + ',' +
+							Math.round( 31 - 9 * fraction ) + ',' + Math.round( 84 - 58 * fraction ) + ')';
 					} );
 					recordBounds = recordItems.map( function ( item ) {
 						var box = item.getBoundingClientRect();
 						return { x: ( box.left + box.width / 2 ) / innerWidth,
 							y: box.top - sticky.getBoundingClientRect().top - Math.min( Math.max( 0, window.scrollY - stageTop - stickyRelease ) * 0.125, maxRecordOffset ) };
 					} );
+					recordRevealTop = Math.min.apply( null, recordBounds.map( function ( bounds ) { return bounds.y; } ) );
 					recordOpacity = [];
 					cloudTops = Array.from( clouds, function ( cloud ) {
 						return cloud.getBoundingClientRect().top - sticky.getBoundingClientRect().top;
@@ -8982,6 +9007,15 @@ Version: 3.2.60 -->
 						var y2 = baseY - Math.cos( phase * 0.92 ) * amp * 0.76;
 						var y3 = baseY + Math.sin( phase * 1.07 + 1.2 ) * amp * 0.66;
 						var y4 = baseY - Math.cos( phase * 0.86 + 0.6 ) * amp * 0.72;
+						/* Finish above the actual text bounds before releasing the sticky fold.
+						 * Font metrics vary across engines; a fixed final wave can strand a column. */
+						var clearY = ( recordRevealTop + recordOffset - 46 ) * 1000 / viewportHeight;
+						var clearance = Math.max( 0, Math.max( y1, y2, y3, y4 ) - clearY ) *
+							smooth( clamp( ( p - 0.32 ) / 0.08, 0, 1 ) );
+						y1 -= clearance;
+						y2 -= clearance;
+						y3 -= clearance;
+						y4 -= clearance;
 						wave = [ y1, y2, y3, y1, y4, y2, y3 ];
 
 						membrane.setAttribute(
@@ -9008,6 +9042,10 @@ Version: 3.2.60 -->
 
 
 						opening.inert = p > 0.39;
+						if ( shortcuts ) {
+							var shortcutsHidden = p > 0.39 || shortcuts.getAttribute( 'data-returning' ) !== 'true';
+							if ( shortcuts.hidden !== shortcutsHidden ) { shortcuts.hidden = shortcutsHidden; }
+						}
 
 						var reveal = smooth( clamp( ( p - 0.24 ) / 0.15, 0, 1 ) );
 
@@ -9244,5 +9282,55 @@ Version: 3.2.60 -->
 				updateBird( { y: window.scrollY } );
 			} )();
 		</script>
-	</body>
+	<script>
+/* Returning visitors may bypass the intro. Storage is optional, never a dependency. */
+(function () {
+ 'use strict';
+ var nav = document.querySelector('.intro-shortcuts');
+ var opening = document.querySelector('.opening');
+ var link = document.querySelector('[data-quick-work]');
+ var target = document.getElementById('projects');
+ if (!nav || !opening || !link || !target) { return; }
+ var returning = false;
+ try {
+  returning = localStorage.getItem('konrad-portfolio-visited') === '1';
+  localStorage.setItem('konrad-portfolio-visited', '1');
+ } catch (error) { /* Private or blocked storage keeps the first-visit experience. */ }
+ nav.setAttribute('data-returning', returning ? 'true' : 'false');
+ nav.hidden = !returning || opening.inert === true;
+ opening.classList.toggle('has-return-shortcuts', returning);
+ var skipping = false;
+ function jump() {
+  var top = target.getBoundingClientRect().top + (window.pageYOffset || 0) - 24;
+  window.scrollTo(0, top);
+  target.setAttribute('tabindex', '-1');
+  try { target.focus({preventScroll:true}); } catch (error) { target.focus(); window.scrollTo(0, top); }
+  if (history.replaceState) { history.replaceState(null, '', '#projects'); }
+ }
+ link.addEventListener('click', function (event) {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) { return; }
+  event.preventDefault(); event.stopPropagation();
+  if (skipping) { return; }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { jump(); return; }
+  skipping = true;
+  var cover = document.createElement('div');
+  cover.className = 'project-skip-cover';
+  cover.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(cover);
+  requestAnimationFrame(function () {
+   cover.classList.add('is-active');
+   window.setTimeout(function () {
+    jump();
+    requestAnimationFrame(function () {
+     requestAnimationFrame(function () {
+      cover.classList.remove('is-active');
+      window.setTimeout(function () { cover.remove(); skipping = false; }, 180);
+     });
+    });
+   }, 180);
+  });
+ });
+}());
+</script>
+</body>
 </html>
