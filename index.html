@@ -2,7 +2,7 @@
 <!--
 Konrad Sroka - 2026
 Author URL: https://konradbuilds.github.io/
-Version: 3.3.02
+Version: 3.3.03
 Surf, thailand, helicopters -->
 <html lang="en">
 	<head>
@@ -4953,6 +4953,11 @@ Surf, thailand, helicopters -->
 .cost p.dream-team-note { margin-top: 12px; font-style: italic; }
 
 .ai-tools-text { margin: 28px 0 0; font-family: var(--mono); font-size: var(--min-ui); color: var(--on-dark-mut); }
+
+/* Native format selection: WebP where supported, JPEG otherwise. */
+.avatar-picture { display: block; flex: none; }
+.avatar-picture .avatar { display: block; }
+.project-picture { display: block; width: 100%; height: 100%; }
 </style>
 		<!-- Content remains readable if scripts are unavailable. -->
 		<noscript><style>
@@ -5118,9 +5123,19 @@ Surf, thailand, helicopters -->
 						<section class="band hero">
 							<div class="inner">
 								<div class="opening-identity">
-									<img class="avatar"
-										src="https://konradbuilds.github.io/assets/img/konrad.webp"
-										alt="Konrad Sroka" width="74" height="73"  loading="eager" fetchpriority="high" decoding="async" />
+									<picture class="avatar-picture">
+										<source srcset="https://konradbuilds.github.io/assets/img/konrad.webp" type="image/webp" />
+										<img
+											class="avatar"
+											src="https://konradbuilds.github.io/assets/img/konrad.jpg"
+											alt="Konrad Sroka"
+											width="74"
+											height="73"
+											loading="eager"
+											fetchpriority="high"
+											decoding="async"
+										/>
+									</picture>
 									<div>
 										<p class="name">Konrad Sroka</p>
 										<span class="rail-role"><span class="r-a">Developer &amp; designer<br /> WordPress &middot; UI &middot; growth</span></span>
@@ -5811,9 +5826,18 @@ Surf, thailand, helicopters -->
 				<div class="rail-in">
 					<a class="who" href="#top"
 						title="Return to the portfolio introduction">
-						<img class="avatar"
-							src="https://konradbuilds.github.io/assets/img/konrad.webp"
-							alt="Konrad Sroka" width="74" height="73"  loading="lazy" decoding="async" />
+						<picture class="avatar-picture">
+							<source srcset="https://konradbuilds.github.io/assets/img/konrad.webp" type="image/webp" />
+							<img
+								class="avatar"
+								src="https://konradbuilds.github.io/assets/img/konrad.jpg"
+								alt="Konrad Sroka"
+								width="74"
+								height="73"
+								loading="lazy"
+								decoding="async"
+							/>
+						</picture>
 						<div>
 							<p class="name">Konrad Sroka</p>
 							<span class="rail-role"><span class="r-a">Developer &amp;
@@ -5884,7 +5908,7 @@ Surf, thailand, helicopters -->
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">340 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">343 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -6479,9 +6503,17 @@ Surf, thailand, helicopters -->
 							</ul>
 							<div class="pj-grid">
 								<a class="pj-shot" href="https://www.oceanaddicts.com.au/" target="_blank" rel="noopener" title="Visit Ocean Addicts, the surf shop featured in this project (opens in a new tab)">
-									<img width="1200" height="900"
-										src="https://konradbuilds.github.io/assets/img/oceanaddicts.webp"
-										alt="The Ocean Addicts website" loading="lazy" decoding="async" />
+									<picture class="project-picture">
+										<source srcset="https://konradbuilds.github.io/assets/img/oceanaddicts.webp" type="image/webp" />
+										<img
+											width="1200"
+											height="900"
+											src="https://konradbuilds.github.io/assets/img/oceanaddicts.jpg"
+											alt="The Ocean Addicts website"
+											loading="lazy"
+											decoding="async"
+										/>
+									</picture>
 								</a>
 								<div>
 									<p class="body">My local surf shop, taken online in 2015. I
@@ -6540,9 +6572,17 @@ Surf, thailand, helicopters -->
 							</ul>
 							<div class="pj-grid">
 								<a class="pj-shot" href="https://mirrormirror.au" target="_blank" rel="noopener" title="Visit Mirror Mirror, the practitioner directory featured in this project (opens in a new tab)">
-									<img width="1200" height="900"
-										src="https://konradbuilds.github.io/assets/img/mirrormirror.webp"
-										alt="The Mirror Mirror website" loading="lazy" decoding="async" />
+									<picture class="project-picture">
+										<source srcset="https://konradbuilds.github.io/assets/img/mirrormirror.webp" type="image/webp" />
+										<img
+											width="1200"
+											height="900"
+											src="https://konradbuilds.github.io/assets/img/mirrormirror.jpg"
+											alt="The Mirror Mirror website"
+											loading="lazy"
+											decoding="async"
+										/>
+									</picture>
 								</a>
 								<div>
 									<p class="body">In Australian cosmetic medicine, many of the words people search with cannot appear in public-facing copy. Type four letters of a restricted term and the search suggests the compliant wording instead.</p>
@@ -6590,9 +6630,17 @@ Surf, thailand, helicopters -->
 									target="_blank"
 									rel="noopener"
 									title="Explore the online permaculture design course (opens in a new tab)">
-									<img width="1200" height="900"
-										src="https://konradbuilds.github.io/assets/img/permaculturecourseonline.webp"
-										alt="The Permaculture Course Online website" loading="lazy" decoding="async" />
+									<picture class="project-picture">
+										<source srcset="https://konradbuilds.github.io/assets/img/permaculturecourseonline.webp" type="image/webp" />
+										<img
+											width="1200"
+											height="900"
+											src="https://konradbuilds.github.io/assets/img/permaculturecourseonline.jpg"
+											alt="The Permaculture Course Online website"
+											loading="lazy"
+											decoding="async"
+										/>
+									</picture>
 								</a>
 								<div>
 									<p class="body">An online permaculture course with a team of
@@ -6648,9 +6696,17 @@ Surf, thailand, helicopters -->
 								<a class="mini"
 									href="https://www.permaculturecourseonline.com/free-course.html" target="_blank" rel="noopener"
 									title="Explore the free introductory permaculture course (opens in a new tab)"><span class="pj-shot">
-										<img width="1200" height="900"
-											src="https://konradbuilds.github.io/assets/img/permaculturecourseonline-free-course.webp"
-											alt="" loading="lazy" decoding="async" />
+										<picture class="project-picture">
+											<source srcset="https://konradbuilds.github.io/assets/img/permaculturecourseonline-free-course.webp" type="image/webp" />
+											<img
+												width="1200"
+												height="900"
+												src="https://konradbuilds.github.io/assets/img/permaculturecourseonline-free-course.jpg"
+												alt=""
+												loading="lazy"
+												decoding="async"
+											/>
+										</picture>
 									</span>
 									<div><span class="result">The page that feeds the paid
 											course</span>
@@ -6666,9 +6722,17 @@ Surf, thailand, helicopters -->
 								</a>
 								<a class="mini" href="https://permaculturecoursequeensland.com.au" target="_blank" rel="noopener"
 									title="Explore permaculture courses in Queensland (opens in a new tab)"><span class="pj-shot">
-										<img width="1200" height="900"
-											src="https://konradbuilds.github.io/assets/img/permaculturecoursequeensland.webp"
-											alt="" loading="lazy" decoding="async" />
+										<picture class="project-picture">
+											<source srcset="https://konradbuilds.github.io/assets/img/permaculturecoursequeensland.webp" type="image/webp" />
+											<img
+												width="1200"
+												height="900"
+												src="https://konradbuilds.github.io/assets/img/permaculturecoursequeensland.jpg"
+												alt=""
+												loading="lazy"
+												decoding="async"
+											/>
+										</picture>
 									</span>
 									<div><span class="result">A custom site for course bookings</span>
 										<h3>Permaculture Course Queensland</h3><span
@@ -6683,9 +6747,17 @@ Surf, thailand, helicopters -->
 								</a>
 								<a class="mini" href="https://www.bellbunya.org.au" target="_blank" rel="noopener"
 									title="Visit Bellbunya’s sustainable community website (opens in a new tab)"><span class="pj-shot">
-										<img width="1200" height="900"
-											src="https://konradbuilds.github.io/assets/img/bellbunya.webp"
-											alt="" loading="lazy" decoding="async" />
+										<picture class="project-picture">
+											<source srcset="https://konradbuilds.github.io/assets/img/bellbunya.webp" type="image/webp" />
+											<img
+												width="1200"
+												height="900"
+												src="https://konradbuilds.github.io/assets/img/bellbunya.jpg"
+												alt=""
+												loading="lazy"
+												decoding="async"
+											/>
+										</picture>
 									</span>
 									<div><span class="result">A landing page and an automated
 											enquiry pipeline</span>
@@ -6702,9 +6774,17 @@ Surf, thailand, helicopters -->
 								</a>
 								<a class="mini" href="https://siggnatur.com" target="_blank" rel="noopener"
 									title="Visit the Siggnatur website featured in my portfolio (opens in a new tab)"><span class="pj-shot">
-										<img width="1200" height="900"
-											src="https://konradbuilds.github.io/assets/img/siggnatur.webp"
-											alt="" loading="lazy" decoding="async" />
+										<picture class="project-picture">
+											<source srcset="https://konradbuilds.github.io/assets/img/siggnatur.webp" type="image/webp" />
+											<img
+												width="1200"
+												height="900"
+												src="https://konradbuilds.github.io/assets/img/siggnatur.jpg"
+												alt=""
+												loading="lazy"
+												decoding="async"
+											/>
+										</picture>
 									</span>
 									<div><span class="result">A goldsmith&rsquo;s workshop,
 											online</span>
@@ -6718,9 +6798,17 @@ Surf, thailand, helicopters -->
 								</a>
 								<a class="mini" href="https://baumensch.de" target="_blank" rel="noopener"
 									title="Visit the Baumensch website featured in my portfolio (opens in a new tab)"><span class="pj-shot">
-										<img width="1200" height="900"
-											src="https://konradbuilds.github.io/assets/img/baumensch.webp"
-											alt="" loading="lazy" decoding="async" />
+										<picture class="project-picture">
+											<source srcset="https://konradbuilds.github.io/assets/img/baumensch.webp" type="image/webp" />
+											<img
+												width="1200"
+												height="900"
+												src="https://konradbuilds.github.io/assets/img/baumensch.jpg"
+												alt=""
+												loading="lazy"
+												decoding="async"
+											/>
+										</picture>
 									</span>
 									<div><span class="result">A directory for a whole
 											industry</span>
@@ -7021,7 +7109,7 @@ Surf, thailand, helicopters -->
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">340 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">343 KB</span></span>
 				</p>
 			</footer>
 

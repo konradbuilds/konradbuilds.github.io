@@ -11,13 +11,14 @@ My portfolio site. One HTML file, no framework, no build step.
 | Path              | What                                              |
 | ----------------- | ------------------------------------------------- |
 | `index.html`      | The whole site — markup, CSS and JS in one file    |
-| `assets/img/`     | Project screenshots (WebP) and the avatar          |
+| `assets/img/`     | Project screenshots (WebP/JPEG) and the avatar          |
 | `CNAME.example`   | Rename to `CNAME` to serve it on your own domain   |
 
 ## How it's built
 
 - Plain HTML, CSS and vanilla JavaScript. No dependencies, nothing to install.
 - Illustrations are inline SVG, so they cost no extra request.
+- Photos use native `<picture>` selection: WebP first, JPEG fallback for older browsers. No detection script or duplicate-format downloads.
 - Live Bangkok time and weather come from <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> at runtime; the page works without them.
 - The contact form posts to Formspree.
 
