@@ -2,7 +2,7 @@
 
 My portfolio site. One HTML file, no framework, no build step.
 
-<a href="https://konradbuilds.github.io/" target="_blank" rel="noopener noreferrer"><img src="assets/img/og.png" alt="Konrad Sroka — developer and designer, with Bird in purple and apricot" width="1200" /></a>
+<a href="https://konradbuilds.github.io/" target="_blank" rel="noopener noreferrer"><img src="assets/img/og.png" alt="Good design. Built properly. Konrad Sroka — design and development, digital products, WordPress, growth engineering. Available to work." width="1200" /></a>
 
 **Live:** <a href="https://konradbuilds.github.io/" target="_blank" rel="noopener noreferrer">Open the portfolio →</a>
 
@@ -32,3 +32,4 @@ GitHub Pages, from the `main` branch, root folder. Settings → Pages.
 ## License
 
 Code: MIT. Images, copy and the CV content: © Konrad Sroka, all rights reserved.
+
