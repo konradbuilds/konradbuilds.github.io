@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Konrad Sroka 2026
-version: 3.2.51 -->
+Version: 3.2.56 -->
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -4625,7 +4625,7 @@ version: 3.2.51 -->
 			.stage .depth-greeting {
 				position: absolute;
 				z-index: 2;
-				top: 0; right: 0; bottom: 0; left: 0;
+				top: 50px; right: 0; bottom: 0; left: 0;
 				/* Explicit flex centering also handles Safari 13 anonymous text boxes. */
 				display: flex;
 				align-items: center;
@@ -4644,7 +4644,7 @@ version: 3.2.51 -->
 			.stage .depth-arrow {
 				position: absolute;
 				z-index: 4;
-				bottom: 50px;
+				bottom: 30px;
 				left: calc(50% - 24px);
 				width: 48px;
 				height: 48px;
@@ -4789,9 +4789,9 @@ version: 3.2.51 -->
 				position: absolute;
 				z-index: 2;
 				right: 30px;
-				top: -14px;
-				width: clamp(112px, 11.2vw, 133px);
-				height: clamp(168px, 16.8vw, 199.5px);
+				top: -10px;
+				width: 150px;
+				height: 225px;
 				aspect-ratio: 2 / 3;
 				transform: translateY(0);
 				transition: transform 200ms ease-in-out;
@@ -4810,8 +4810,10 @@ version: 3.2.51 -->
 				transform: translateY(-110%);
 			}
 
-			@media (max-width: 767px) {
-				.hero-bird { width: clamp(224px, 22.4vw, 266px); height: clamp(336px, 33.6vw, 399px); }
+			@media (max-width: 500px) {
+			    .hero-bird {
+			        top: 55px;
+			    }
 			}
 
 			@media (prefers-reduced-motion: reduce) {
@@ -4879,14 +4881,19 @@ version: 3.2.51 -->
 				.stage .hero h1, .stage .hero .lead,
 				.stage .hero .hero-word, .stage .hero .lead-word { -webkit-text-stroke: 0; }
 			}
-			/* A static gradient across Track Record; solid ink is the fallback. */
+			/* Paint each text block locally so mobile compositors respect its reveal. */
 			.stage .track-inner,
 			.stage .track-inner .label,
 			.stage .track-inner .stat b,
 			.stage .track-inner .stat span { color: #14161a; }
 			@supports (-webkit-background-clip: text) or (background-clip: text) {
-				.stage .track-inner .wide {
+				.stage .track-inner .label,
+				.stage .track-inner .stat b,
+				.stage .track-inner .stat span {
 					background-image: linear-gradient(to bottom, #361f54, #14161a);
+					background-size: 100% var(--record-gradient-height, 100%);
+					background-position: 0 var(--record-gradient-y, 0px);
+					background-repeat: no-repeat;
 					-webkit-background-clip: text;
 					background-clip: text;
 					-webkit-text-fill-color: transparent;
@@ -4904,6 +4911,7 @@ version: 3.2.51 -->
 				.stage .track-layer:not(.track-text-layer) { display: none; }
 				.stage .hero { min-height: 100vh; left: auto; top: auto; }
 				.stage .track-text-layer { padding: 60px 0; }
+				.stage .track-inner .label, .stage .track-inner .stat { opacity: 1 !important; visibility: visible !important; }
 			}
 
 
@@ -5829,7 +5837,7 @@ version: 3.2.51 -->
 									<path
 										d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 								</svg>
-							</span> <span class="kb" title="Uncompressed HTML file">310 KB</span></span>
+							</span> <span class="kb" title="Uncompressed HTML file">311 KB</span></span>
 					</p>
 				</div>
 			</aside>
@@ -7030,7 +7038,7 @@ version: 3.2.51 -->
 							<svg class="kb-bolt" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M14.2 2.5 5.4 13.2h5.1l-1.7 8.3 8.8-10.7h-5.1l1.7-8.3z" />
 							</svg>
-						</span> <span class="kb" title="Uncompressed HTML file">310 KB</span></span>
+						</span> <span class="kb" title="Uncompressed HTML file">311 KB</span></span>
 				</p>
 			</footer>
 
@@ -8807,6 +8815,12 @@ version: 3.2.51 -->
 					var padding = parseFloat( getComputedStyle( track ).paddingBottom ) || 0;
 					var recordBottom = track.offsetTop + track.offsetHeight - padding;
 					maxRecordOffset = Math.max( 0, sticky.clientHeight - recordBottom - 24 );
+					var gradientBox = track.querySelector( '.wide' ).getBoundingClientRect();
+					track.querySelectorAll( '.label, .stat b, .stat span' ).forEach( function ( text ) {
+						var textBox = text.getBoundingClientRect();
+						text.style.setProperty( '--record-gradient-height', gradientBox.height + 'px' );
+						text.style.setProperty( '--record-gradient-y', ( gradientBox.top - textBox.top ) + 'px' );
+					} );
 					recordBounds = recordItems.map( function ( item ) {
 						var box = item.getBoundingClientRect();
 						return { x: ( box.left + box.width / 2 ) / innerWidth,
@@ -8967,6 +8981,7 @@ version: 3.2.51 -->
 						var opacity = smooth( clamp( ( bounds.y + recordOffset - edge ) / 45, 0, 1 ) );
 						if ( recordOpacity[ index ] !== opacity ) {
 							item.style.opacity = String( opacity );
+							item.style.visibility = opacity === 0 ? 'hidden' : 'visible';
 							recordOpacity[ index ] = opacity;
 						}
 					} );
