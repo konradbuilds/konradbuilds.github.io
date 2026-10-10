@@ -2,7 +2,9 @@
 
 My portfolio site. One HTML file, no framework, no build step.
 
-**Live:** https://konradbuilds.github.io
+<a href="https://konradbuilds.github.io/" target="_blank" rel="noopener noreferrer"><img src="assets/img/og.png" alt="Konrad Sroka — developer and designer, with Bird in purple and apricot" width="1200" /></a>
+
+**Live:** <a href="https://konradbuilds.github.io/" target="_blank" rel="noopener noreferrer">Open the portfolio →</a>
 
 ## What's in here
 
@@ -16,7 +18,7 @@ My portfolio site. One HTML file, no framework, no build step.
 
 - Plain HTML, CSS and vanilla JavaScript. No dependencies, nothing to install.
 - Illustrations are inline SVG, so they cost no extra request.
-- Live Bangkok time and weather come from [Open-Meteo](https://open-meteo.com) at runtime; the page works without them.
+- Live Bangkok time and weather come from <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> at runtime; the page works without them.
 - The contact form posts to Formspree.
 
 ## Run it
