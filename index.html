@@ -2,7 +2,7 @@
 <!--
 Konrad Sroka - 2026
 Author URL: https://konradbuilds.github.io/
-Version: 3.3.16
+Version: 3.3.17
 Surf, thailand, helicopters -->
 <html lang="en">
 	<head>
@@ -4663,16 +4663,17 @@ Surf, thailand, helicopters -->
 				position: absolute;
 				z-index: 4;
 				bottom: 30px;
-				left: calc(50% - 24px);
-				width: 48px;
-				height: 48px;
+				left: calc(50% - 27px);
+				width: 54px;
+				height: 54px;
 				display: grid;
 				place-items: center;
-				padding: 0;
+				padding: 3px;
 				border: 0;
 				background: transparent;
 				color: var(--purple-text);
 				cursor: pointer;
+				pointer-events: auto;
 			}
 
 			.stage .opening-identity .name {
@@ -4708,7 +4709,7 @@ Surf, thailand, helicopters -->
 			}
 
 			.stage .opening-identity .avatar {
-				border: 3px solid #ffb18c;
+				border: 2px solid #ffb18c;
 			}
 
 			.stage .hero .lead {
@@ -4926,16 +4927,16 @@ Surf, thailand, helicopters -->
 .carbon-owl svg { display: block; width: 100%; height: auto; }
 
 /* Direct work access, independent of the scroll introduction. */
-.intro-shortcuts { position:absolute; z-index:6; bottom:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:flex-end; color:#361f54; }
+.intro-shortcuts { position:absolute; z-index:6; bottom:0; left:20px; right:20px; display:flex; justify-content:space-between; align-items:flex-end; color:#361f54; pointer-events:none; }
 .intro-shortcuts[hidden] { display:none; }
-.intro-shortcuts a { max-width:45%; padding:9px 10px; border-radius:8px; background:#ffb18c; color:inherit; font-size:14px; font-weight:600; line-height:1.3; text-decoration:underline; text-underline-offset:4px; }
+.intro-shortcuts a { pointer-events:auto; max-width:45%; padding:9px 10px; border-radius:8px; background:#ffb18c; color:inherit; font-size:14px; font-weight:600; line-height:1.3; text-decoration:underline; text-underline-offset:4px; }
 .intro-shortcuts a:focus { outline:2px solid currentColor; outline-offset:4px; }
 .intro-shortcuts .intro-cv { display:flex; align-items:center; }
 .intro-cv svg { width:20px; height:20px; flex-shrink:0; margin-right:8px; fill:currentColor; }
 .project-skip-cover { position:fixed; inset:0; top:0; right:0; bottom:0; left:0; z-index:10000; background:#14161a; opacity:0; pointer-events:none; transition:opacity 160ms ease-in-out; }
 .project-skip-cover.is-active { opacity:1; pointer-events:auto; }
 @media (max-width:600px) {
- .intro-shortcuts { left:10px; right:10px; bottom:60px; bottom:calc(60px + var(--intro-toolbar-gap, 0px) + env(safe-area-inset-bottom, 0px)); }
+ .intro-shortcuts { left:10px; right:10px; bottom:40px; bottom:calc(40px + var(--intro-toolbar-gap, 0px) + env(safe-area-inset-bottom, 0px)); }
  .intro-shortcuts a { font-size:12px; padding:9px 8px; }
  .stage .opening.has-return-shortcuts .depth-arrow { bottom:145px; bottom:calc(145px + var(--intro-toolbar-gap, 0px) + env(safe-area-inset-bottom, 0px)); }
 }
@@ -5009,6 +5010,9 @@ html.motion-resting:not(.tab-hidden) .rail:not(.decorations-paused) .kb-bolt {
 @media (prefers-reduced-motion: reduce) {
  .rail .kb-bolt { animation: none; opacity: 1; }
 }
+
+/* Hit testing belongs to the button, including the space around the artwork. */
+.stage .depth-arrow svg { display: block; pointer-events: none; }
 </style>
 		<!-- Content remains readable if scripts are unavailable. -->
 		<noscript><style>
