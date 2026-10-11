@@ -70,7 +70,7 @@ Each photo uses a native picture element: WebP first, JPEG fallback. Dimensions,
 
 Run `npm run test:images` to verify decoding, source selection and responsive layout in Chromium, Firefox and WebKit. JPEG selection is tested by making the WebP source type unsupported; this exercises the fallback but does not emulate native Safari 13.
 
-### v3.3.17
+### v3.3.18
 
 - Opening arrow has a full 54px hit area; opening avatar border is 2px.
 - Original bird head rises from behind the email field, half-size, with more body inside an 80px clipping window.
@@ -84,4 +84,4 @@ Run `npm run test:images` to verify decoding, source selection and responsive la
   change the scroll progress. Width and orientation changes still remeasure.
 - Project tags describe the actual work; PCO support has its own paragraph.
 
-Published build: v3.3.17.
+Published build: v3.3.18.

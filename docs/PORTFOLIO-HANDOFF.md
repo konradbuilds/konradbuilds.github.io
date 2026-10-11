@@ -1,6 +1,6 @@
 # Portfolio handoff — start here
 
-Updated 11 October 2026. Release **v3.3.17**. Owner: **Konrad Sroka**.
+Updated 11 October 2026. Release **v3.3.18**. Owner: **Konrad Sroka**.
 
 ## Start a new session
 
@@ -9,8 +9,8 @@ Read this document, then inspect the latest repository and supplied files. Do no
 - Live: https://konradbuilds.github.io/
 - Repository: https://github.com/konradbuilds/konradbuilds.github.io
 - Branch: `main`; GitHub Pages serves the repository root.
-- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.17.html`.
-- Full saved repository snapshot: `portfolio-repo-v3.3.17.zip`.
+- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.18.html`.
+- Full saved repository snapshot: `portfolio-repo-v3.3.18.zip`.
 - This document: `docs/PORTFOLIO-HANDOFF.md`; also saved separately for easy discovery.
 - Older bird demos and HTML versions are checkpoints, not additional production pages.
 
@@ -24,7 +24,7 @@ Key colours: apricot `#ffb18c` for the opening and sky, purple background `#3718
 
 Preserve the first-fold dot zoom, purple hero, floating words, apricot curtain, clouds, rooftop birds and later sidebar. The title reaches zoom 1, holds for 50px of scrolling, then falls apart. The curtain follows with the approved overlap. The bubble's earlier gentler bend was restored; do not reintroduce the faster, stronger v3.3.06 bend.
 
-First visits favour scrolling. Returning visits reveal edge shortcuts to client projects and Download CV. One localStorage flag controls this; blocked storage keeps shortcuts hidden. Both bottom shortcut links were lowered by 20px: desktop bottom 0, mobile bottom 40px plus toolbar/safe-area inset. CV opens a new tab. Project skipping uses a brief dark fade, instant jump and keyboard-focus transfer. No imposed scroll-speed control.
+First visits favour scrolling. Returning visits reveal edge shortcuts to client projects and Download CV. One localStorage flag controls this; blocked storage keeps shortcuts hidden. Both bottom shortcut links sit 20px above the visible screen bottom on desktop and mobile. Mobile adds only the browser toolbar gap, without extra safe-area padding. CV opens a new tab. Project skipping uses a brief dark fade, instant jump and keyboard-focus transfer. No imposed scroll-speed control.
 
 ## Current source and build
 
@@ -97,6 +97,6 @@ Save requested deliverables and handoff updates persistently. Explain where the 
 
 ## Session result and next work
 
-Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.17.
+Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.18.
 
 No pending redesign is implied. Future wording fine-tuning and any new technical case-study detail need a specific request and real information. A suggested, unbuilt idea was revealing one technical decision/tradeoff through project tags; do not silently add it.

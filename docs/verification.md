@@ -1,4 +1,4 @@
-# Verification — v3.3.17
+# Verification — v3.3.18
 
 11 October 2026. Tests use generated standalone HTML.
 

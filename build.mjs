@@ -5,5 +5,5 @@ html = html.replace(/<!-- BUILD: ([^>]+) -->/g,(_,path)=>readFileSync(new URL('.
 for(let pass=0;pass<3;pass++) { html=html.replace(/\b\d+ KB\b/g,Math.round(Buffer.byteLength(html)/1024)+' KB'); }
 mkdirSync(new URL('./dist/',import.meta.url),{recursive:true});
 writeFileSync(new URL('./dist/index.html',import.meta.url),html);
-writeFileSync(new URL('./dist/portfolio-v3.3.17.html',import.meta.url),html);
+writeFileSync(new URL('./dist/portfolio-v3.3.18.html',import.meta.url),html);
 console.log('Built standalone HTML: '+Buffer.byteLength(html)+' bytes');
