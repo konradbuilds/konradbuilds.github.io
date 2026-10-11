@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+const b=await chromium.launch({...(process.env.TEST_CHROMIUM_PATH?{executablePath:process.env.TEST_CHROMIUM_PATH}:{}),args:JSON.parse(process.env.TEST_CHROMIUM_ARGS||'[]')});
+const p=await b.newPage({viewport:{width:1440,height:900}});await p.route('https://**/*',r=>r.abort());
+await p.addInitScript(()=>{window.gazeBound=0;const a=window.addEventListener,r=window.removeEventListener;window.addEventListener=function(t,f,o){if(f.name==='trackPointer')window.gazeBound++;return a.call(this,t,f,o);};window.removeEventListener=function(t,f,o){if(f.name==='trackPointer')window.gazeBound--;return r.call(this,t,f,o);};});
+await p.goto(new URL('../dist/index.html',import.meta.url).href);assert.equal(await p.evaluate(()=>gazeBound),0);
+await p.locator('#contact').scrollIntoViewIfNeeded();await p.locator('#contact input').focus();await p.waitForTimeout(650);assert.equal(await p.evaluate(()=>gazeBound),1);
+assert.equal(await p.locator('.chat-pupil-near').getAttribute('cx'),'171');
+await p.mouse.move(500,250);await p.waitForTimeout(450);const left=Number(await p.locator('.chat-pupil-near').getAttribute('cx'));
+await p.mouse.move(1200,650);await p.waitForTimeout(450);const right=Number(await p.locator('.chat-pupil-near').getAttribute('cx'));assert(left>right,'Mirrored eyes follow pointer in correct direction');
+await p.evaluate(()=>{window.mutations=0;new MutationObserver(r=>mutations+=r.length).observe(document.querySelector('.contact-bird'),{attributes:true,subtree:true});});await p.waitForTimeout(450);assert.equal(await p.evaluate(()=>mutations),0,'No idle loop');
+await p.evaluate(()=>scrollTo(0,0));await p.waitForTimeout(150);assert.equal(await p.evaluate(()=>gazeBound),0);await p.evaluate(()=>mutations=0);await p.mouse.move(300,150);await p.waitForTimeout(200);assert.equal(await p.evaluate(()=>mutations),0,'No offscreen pointer work');
+await p.locator('#contact').scrollIntoViewIfNeeded();await p.locator('#contact input').focus();await p.waitForTimeout(650);await p.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await p.evaluate(()=>gazeBound),0);await p.evaluate(()=>mutations=0);await p.mouse.move(400,200);await p.waitForTimeout(200);assert.equal(await p.evaluate(()=>mutations),0,'No hidden-tab pointer work');
+await p.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});await p.waitForTimeout(650);await p.emulateMedia({reducedMotion:'reduce'});await p.waitForFunction(()=>gazeBound===0);assert.equal(await p.evaluate(()=>gazeBound),0);assert.equal(await p.locator('.chat-pupil-near').getAttribute('cx'),'171');
+const touch=await b.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await touch.route('https://**/*',r=>r.abort());await touch.goto(new URL('../dist/index.html',import.meta.url).href);await touch.locator('#contact').scrollIntoViewIfNeeded();await touch.locator('#contact input').focus();await touch.waitForTimeout(650);assert.equal(await touch.locator('.chat-pupil-near').getAttribute('cx'),'171');
+console.log('PASS: eye contact, tracking direction, idle/offscreen/hidden silence, reduced motion, touch');await b.close();

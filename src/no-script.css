@@ -1,0 +1,13 @@
+
+			.stage, .stage .intro-scroll { height: auto !important; }
+			.stage .sticky { display: flex; flex-direction: column; height: auto; position: relative; }
+			.stage .opening { order: 0; position: relative; }
+			.stage .track-layer { order: 1; background: #ffb18c; position: relative; }
+			.stage .track-layer:not(.track-text-layer) { display: none; }
+			.stage .hero { position: relative; min-height: 100vh; top: auto; right: auto; bottom: auto; left: auto; transform: none; }
+			.stage .track-text-layer { padding: 60px 0; }
+			.stage .track-inner .label, .stage .track-inner .stat { opacity: 1 !important; visibility: visible !important; }
+			.stage .opening-identity { top: 32px; left: 30px; color: #ffb18c; }
+			.stage .opening-identity .name { color: #ffb18c; }
+			.stage .opening-identity::before, .stage .roof-scene, .stage .cloud { display: none; }
+		
