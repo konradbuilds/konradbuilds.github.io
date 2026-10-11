@@ -1,7 +1,7 @@
 {
   "name": "konrad-portfolio",
   "private": true,
-  "version": "3.3.16",
+  "version": "3.3.17",
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
@@ -9,7 +9,8 @@
     "test:images": "npm run build && node tests/images.mjs",
     "test:contact": "npm run build && node tests/contact.mjs",
     "test:mobile": "npm run build && node tests/mobile-intro.mjs",
-    "test:gaze": "npm run build && node tests/gaze.mjs"
+    "test:gaze": "npm run build && node tests/gaze.mjs",
+    "test:controls": "npm run build && node tests/intro-controls.mjs"
   },
   "devDependencies": {
     "playwright": "1.62.1"

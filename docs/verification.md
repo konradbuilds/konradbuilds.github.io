@@ -1,4 +1,4 @@
-# Verification — v3.3.16
+# Verification — v3.3.17
 
 11 October 2026. Tests use generated standalone HTML.
 
@@ -11,3 +11,5 @@
 Contact requests were intercepted; no messages were sent. No new native Safari 13, Opera 75 or Firefox run was made for these revisions. Earlier browser compatibility work is preserved, but that is not certification of these builds in those exact browsers.
 
 Run npm test, npm run test:contact, npm run test:gaze and npm run test:mobile. Install Playwright browser engines first. Optional environment variables select locally available engines/executables.
+
+- Opening controls: nine hit-test points across the full arrow button, edge activation, first/return visits at 390/1440/2560px, hidden state after scrolling and 2px avatar border. The transparent return-link row no longer intercepts the middle gap.

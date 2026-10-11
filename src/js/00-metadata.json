@@ -1,0 +1,29 @@
+
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfilePage",
+				"@id": "https://konradbuilds.github.io/#profile",
+				"url": "https://konradbuilds.github.io/",
+				"name": "Konrad Sroka — Developer & designer",
+				"mainEntity": {
+					"@type": "Person",
+					"@id": "https://konradbuilds.github.io/#konrad",
+					"name": "Konrad Sroka",
+					"url": "https://konradbuilds.github.io/",
+					"jobTitle": "Developer & designer",
+					"image": "https://konradbuilds.github.io/assets/img/konrad.webp",
+					"knowsAbout": [
+						"WordPress",
+						"UI design",
+						"Digital products"
+					],
+					"knowsLanguage": [
+						"en",
+						"de"
+					],
+					"sameAs": [
+						"https://github.com/konradbuilds"
+					]
+				}
+			}
+		

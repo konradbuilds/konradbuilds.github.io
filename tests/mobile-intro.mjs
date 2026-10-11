@@ -4,7 +4,7 @@ import {writeFileSync} from 'node:fs';
 const browser=await chromium.launch({...(process.env.TEST_CHROMIUM_PATH?{executablePath:process.env.TEST_CHROMIUM_PATH}:{}),args:JSON.parse(process.env.TEST_CHROMIUM_ARGS||'[]')});
 const results=[];
 try {
- const cases = [{version:'3.3.16',url:new URL('../dist/index.html',import.meta.url).href}];
+ const cases = [{version:'3.3.17',url:new URL('../dist/index.html',import.meta.url).href}];
  if(process.env.TEST_BASELINE_HTML) { cases.unshift({version:'3.3.05',url:new URL('file://' + process.env.TEST_BASELINE_HTML).href}); }
  for (const {version,url} of cases) {
   const page=await browser.newPage({viewport:{width:390,height:844}});

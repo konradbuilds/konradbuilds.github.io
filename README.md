@@ -14,6 +14,10 @@ My portfolio site. One standalone HTML file, with editable source and regression
 | `assets/img/`     | Project screenshots (WebP + JPEG fallbacks) and the avatar          |
 | `CNAME.example`   | Rename to `CNAME` to serve it on your own domain   |
 
+## Continue this project
+
+Read [the portfolio handoff](docs/PORTFOLIO-HANDOFF.md) before editing. It records the approved design, motion constraints, browser caveats and publishing workflow.
+
 ## How it's built
 
 - Plain HTML, CSS and vanilla JavaScript. No framework or runtime build dependency.
@@ -66,8 +70,9 @@ Each photo uses a native picture element: WebP first, JPEG fallback. Dimensions,
 
 Run `npm run test:images` to verify decoding, source selection and responsive layout in Chromium, Firefox and WebKit. JPEG selection is tested by making the WebP source type unsupported; this exercises the fallback but does not emulate native Safari 13.
 
-### v3.3.16
+### v3.3.17
 
+- Opening arrow has a full 54px hit area; opening avatar border is 2px.
 - Original bird head rises from behind the email field, half-size, with more body inside an 80px clipping window.
 - Form gap reduced by 50px; staggered wink and slow retreat on confirmed send.
 - Brief eye-roll into eye contact, then eased mouse tracking on desktop.
@@ -79,4 +84,4 @@ Run `npm run test:images` to verify decoding, source selection and responsive la
   change the scroll progress. Width and orientation changes still remeasure.
 - Project tags describe the actual work; PCO support has its own paragraph.
 
-Published build: v3.3.16.
+Published build: v3.3.17.
