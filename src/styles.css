@@ -4852,3 +4852,8 @@ html.motion-resting:not(.tab-hidden) .rail:not(.decorations-paused) .kb-bolt {
 
 /* Hit testing belongs to the button, including the space around the artwork. */
 .stage .depth-arrow svg { display: block; pointer-events: none; }
+
+/* Alignment reads the sidebar's real metrics. Do not paint the temporary
+ * unaligned avatar/blob while the opening scripts are still initialising. */
+.stage .opening-identity { visibility: hidden; }
+.stage .opening-identity.is-aligned { visibility: visible; }

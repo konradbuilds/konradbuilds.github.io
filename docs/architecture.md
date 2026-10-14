@@ -17,3 +17,5 @@ The contact form keeps the native Formspree POST fallback. Enhanced submission b
 Photos use native picture selection: WebP source and JPEG img fallback, with intrinsic dimensions and loading priorities. OG metadata references the existing small baseline JPEG. Historical PNGs remain in the repository but are not the current share image.
 
 Playwright checks are useful regression evidence, not a claim that Chromium emulates Opera 75 or WebKit certifies native Safari 13. See verification.md for actual scope and PORTFOLIO-HANDOFF.md for approved design decisions.
+
+Opening identity alignment uses the sidebar's real metrics. The avatar/blob stays invisible until that existing alignment finishes, then the is-aligned class reveals it. This avoids painting a temporary wrong position; the measured final geometry and intro timing are unchanged. The no-script stylesheet explicitly restores visibility.

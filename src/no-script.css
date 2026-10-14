@@ -11,3 +11,4 @@
 			.stage .opening-identity .name { color: #ffb18c; }
 			.stage .opening-identity::before, .stage .roof-scene, .stage .cloud { display: none; }
 		
+.stage .opening-identity { visibility: visible; }

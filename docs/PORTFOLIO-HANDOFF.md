@@ -1,6 +1,6 @@
 # Portfolio handoff — start here
 
-Updated 11 October 2026. Release **v3.3.18**. Owner: **Konrad Sroka**.
+Updated 11 October 2026. Release **v3.3.19**. Owner: **Konrad Sroka**.
 
 ## Start a new session
 
@@ -9,8 +9,8 @@ Read this document, then inspect the latest repository and supplied files. Do no
 - Live: https://konradbuilds.github.io/
 - Repository: https://github.com/konradbuilds/konradbuilds.github.io
 - Branch: `main`; GitHub Pages serves the repository root.
-- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.18.html`.
-- Full saved repository snapshot: `portfolio-repo-v3.3.18.zip`.
+- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.19.html`.
+- Full saved repository snapshot: `portfolio-repo-v3.3.19.zip`.
 - This document: `docs/PORTFOLIO-HANDOFF.md`; also saved separately for easy discovery.
 - Older bird demos and HTML versions are checkpoints, not additional production pages.
 
@@ -97,6 +97,20 @@ Save requested deliverables and handoff updates persistently. Explain where the 
 
 ## Session result and next work
 
-Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.18.
+Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.19.
 
 No pending redesign is implied. Future wording fine-tuning and any new technical case-study detail need a specific request and real information. A suggested, unbuilt idea was revealing one technical decision/tradeoff through project tags; do not silently add it.
+
+## 14 October 2026 — mobile startup CLS investigation
+
+The baseline was GitHub commit 0a6b8d78d5575b0a85ffef13141f0db5805624e7 (v3.3.18). Konrad reported PageSpeed mobile score 78 and CLS 0.545, and explicitly asked to preserve the design and timing.
+
+A controlled Chromium 153 mobile run at 412×823 with 6× CPU slowdown reproduced CLS 0.383294593 from the opening avatar and its purple ::before blob: they first painted at the CSS fallback position and were then moved to the sidebar-aligned top-left position by 08-identity-alignment.js. No external web-font swap was involved.
+
+The v3.3.19 fix hides only that unaligned block until the existing alignment function has applied its styles, then reveals it with an is-aligned class. The no-script stylesheet explicitly keeps it visible. Final start-screen screenshots were pixel-identical before/after, both normal and slow CPU. No animation geometry, durations, scroll distances, shader/filter, source images or timing changes. Geometry reads needed for the zoom were left intact; this does not claim to eliminate every forced-reflow warning.
+
+Controlled mobile startup CLS became 0; regression tests covered 20 up/down cycles at 390/1440/2560px plus no-JS, reduced motion and blocked storage. tests/startup.mjs reproduces the throttled load checks and visibility fallbacks. No fresh Google PageSpeed/Lighthouse score or native Safari 13/Opera 75 result is claimed. Browser networking in this runtime could not load the public page, so the unchanged production HTML was served through an intercepted response with local assets for diagnosis. The source matched the verified current GitHub commit.
+
+Konrad authorised publication after regression checks. The published build and repository bundle are v3.3.19.
+
+Publication checks: Chromium 153, Firefox 153 and Playwright WebKit 26.5 matched v3.3.18 geometry at 0/100/300/650/900/1200/1600px scroll, at 390/1440/2560px viewport widths. Settled start-screen PNGs were pixel-identical at phone and desktop widths in each engine. WebKit's headless software runtime needed its existing 120ms RAF fallback to settle; comparisons waited 300ms per position. No application timing was changed. Konrad explicitly authorised publication after these checks. v3.3.19 is the published release.

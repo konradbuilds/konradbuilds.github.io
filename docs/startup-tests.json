@@ -1,0 +1,22 @@
+{
+  "browser": "153.0.8010.0",
+  "results": [
+    {
+      "width": 360,
+      "cpuSlowdown": 6,
+      "cls": 0
+    },
+    {
+      "width": 390,
+      "cpuSlowdown": 6,
+      "cls": 0
+    },
+    {
+      "width": 412,
+      "cpuSlowdown": 6,
+      "cls": 0
+    }
+  ],
+  "noJavaScript": true,
+  "reducedMotion": true
+}

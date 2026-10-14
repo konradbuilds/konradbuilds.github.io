@@ -1,0 +1,146 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.0",
+    "width": 390,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": true
+  },
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.0",
+    "width": 1440,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": true
+  },
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.0",
+    "width": 2560,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": null
+  },
+  {
+    "engine": "firefox",
+    "version": "153.0",
+    "width": 390,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": true
+  },
+  {
+    "engine": "firefox",
+    "version": "153.0",
+    "width": 1440,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": true
+  },
+  {
+    "engine": "firefox",
+    "version": "153.0",
+    "width": 2560,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": null
+  },
+  {
+    "engine": "webkit",
+    "version": "26.5",
+    "width": 390,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": true
+  },
+  {
+    "engine": "webkit",
+    "version": "26.5",
+    "width": 1440,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": true
+  },
+  {
+    "engine": "webkit",
+    "version": "26.5",
+    "width": 2560,
+    "scrollPositions": [
+      0,
+      100,
+      300,
+      650,
+      900,
+      1200,
+      1600
+    ],
+    "geometryIdentical": true,
+    "startPixelsIdentical": null
+  }
+]

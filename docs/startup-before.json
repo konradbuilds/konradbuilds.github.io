@@ -1,0 +1,103 @@
+{
+  "shifts": [
+    {
+      "at": 878.5999999999767,
+      "value": 0.38329459345358075,
+      "input": false,
+      "nodes": [
+        {
+          "node": "::before",
+          "id": "",
+          "class": null,
+          "parent": "opening-identity",
+          "previous": {
+            "x": 0,
+            "y": 461.3500061035156,
+            "w": 372.6304626464844,
+            "h": 287.5937194824219
+          },
+          "current": {
+            "x": 0,
+            "y": 0,
+            "w": 412,
+            "h": 167.35000610351562
+          }
+        },
+        {
+          "node": "DIV",
+          "id": "",
+          "class": "opening-identity",
+          "parent": "inner",
+          "previous": {
+            "x": 28.828125,
+            "y": 295.765625,
+            "w": 242.984375,
+            "h": 95.796875
+          },
+          "current": {
+            "x": 20.59375,
+            "y": 25.40625,
+            "w": 289,
+            "h": 75.59375
+          }
+        }
+      ]
+    }
+  ],
+  "total": 0.38329459345358075,
+  "timing": {
+    "name": "https://portfolio.test/",
+    "entryType": "navigation",
+    "startTime": 0,
+    "duration": 1078.7000000000698,
+    "navigationId": 7941,
+    "initiatorType": "navigation",
+    "deliveryType": "",
+    "nextHopProtocol": "",
+    "renderBlockingStatus": "non-blocking",
+    "contentType": "text/html",
+    "contentEncoding": "",
+    "workerStart": 0,
+    "workerRouterEvaluationStart": 0,
+    "workerCacheLookupStart": 0,
+    "workerMatchedSourceType": "",
+    "workerFinalSourceType": "",
+    "redirectStart": 0,
+    "redirectEnd": 0,
+    "fetchStart": 0.2000000000698492,
+    "domainLookupStart": 0.2000000000698492,
+    "domainLookupEnd": 0.2000000000698492,
+    "connectStart": 0.2000000000698492,
+    "secureConnectionStart": 0.2000000000698492,
+    "connectEnd": 0.2000000000698492,
+    "requestStart": 0.2000000000698492,
+    "responseStart": 8.400000000023283,
+    "firstInterimResponseStart": 0,
+    "finalResponseHeadersStart": 0,
+    "responseEnd": 8.400000000023283,
+    "transferSize": 379220,
+    "encodedBodySize": 378920,
+    "decodedBodySize": 378920,
+    "responseStatus": 200,
+    "serverTiming": [],
+    "unloadEventStart": 0,
+    "unloadEventEnd": 0,
+    "domInteractive": 999.0999999999767,
+    "domContentLoadedEventStart": 999.5999999999767,
+    "domContentLoadedEventEnd": 999.5999999999767,
+    "domComplete": 1078.0999999999767,
+    "loadEventStart": 1078.5999999999767,
+    "loadEventEnd": 1078.7000000000698,
+    "type": "navigate",
+    "redirectCount": 0,
+    "activationStart": 0,
+    "criticalCHRestart": 0,
+    "notRestoredReasons": null,
+    "confidence": {
+      "randomizedTriggerRate": 0.4994798,
+      "value": "high"
+    }
+  },
+  "title": "Konrad Sroka — Developer & Designer | WordPress & Growth",
+  "errors": []
+}

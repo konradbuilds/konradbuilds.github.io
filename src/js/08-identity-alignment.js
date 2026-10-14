@@ -35,6 +35,7 @@
 					hero.style.display = 'flex';
 					hero.style.gap = styles.gap;
 					hero.style.alignItems = styles.alignItems;
+					hero.classList.add( 'is-aligned' );
 				}
 				addEventListener( 'resize', alignIdentity );
 				alignIdentity();

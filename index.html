@@ -2,7 +2,7 @@
 <!--
 Konrad Sroka - 2026
 Author URL: https://konradbuilds.github.io/
-Version: 3.3.18
+Version: 3.3.19
 Surf, thailand, helicopters -->
 <html lang="en">
 	<head>
@@ -5013,6 +5013,11 @@ html.motion-resting:not(.tab-hidden) .rail:not(.decorations-paused) .kb-bolt {
 
 /* Hit testing belongs to the button, including the space around the artwork. */
 .stage .depth-arrow svg { display: block; pointer-events: none; }
+
+/* Alignment reads the sidebar's real metrics. Do not paint the temporary
+ * unaligned avatar/blob while the opening scripts are still initialising. */
+.stage .opening-identity { visibility: hidden; }
+.stage .opening-identity.is-aligned { visibility: visible; }
 </style>
 		<!-- Content remains readable if scripts are unavailable. -->
 		<noscript><style>
@@ -5027,7 +5032,9 @@ html.motion-resting:not(.tab-hidden) .rail:not(.decorations-paused) .kb-bolt {
 			.stage .opening-identity { top: 32px; left: 30px; color: #ffb18c; }
 			.stage .opening-identity .name { color: #ffb18c; }
 			.stage .opening-identity::before, .stage .roof-scene, .stage .cloud { display: none; }
-		</style></noscript>
+		
+.stage .opening-identity { visibility: visible; }
+</style></noscript>
 
 	</head>
 	<body id="top">
@@ -9327,6 +9334,7 @@ html.motion-resting:not(.tab-hidden) .rail:not(.decorations-paused) .kb-bolt {
 					hero.style.display = 'flex';
 					hero.style.gap = styles.gap;
 					hero.style.alignItems = styles.alignItems;
+					hero.classList.add( 'is-aligned' );
 				}
 				addEventListener( 'resize', alignIdentity );
 				alignIdentity();
