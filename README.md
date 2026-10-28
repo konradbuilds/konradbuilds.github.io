@@ -84,7 +84,7 @@ Run `npm run test:images` to verify decoding, source selection and responsive la
   change the scroll progress. Width and orientation changes still remeasure.
 - Project tags describe the actual work; PCO support has its own paragraph.
 
-Published build: v3.3.20.
+Published build: v3.3.21.
 
 The only initialization change is deferring the avatar/blob reveal until its existing alignment finishes. No final geometry or scroll timing is changed. Run npm run test:startup for throttled mobile CLS checks.
 
@@ -97,3 +97,9 @@ The only initialization change is deferring the avatar/blob reveal until its exi
 - Consistent sharing metadata; image alt text describes the existing share image.
 
 Frank links to https://github.com/konradbuilds/feral-frank. The repository is being published separately by Konrad.
+
+### v3.3.21
+
+- Browser favicon uses a tighter, upright bird-head crop with heavier vector lines.
+- New SVG and PNG filenames avoid reusing the cached v3.3.20 icon.
+- The page, Frank artwork and Apple touch icon are unchanged.

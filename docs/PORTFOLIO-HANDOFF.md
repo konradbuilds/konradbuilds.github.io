@@ -1,6 +1,6 @@
 # Portfolio handoff — start here
 
-Updated 28 October 2026. Release **v3.3.20**. Owner: **Konrad Sroka**.
+Updated 28 October 2026. Release **v3.3.21**. Owner: **Konrad Sroka**.
 
 ## Start a new session
 
@@ -9,7 +9,7 @@ Read this document, then inspect the latest repository and supplied files. Do no
 - Live: https://konradbuilds.github.io/
 - Repository: https://github.com/konradbuilds/konradbuilds.github.io
 - Branch: `main`; GitHub Pages serves the repository root.
-- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.20.html`.
+- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.21.html`.
 - Current source and assets: the latest `main` commit in this repository.
 - This document: `docs/PORTFOLIO-HANDOFF.md`; also saved separately for easy discovery.
 - Older bird demos and HTML versions are checkpoints, not additional production pages.
@@ -97,7 +97,7 @@ Save requested deliverables and handoff updates persistently. Explain where the 
 
 ## Session result and next work
 
-Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.20.
+Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.21.
 
 No pending redesign is implied. Future wording fine-tuning and any new technical case-study detail need a specific request and real information. A suggested, unbuilt idea was revealing one technical decision/tradeoff through project tags; do not silently add it.
 
@@ -132,3 +132,9 @@ The existing page, Open Graph and Twitter title/description remain unchanged. Ca
 Validation: build and whitespace checks pass; Chrome desktop and embedded phone/tablet viewports were visually reviewed, including image decoding, equal desktop columns, top alignment and no horizontal overflow. All 11 picture images decoded in Chrome with WebP selected, and again with JPEG selected after marking WebP unsupported. The image regression helper was updated for the added picture and relative asset paths. The original JavaScript is unchanged. No new Firefox, WebKit, Safari 13 or Opera certification is claimed. Sharing-card previews are illustrative, not captures from social platforms.
 
 Konrad authorised committing v3.3.20 to GitHub, including source, built root HTML and all five new production assets. GitHub Pages publishes the root of `main`.
+
+## 28 October 2026 — v3.3.21: readable browser favicon
+
+Konrad reported the full upside-down bird was too small in the browser tab. The replacement uses the original vector head, upright, with a tighter crop and modestly heavier paths. The heavier trial was rejected because eye detail merged. Chrome previews were compared at actual 16px size on light and dark tab backgrounds.
+
+New browser icon assets: `assets/img/favicon-bird-head.svg` and `assets/img/favicon-bird-head-32.png`. New filenames bypass the old icon URL cache. The Apple touch icon and all page content, including Frank, remain unchanged.
