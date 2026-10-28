@@ -1,6 +1,6 @@
 # Portfolio handoff — start here
 
-Updated 11 October 2026. Release **v3.3.19**. Owner: **Konrad Sroka**.
+Updated 28 October 2026. Release **v3.3.20**. Owner: **Konrad Sroka**.
 
 ## Start a new session
 
@@ -9,8 +9,8 @@ Read this document, then inspect the latest repository and supplied files. Do no
 - Live: https://konradbuilds.github.io/
 - Repository: https://github.com/konradbuilds/konradbuilds.github.io
 - Branch: `main`; GitHub Pages serves the repository root.
-- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.19.html`.
-- Full saved repository snapshot: `portfolio-repo-v3.3.19.zip`.
+- Standalone page: root `index.html`. The matching downloadable file is `portfolio-v3.3.20.html`.
+- Current source and assets: the latest `main` commit in this repository.
 - This document: `docs/PORTFOLIO-HANDOFF.md`; also saved separately for easy discovery.
 - Older bird demos and HTML versions are checkpoints, not additional production pages.
 
@@ -97,7 +97,7 @@ Save requested deliverables and handoff updates persistently. Explain where the 
 
 ## Session result and next work
 
-Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.19.
+Completed: contact bird identity/animation/gaze, form response behaviour, mobile intro stability, return controls, top-bird retraction, project pills and PCO paragraph, tightened contact spacing, restored sidebar sonar/softer bolt, opening arrow hit area and 2px avatar border. Latest root HTML and source are v3.3.20.
 
 No pending redesign is implied. Future wording fine-tuning and any new technical case-study detail need a specific request and real information. A suggested, unbuilt idea was revealing one technical decision/tradeoff through project tags; do not silently add it.
 
@@ -114,3 +114,21 @@ Controlled mobile startup CLS became 0; regression tests covered 20 up/down cycl
 Konrad authorised publication after regression checks. The published build and repository bundle are v3.3.19.
 
 Publication checks: Chromium 153, Firefox 153 and Playwright WebKit 26.5 matched v3.3.18 geometry at 0/100/300/650/900/1200/1600px scroll, at 390/1440/2560px viewport widths. Settled start-screen PNGs were pixel-identical at phone and desktop widths in each engine. WebKit's headless software runtime needed its existing 120ms RAF fallback to settle; comparisons waited 300ms per position. No application timing was changed. Konrad explicitly authorised publication after these checks. v3.3.19 is the published release.
+
+## 28 October 2026 — v3.3.20: Frank and portfolio metadata
+
+Baseline: commit `1095ab9efd0a03bc492235fbe9e9309f1d0a963e` (v3.3.19). The baseline root HTML and live homepage were byte-for-byte identical before editing.
+
+Added one full-width Feral Frank entry above the existing two Just cooking cards. Desktop uses equal columns with image and text aligned at the top; narrower screens stack them. The image and View on GitHub button both open `https://github.com/konradbuilds/feral-frank` in a new tab. Konrad is publishing Frank separately; do not replace this destination because it temporarily returns 404.
+
+New production assets (all required when updating the source-based site):
+- `assets/img/frank-about.webp` and `assets/img/frank-about.jpg`: 1085 × 875, from the original artwork. Only the pupil areas were edited for direct eye contact. The head, body, expression, background and text are retained.
+- `assets/img/favicon-bird.svg`: original upside-down bird vector.
+- `assets/img/favicon-bird-32.png`: raster favicon fallback.
+- `assets/img/favicon-bird-180.png`: Apple touch icon.
+
+The existing page, Open Graph and Twitter title/description remain unchanged. Canonical URL, structured data and the 1200 × 630 share-image dimensions were checked. Both image alt tags now describe the existing share artwork. The share image remains `assets/img/og-whatsapp-v3.jpg`.
+
+Validation: build and whitespace checks pass; Chrome desktop and embedded phone/tablet viewports were visually reviewed, including image decoding, equal desktop columns, top alignment and no horizontal overflow. All 11 picture images decoded in Chrome with WebP selected, and again with JPEG selected after marking WebP unsupported. The image regression helper was updated for the added picture and relative asset paths. The original JavaScript is unchanged. No new Firefox, WebKit, Safari 13 or Opera certification is claimed. Sharing-card previews are illustrative, not captures from social platforms.
+
+Konrad authorised committing v3.3.20 to GitHub, including source, built root HTML and all five new production assets. GitHub Pages publishes the root of `main`.

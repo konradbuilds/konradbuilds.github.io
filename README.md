@@ -84,6 +84,16 @@ Run `npm run test:images` to verify decoding, source selection and responsive la
   change the scroll progress. Width and orientation changes still remeasure.
 - Project tags describe the actual work; PCO support has its own paragraph.
 
-Published build: v3.3.19.
+Published build: v3.3.20.
 
 The only initialization change is deferring the avatar/blob reveal until its existing alignment finishes. No final geometry or scroll timing is changed. Run npm run test:startup for throttled mobile CLS checks.
+
+### v3.3.20
+
+- Full-width Feral Frank entry before the two existing Just cooking cards.
+- Original artwork with direct eye contact, WebP and JPEG fallback.
+- Top-aligned image and copy, feature tags and GitHub links opening in a new tab.
+- Original upside-down bird favicon, SVG with PNG fallback and Apple touch icon.
+- Consistent sharing metadata; image alt text describes the existing share image.
+
+Frank links to https://github.com/konradbuilds/feral-frank. The repository is being published separately by Konrad.

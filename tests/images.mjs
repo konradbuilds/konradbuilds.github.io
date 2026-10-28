@@ -20,21 +20,21 @@ for (const [name, engine] of Object.entries({ chromium, firefox, webkit })) {
    const requests = [];
    await page.route('**/*', async route => {
     const url = new URL(route.request().url());
-    if (url.hostname === 'portfolio.test') {
+    if (url.hostname === 'portfolio.test' && url.pathname === '/') {
      return route.fulfill({ contentType: 'text/html', body: jpegOnly ? html.replaceAll('type="image/webp"', 'type="image/x-unsupported"') : html });
     }
-    if (url.hostname === 'konradbuilds.github.io' && url.pathname.startsWith('/assets/img/')) {
+    if (['portfolio.test', 'konradbuilds.github.io'].includes(url.hostname) && url.pathname.startsWith('/assets/img/')) {
      const path = root + url.pathname;
      if (existsSync(path)) {
-      requests.push(url.pathname);
-      return route.fulfill({ contentType: path.endsWith('.jpg') ? 'image/jpeg' : 'image/webp', body: readFileSync(path) });
+      if (/\.(jpg|webp)$/.test(path)) requests.push(url.pathname);
+      return route.fulfill({ contentType: ({ jpg: 'image/jpeg', webp: 'image/webp', png: 'image/png', svg: 'image/svg+xml' })[path.split('.').pop()], body: readFileSync(path) });
      }
     }
     return route.abort();
    });
    await page.goto('https://portfolio.test/');
    await page.locator('picture img').evaluateAll(images => images.forEach(image => image.loading = 'eager'));
-   await page.waitForFunction(() => Array.from(document.querySelectorAll('picture img')).length === 10 && Array.from(document.querySelectorAll('picture img')).every(image => image.complete && image.naturalWidth > 0));
+   await page.waitForFunction(() => Array.from(document.querySelectorAll('picture img')).length === 11 && Array.from(document.querySelectorAll('picture img')).every(image => image.complete && image.naturalWidth > 0));
    const images = await page.locator('picture img').evaluateAll(images => images.map(image => ({ src: image.currentSrc, alt: image.getAttribute('alt'), width: image.getAttribute('width'), height: image.getAttribute('height') })));
    assert(images.every(image => image.src.endsWith(jpegOnly ? '.jpg' : '.webp')));
    assert(images.every(image => typeof image.alt === 'string' && image.width && image.height));
@@ -43,8 +43,8 @@ for (const [name, engine] of Object.entries({ chromium, firefox, webkit })) {
    assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth));
    assert.deepEqual(errors, []);
    // Images are verified by decoding and source selection; screenshots are optional in local QA.
-   results.push({ engine: name, width, format: jpegOnly ? 'JPEG fallback (unsupported source type)' : 'WebP', images: 10, result: 'PASS' });
-   console.log(name, width, jpegOnly ? 'JPEG' : 'WebP', '10 decoded images, one selected format, layout PASS');
+   results.push({ engine: name, width, format: jpegOnly ? 'JPEG fallback (unsupported source type)' : 'WebP', images: 11, result: 'PASS' });
+   console.log(name, width, jpegOnly ? 'JPEG' : 'WebP', '11 decoded images, one selected format, layout PASS');
    await page.close();
   }
  }

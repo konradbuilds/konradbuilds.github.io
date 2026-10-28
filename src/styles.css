@@ -1510,6 +1510,45 @@
 				border-color: var(--line);
 			}
 
+			.cook-frank {
+				display: grid;
+				grid-column: 1 / -1;
+				grid-template-columns: minmax(0, 1fr);
+				grid-gap: 24px;
+				gap: 24px;
+				align-items: start;
+			}
+
+			.cook-frank .cook-shotlink,
+			.cook-frank-copy {
+				min-width: 0;
+			}
+
+			.cook-frank .cook-shotlink {
+				margin-bottom: 0;
+			}
+
+			.cook-frank .cook-kind {
+				margin-bottom: 12px;
+			}
+
+			.cook-frank h3 {
+				font-size: 1.75rem;
+				margin-bottom: 8px;
+			}
+
+			.cook-frank .cook-frank-sub {
+				color: var(--ink);
+				font-size: 1rem;
+				font-weight: 600;
+			}
+
+			@media (min-width: 1100px) {
+				.cook-frank {
+					grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+				}
+			}
+
 			.cook-wide {
 				margin-top: 20px;
 				margin-bottom: 50px;
