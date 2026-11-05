@@ -1,7 +1,7 @@
 {
   "name": "konrad-portfolio",
   "private": true,
-  "version": "3.3.21",
+  "version": "3.3.22",
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
